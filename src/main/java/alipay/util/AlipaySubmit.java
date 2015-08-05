@@ -47,8 +47,8 @@ public class AlipaySubmit {
     public static String buildRequestMysign(Map<String, String> sPara) {
         String prestr = AlipayCore.createLinkString(sPara); //把数组所有元素，按照“参数=参数值”的模式用“&”字符拼接成字符串
         String mysign = "";
-        if (AlipayConfig.sign_type.equals("MD5")) {
-            mysign = MD5.sign(prestr, AlipayConfig.key, AlipayConfig.input_charset);
+        if (AlipayConfig.SIGN_TYPE.equals("MD5")) {
+            mysign = MD5.sign(prestr, AlipayConfig.KEY, AlipayConfig.INPUT_CHARSET);
         }
         return mysign;
     }
@@ -67,13 +67,28 @@ public class AlipaySubmit {
         
         //签名结果与签名方式加入请求提交参数组中
         sPara.put("sign", mysign);
-        sPara.put("sign_type", AlipayConfig.sign_type);
+        sPara.put("sign_type", AlipayConfig.SIGN_TYPE);
         
         return sPara;
     }
     
     /**
+     * <pre>
      * 建立请求，以表单HTML形式构造（默认）
+     * 
+     * [form id="alipaysubmit" name="alipaysubmit" action="https://mapi.alipay.com/gateway.do?_input_charset=gbk" method="get"]
+     *     [input type="hidden" name="payment_type" value="1"/]
+     *     [input type="hidden" name="_input_charset" value="gbk"/]
+     *     [input type="hidden" name="service" value="create_direct_pay_by_user"/]
+     *     [input type="hidden" name="sign" value="1ac2d93ba7132130e85c15abfbeeb0eb"/]
+     *     [input type="hidden" name="return_url" value="http://商户网关地址/create_direct_pay_by_user-JAVA-GBK/return_url.jsp"/]
+     *     [input type="hidden" name="notify_url" value="http://商户网关地址/create_direct_pay_by_user-JAVA-GBK/notify_url.jsp"/]
+     *     [input type="hidden" name="sign_type" value="MD5"/]
+     *     [input type="submit" value="确认" style="display:none;"]
+     * [/form]
+     * [script]document.forms['alipaysubmit'].submit();[/script]
+     * 
+     * </pre>
      * 
      * @param sParaTemp 请求参数数组
      * @param strMethod 提交方式。两个值可选：post、get
@@ -87,7 +102,7 @@ public class AlipaySubmit {
         
         StringBuffer sbHtml = new StringBuffer();
         
-        sbHtml.append("<form id=\"alipaysubmit\" name=\"alipaysubmit\" action=\"" + ALIPAY_GATEWAY_NEW + "_input_charset=" + AlipayConfig.input_charset + "\" method=\"" + strMethod + "\">");
+        sbHtml.append("<form id=\"alipaysubmit\" name=\"alipaysubmit\" action=\"" + ALIPAY_GATEWAY_NEW + "_input_charset=" + AlipayConfig.INPUT_CHARSET + "\" method=\"" + strMethod + "\">");
         
         for (int i = 0; i < keys.size(); i++) {
             String name = (String)keys.get(i);
@@ -119,7 +134,7 @@ public class AlipaySubmit {
         
         StringBuffer sbHtml = new StringBuffer();
         
-        sbHtml.append("<form id=\"alipaysubmit\" name=\"alipaysubmit\"  enctype=\"multipart/form-data\" action=\"" + ALIPAY_GATEWAY_NEW + "_input_charset=" + AlipayConfig.input_charset + "\" method=\"" + strMethod + "\">");
+        sbHtml.append("<form id=\"alipaysubmit\" name=\"alipaysubmit\"  enctype=\"multipart/form-data\" action=\"" + ALIPAY_GATEWAY_NEW + "_input_charset=" + AlipayConfig.INPUT_CHARSET + "\" method=\"" + strMethod + "\">");
         
         for (int i = 0; i < keys.size(); i++) {
             String name = (String)keys.get(i);
@@ -154,10 +169,10 @@ public class AlipaySubmit {
         
         HttpRequest request = new HttpRequest(HttpResultType.BYTES);
         //设置编码集
-        request.setCharset(AlipayConfig.input_charset);
+        request.setCharset(AlipayConfig.INPUT_CHARSET);
         
         request.setParameters(generatNameValuePair(sPara));
-        request.setUrl(ALIPAY_GATEWAY_NEW + "_input_charset=" + AlipayConfig.input_charset);
+        request.setUrl(ALIPAY_GATEWAY_NEW + "_input_charset=" + AlipayConfig.INPUT_CHARSET);
         
         HttpResponse response = httpProtocolHandler.execute(request, strParaFileName, strFilePath);
         if (response == null) {
@@ -197,7 +212,7 @@ public class AlipaySubmit {
     public static String query_timestamp() throws MalformedURLException, DocumentException, IOException {
         
         //构造访问query_timestamp接口的URL串
-        String strUrl = ALIPAY_GATEWAY_NEW + "service=query_timestamp&partner=" + AlipayConfig.partner + "&_input_charset" + AlipayConfig.input_charset;
+        String strUrl = ALIPAY_GATEWAY_NEW + "service=query_timestamp&partner=" + AlipayConfig.PARTNER + "&_input_charset" + AlipayConfig.INPUT_CHARSET;
         StringBuffer result = new StringBuffer();
         
         SAXReader reader = new SAXReader();

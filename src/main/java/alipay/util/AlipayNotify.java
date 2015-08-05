@@ -76,8 +76,8 @@ public class AlipayNotify {
         String preSignStr = AlipayCore.createLinkString(sParaNew);
         //获得签名验证结果
         boolean isSign = false;
-        if (AlipayConfig.sign_type.equals("MD5")) {
-            isSign = MD5.verify(preSignStr, sign, AlipayConfig.key, AlipayConfig.input_charset);
+        if (AlipayConfig.SIGN_TYPE.equals("MD5")) {
+            isSign = MD5.verify(preSignStr, sign, AlipayConfig.KEY, AlipayConfig.INPUT_CHARSET);
         }
         return isSign;
     }
@@ -92,7 +92,7 @@ public class AlipayNotify {
     private static String verifyResponse(String notify_id) {
         //获取远程服务器ATN结果，验证是否是支付宝服务器发来的请求
         
-        String partner = AlipayConfig.partner;
+        String partner = AlipayConfig.PARTNER;
         String veryfy_url = HTTPS_VERIFY_URL + "partner=" + partner + "&notify_id=" + notify_id;
         
         return checkUrl(veryfy_url);

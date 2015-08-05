@@ -65,9 +65,9 @@
 		//把请求参数打包成数组
 		Map<String, String> sParaTemp = new HashMap<String, String>();
 		sParaTemp.put("service", "create_direct_pay_by_user");
-        sParaTemp.put("partner", AlipayConfig.partner);
-        sParaTemp.put("seller_email", AlipayConfig.seller_email);
-        sParaTemp.put("_input_charset", AlipayConfig.input_charset);
+        sParaTemp.put("partner", AlipayConfig.PARTNER);
+        sParaTemp.put("seller_email", AlipayConfig.SELLER_EMAIL);
+        sParaTemp.put("_input_charset", AlipayConfig.INPUT_CHARSET);
 		sParaTemp.put("payment_type", payment_type);
 		sParaTemp.put("notify_url", notify_url);
 		sParaTemp.put("return_url", return_url);

@@ -158,7 +158,7 @@ ul,ol{
 				<li class="last">3、确认完成</li>
             </ol>
         </div>
-        <form name=alipayment action=alipayapi.jsp method=post target="_blank">
+        <form name=alipayment action="alipay/deposit" method=post target="_blank">
             <div id="body" style="clear:left">
                 <dl class="content">
 					<dt>商户订单号：</dt>

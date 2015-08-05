@@ -27,23 +27,23 @@ public class AlipayConfig {
     
     //↓↓↓↓↓↓↓↓↓↓请在这里配置您的基本信息↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
     // 合作身份者ID，以2088开头由16位纯数字组成的字符串
-    public static String partner = "";
+    public static final String PARTNER = "2088101568338364";
     
     // 收款支付宝账号
-    public static String seller_email = "";
+    public static final String SELLER_EMAIL = "alipay-test01@alipay.com";
     
     // 商户的私钥
-    public static String key = "";
+    public static final String KEY = "******";
     
     //↑↑↑↑↑↑↑↑↑↑请在这里配置您的基本信息↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
     
     // 调试用，创建TXT日志文件夹路径
-    public static String log_path = "F:/temp";
+    public static final String LOG_PATH = "F:/temp";
     
     // 字符编码格式 目前支持 gbk 或 utf-8
-    public static String input_charset = "gbk";
+    public static final String INPUT_CHARSET = "gbk";
     
     // 签名方式 不需修改
-    public static String sign_type = "MD5";
+    public static final String SIGN_TYPE = "MD5";
     
 }

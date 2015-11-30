@@ -8,6 +8,7 @@ import java.util.Map;
 
 import alipay.config.AlipayConfig;
 import alipay.sign.MD5;
+import alipay.sign.RSA;
 
 /**
  * <pre>
@@ -77,7 +78,9 @@ public class AlipayNotify {
         //获得签名验证结果
         boolean isSign = false;
         if (AlipayConfig.SIGN_TYPE.equals("MD5")) {
-            isSign = MD5.verify(preSignStr, sign, AlipayConfig.KEY, AlipayConfig.INPUT_CHARSET);
+            isSign = MD5.verify(preSignStr, sign, AlipayConfig.PRIVATE_KEY, AlipayConfig.INPUT_CHARSET);
+        } else if (AlipayConfig.SIGN_TYPE.equals("RSA")) {
+            isSign = RSA.verify(preSignStr, sign, AlipayConfig.ALI_PUBLIC_KEY, AlipayConfig.INPUT_CHARSET);
         }
         return isSign;
     }

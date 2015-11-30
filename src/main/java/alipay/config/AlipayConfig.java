@@ -27,13 +27,25 @@ public class AlipayConfig {
     
     //↓↓↓↓↓↓↓↓↓↓请在这里配置您的基本信息↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
     // 合作身份者ID，以2088开头由16位纯数字组成的字符串
-    public static final String PARTNER = "2088101568338364";
+    public static final String PARTNER = "2088021272648125";
     
+    /********************************** seller_id>seller_account_name>seller_email */
     // 收款支付宝账号
-    public static final String SELLER_EMAIL = "alipay-test01@alipay.com";
+    public static final String SELLER_EMAIL = "company@cndwine.com";
+    
+    // 收款支付宝用户号
+    public static final String SELLER_ID = "2088021272648125";
+    
+    // 收款别名支付宝账号
+    public static final String SELLER_ACCOUNT_NAME = "";
+    
+    /**********************************       */
     
     // 商户的私钥
-    public static final String KEY = "******";
+    public static final String PRIVATE_KEY = "MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBANuL88MoX+8uF9NECsvngdhVocHRLsWxe06CcawfazxYR5c+4Ps89emCZ5BXqlRjB3aME9qtFX1ZHmxj3vphj1cJcysipu4KNrur1fMVPjy9lWofNMzi8M3n2RfTepnuc4QaOjdI2fZsxlH/nmxl8xvO/4jNoEkijcDQnxE2BKrbAgMBAAECgYEAosgR5RF6kAzM/YfluWndjFlxphNDarE9i+iL/+MLz6Jk8m9cwOtiKdDWmN9nG0qRrgQOdIUA+f+p3xPtsBfF/pKfyEUhnpcZmhVEYm8t8NNQI9EC1pdc7kPpbgokQSPvm/jUTpzplH8s77ZJ+IpSTIG6pXrhfb2wHJ5WxMAhSYECQQD6Rz3wt+RTznPo3HJt8VWbmK2GYyh7DVtTMu/ZgCENJ8lqZlGdMVBZ6tDbDbmJMT1cnfhE66k71K3fydglor9fAkEA4JDaXyW5lmq39mbgDiMCRMuj5JBb3AbSP+SxGoDyDR/lodVgDv92vR+JDKi6gqys3GKJwupxYB4A6PnKRAXSBQJASUACm+pmVDTvba7fetgQUyrbVqK83U7qdK5KzqCWi9AiPhbWOiiNuNNl70bUD5guumWtnRZQAKfdf8sGjPVWBwJBAJZahcrksEB0jV0NfgAZEoDLM51pxgcoDgc3cBiFswp0i8Px4BHKm05+2by/D7lEMayQ0RnO7D/ldsiFzhYDK50CQQCvrMlbl/Oy+SgSrw/8GVp4cDMCmp7uZ2yYupt0XqqjZSHwAeUb0rCuZI8YMntbHEc2Pp8OX22Zz/47BpVBtbpM";
+    
+    // 支付宝的公钥
+    public static String ALI_PUBLIC_KEY = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCnxj/9qwVfgoUh/y2W89L6BkRAFljhNhgPdyPuBV64bfQNN1PjbCzkIM6qRdKBoLPXmKKMiFYnkd6rAoprih3/PrQEB/VsW8OoM8fxn67UDYuyBTqA23MML9q1+ilIZwBC2AQ2UBVOrFXfFl75p6/B5KsiNG9zpgmLCUYuLkxpLQIDAQAB";
     
     //↑↑↑↑↑↑↑↑↑↑请在这里配置您的基本信息↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
     
@@ -43,7 +55,31 @@ public class AlipayConfig {
     // 字符编码格式 目前支持 gbk 或 utf-8
     public static final String INPUT_CHARSET = "gbk";
     
-    // 签名方式 不需修改
+    // 签名方式 不需修改(DSA、RSA、MD5)
     public static final String SIGN_TYPE = "MD5";
+    
+    //接口服务--即时到账交易接口
+    public static final String SERVICE = "create_direct_pay_by_user";
+    
+    //支付类型----（1：商品类型购买，4：捐赠，47：电子卡券）
+    public static final String PAYMENT_TYPE = "1";
+    
+    //服务器异步通知页面路径
+    public static final String NOTIFY_URL = "http://127.0.0.1:8080/zhifubao/alipay/asyncNotify";
+    
+    //页面跳转同步通知页面路径
+    public static final String RETURN_URL = "http://127.0.0.1:8080/zhifubao/alipay/syncNotify";
+    
+    //商品展示地址
+    public static final String SHOW_URL = "http://127.0.0.1:8080/zhifubao/show.jsp";
+    
+    //服务器异步通知错误页面路径（需开通此功能）
+    public static final String ERROR_NOTIFY_URL = "";
+    
+    //客户端的IP地址
+    public static final String EXTER_INVOKE_IP = "127.0.0.1";
+    
+    //默认支付方式(creditPay：信用支付，directPay：余额支付（默认）)
+    public static final String PAYMETHOD = "directPay";
     
 }

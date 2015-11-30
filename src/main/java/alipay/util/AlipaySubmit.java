@@ -15,6 +15,7 @@ import org.dom4j.io.SAXReader;
 
 import alipay.config.AlipayConfig;
 import alipay.sign.MD5;
+import alipay.sign.RSA;
 import alipay.util.httpClient.HttpProtocolHandler;
 import alipay.util.httpClient.HttpRequest;
 import alipay.util.httpClient.HttpResponse;
@@ -48,7 +49,9 @@ public class AlipaySubmit {
         String prestr = AlipayCore.createLinkString(sPara); //把数组所有元素，按照“参数=参数值”的模式用“&”字符拼接成字符串
         String mysign = "";
         if (AlipayConfig.SIGN_TYPE.equals("MD5")) {
-            mysign = MD5.sign(prestr, AlipayConfig.KEY, AlipayConfig.INPUT_CHARSET);
+            mysign = MD5.sign(prestr, AlipayConfig.PRIVATE_KEY, AlipayConfig.INPUT_CHARSET);
+        }else if(AlipayConfig.SIGN_TYPE.equals("RSA")){
+            mysign = RSA.sign(prestr, AlipayConfig.PRIVATE_KEY, AlipayConfig.INPUT_CHARSET);
         }
         return mysign;
     }

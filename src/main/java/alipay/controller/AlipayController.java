@@ -62,23 +62,42 @@ public class AlipayController {
     HttpServletResponse response, @FormParam(value = "order")
     Order order) throws Exception {
         Map<String, String> sParaTemp = new HashMap<String, String>();
+        //基本参数
         sParaTemp.put("partner", AlipayConfig.PARTNER);//支付宝PID
         sParaTemp.put("_input_charset", AlipayConfig.INPUT_CHARSET);//统一编码
-        sParaTemp.put("seller_email", AlipayConfig.SELLER_EMAIL);//卖家支付宝账号
-        
-        sParaTemp.put("service", "create_direct_pay_by_user");//接口服务----即时到账
-        sParaTemp.put("payment_type", "1");//支付类型----商品类型购买
-        sParaTemp.put("notify_url", "http://localhost:8080/zhifubao/alipay/asyncNotify");//服务器异步通知页面路径 ，需http://格式的完整路径，不能加?id=123这类自定义参数
-        sParaTemp.put("return_url", "http://localhost:8080/zhifubao/alipay/syncNotify");//页面跳转同步通知页面路径 ，需http://格式的完整路径，不能加?id=123这类自定义参数，不能写成http://localhost/
-        sParaTemp.put("show_url", "http://localhost:8080/zhifubao/show.jsp");//商品展示地址，需以http://开头的完整路径，例如：http://www.xxx.com/myorder.html
+        sParaTemp.put("service", AlipayConfig.SERVICE);//接口服务----即时到账
+        sParaTemp.put("notify_url", AlipayConfig.NOTIFY_URL);//服务器异步通知页面路径 ，需http://格式的完整路径，不能加?id=123这类自定义参数
+        sParaTemp.put("return_url", AlipayConfig.RETURN_URL);//页面跳转同步通知页面路径 ，需http://格式的完整路径，不能加?id=123这类自定义参数，不能写成http://localhost/
+        sParaTemp.put("show_url", AlipayConfig.SHOW_URL);//商品展示地址，需以http://开头的完整路径，例如：http://www.xxx.com/myorder.html
         sParaTemp.put("anti_phishing_key", AlipaySubmit.query_timestamp());// 防钓鱼时间戳 ，若要使用请调用类文件submit中的query_timestamp函数
-        sParaTemp.put("exter_invoke_ip", "127.0.0.1");//客户端的IP地址，非局域网的外网IP地址，如：221.0.0.1
+        sParaTemp.put("exter_invoke_ip", AlipayConfig.EXTER_INVOKE_IP);//客户端的IP地址，非局域网的外网IP地址，如：221.0.0.1
+        
+        //业务参数
+        sParaTemp.put("seller_id", AlipayConfig.SELLER_ID);//卖家支付宝用户号
+        //        sParaTemp.put("buyer_id", "");//买家支付宝用户号
         
         sParaTemp.put("out_trade_no", order.getOrderId());//订单编号
         sParaTemp.put("subject", order.getOrderName());//订单名称
-        sParaTemp.put("total_fee", order.getPrice().toString());//订单价格
+        sParaTemp.put("payment_type", AlipayConfig.PAYMENT_TYPE);//支付类型----商品类型购买
+        sParaTemp.put("total_fee", order.getPrice().toString());//订单金额
+        //        sParaTemp.put("price", "");//商品单价
+        //        sParaTemp.put("quantity", "");//购买数量
         sParaTemp.put("body", order.getContent());//订单内容
         
+        //        sParaTemp.put("paymethod", AlipayConfig.PAYMETHOD);//默认支付方式
+        //        sParaTemp.put("enable_paymethod", "directPay");//支付渠道
+        //        sParaTemp.put("need_ctu_check", "Y");//网银支付时是否做CTU校验
+        //        sParaTemp.put("anti_phishing_key", );//防钓鱼时间戳
+        //        sParaTemp.put("exter_invoke_ip", );//客户端IP
+        //        sParaTemp.put("extra_common_param", );//公用回传参数
+        //        sParaTemp.put("extend_param", );//公用业务扩展参数
+        //        sParaTemp.put("it_b_pay", 30m);//公用业务扩展参数
+        //        sParaTemp.put("default_login", "Y");//自动登录标识
+        //        sParaTemp.put("product_type", );//商户申请的产品类型
+        //        sParaTemp.put("token", );//快捷登录授权令牌
+        //        sParaTemp.put("sign_id_ext", );//商户买家签约号
+        //        sParaTemp.put("sign_name_ext", );//商户买家签约名
+        //        sParaTemp.put("qr_pay_mode", 1);//扫码支付方式
         
         //建立请求
         try {

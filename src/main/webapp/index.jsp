@@ -1,211 +1,244 @@
 <!-- 
-	¹¦ÄÜ£ºÖ§¸¶±¦¼´Ê±µ½ÕË½»Ò×½Ó¿Úµ÷ÊÔÈë¿ÚÒ³Ãæ
-	°æ±¾£º3.3
-	ÈÕÆÚ£º2012-08-17
-	ËµÃ÷£º
-	ÒÔÏÂ´úÂëÖ»ÊÇÎªÁË·½±ãÉÌ»§²âÊÔ¶øÌá¹©µÄÑùÀı´úÂë£¬ÉÌ»§¿ÉÒÔ¸ù¾İ×Ô¼ºÍøÕ¾µÄĞèÒª£¬°´ÕÕ¼¼ÊõÎÄµµ±àĞ´,²¢·ÇÒ»¶¨ÒªÊ¹ÓÃ¸Ã´úÂë¡£ 
+	åŠŸèƒ½ï¼šæ”¯ä»˜å®å³æ—¶åˆ°è´¦äº¤æ˜“æ¥å£è°ƒè¯•å…¥å£é¡µé¢
+	ç‰ˆæœ¬ï¼š3.3
+	æ—¥æœŸï¼š2012-08-17
+	è¯´æ˜ï¼š
+	ä»¥ä¸‹ä»£ç åªæ˜¯ä¸ºäº†æ–¹ä¾¿å•†æˆ·æµ‹è¯•è€Œæä¾›çš„æ ·ä¾‹ä»£ç ï¼Œå•†æˆ·å¯ä»¥æ ¹æ®è‡ªå·±ç½‘ç«™çš„éœ€è¦ï¼ŒæŒ‰ç…§æŠ€æœ¯æ–‡æ¡£ç¼–å†™,å¹¶éä¸€å®šè¦ä½¿ç”¨è¯¥ä»£ç ã€‚ 
 -->
-<%@ page language="java" contentType="text/html; charset=gbk" pageEncoding="gbk"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-	<head>
-	<title>Ö§¸¶±¦¼´Ê±µ½ÕË½»Ò×½Ó¿Ú</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<head>
+<title>æ”¯ä»˜å®å³æ—¶åˆ°è´¦äº¤æ˜“æ¥å£</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/jquery.form.js"></script>
 <style>
-*{
-	margin:0;
-	padding:0;
-}
-ul,ol{
-	list-style:none;
-}
-.title{
-    color: #ADADAD;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 8px 16px 5px 10px;
-}
-.hidden{
-	display:none;
+* {
+	margin: 0;
+	padding: 0;
 }
 
-.new-btn-login-sp{
-	border:1px solid #D74C00;
-	padding:1px;
-	display:inline-block;
+ul, ol {
+	list-style: none;
 }
 
-.new-btn-login{
-    background-color: #ff8c00;
+.title {
+	color: #ADADAD;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 8px 16px 5px 10px;
+}
+
+.hidden {
+	display: none;
+}
+
+.new-btn-login-sp {
+	border: 1px solid #D74C00;
+	padding: 1px;
+	display: inline-block;
+}
+
+.new-btn-login {
+	background-color: #ff8c00;
 	color: #FFFFFF;
-    font-weight: bold;
+	font-weight: bold;
 	border: medium none;
-	width:82px;
-	height:28px;
+	width: 82px;
+	height: 28px;
 }
-.new-btn-login:hover{
-    background-color: #ffa300;
+
+.new-btn-login:hover {
+	background-color: #ffa300;
 	width: 82px;
 	color: #FFFFFF;
-    font-weight: bold;
-    height: 28px;
-}
-.bank-list{
-	overflow:hidden;
-	margin-top:5px;
-}
-.bank-list li{
-	float:left;
-	width:153px;
-	margin-bottom:5px;
+	font-weight: bold;
+	height: 28px;
 }
 
-#main{
-	width:750px;
-	margin:0 auto;
-	font-size:14px;
-	font-family:'ËÎÌå';
+.bank-list {
+	overflow: hidden;
+	margin-top: 5px;
 }
-#logo{
+
+.bank-list li {
+	float: left;
+	width: 153px;
+	margin-bottom: 5px;
+}
+
+#main {
+	width: 750px;
+	margin: 0 auto;
+	font-size: 14px;
+	font-family: 'å®‹ä½“';
+}
+
+#logo {
 	background-color: transparent;
-    background-image: url("images/new-btn-fixed.png");
-    border: medium none;
-	background-position:0 0;
-	width:166px;
-	height:35px;
-    float:left;
-}
-.red-star{
-	color:#f00;
-	width:10px;
-	display:inline-block;
-}
-.null-star{
-	color:#fff;
-}
-.content{
-	margin-top:5px;
+	background-image: url("images/new-btn-fixed.png");
+	border: medium none;
+	background-position: 0 0;
+	width: 166px;
+	height: 35px;
+	float: left;
 }
 
-.content dt{
-	width:160px;
-	display:inline-block;
-	text-align:right;
-	float:left;
-	
+.red-star {
+	color: #f00;
+	width: 10px;
+	display: inline-block;
 }
-.content dd{
-	margin-left:100px;
-	margin-bottom:5px;
+
+.null-star {
+	color: #fff;
 }
-#foot{
-	margin-top:10px;
+
+.content {
+	margin-top: 5px;
 }
+
+.content dt {
+	width: 160px;
+	display: inline-block;
+	text-align: right;
+	float: left;
+}
+
+.content dd {
+	margin-left: 100px;
+	margin-bottom: 5px;
+}
+
+#foot {
+	margin-top: 10px;
+}
+
 .foot-ul li {
-	text-align:center;
+	text-align: center;
 }
+
 .note-help {
-    color: #999999;
-    font-size: 12px;
-    line-height: 130%;
-    padding-left: 3px;
+	color: #999999;
+	font-size: 12px;
+	line-height: 130%;
+	padding-left: 3px;
 }
 
 .cashier-nav {
-    font-size: 14px;
-    margin: 15px 0 10px;
-    text-align: left;
-    height:30px;
-    border-bottom:solid 2px #CFD2D7;
+	font-size: 14px;
+	margin: 15px 0 10px;
+	text-align: left;
+	height: 30px;
+	border-bottom: solid 2px #CFD2D7;
 }
+
 .cashier-nav ol li {
-    float: left;
+	float: left;
 }
+
 .cashier-nav li.current {
-    color: #AB4400;
-    font-weight: bold;
+	color: #AB4400;
+	font-weight: bold;
 }
+
 .cashier-nav li.last {
-    clear:right;
+	clear: right;
 }
+
 .alipay_link {
-    text-align:right;
+	text-align: right;
 }
-.alipay_link a:link{
-    text-decoration:none;
-    color:#8D8D8D;
+
+.alipay_link a:link {
+	text-decoration: none;
+	color: #8D8D8D;
 }
-.alipay_link a:visited{
-    text-decoration:none;
-    color:#8D8D8D;
+
+.alipay_link a:visited {
+	text-decoration: none;
+	color: #8D8D8D;
 }
 </style>
+<script type="text/javascript">
+	function ajaxSubmitOrder(node) {
+		$(node).ajaxSubmit({
+			type:'post',
+			url:'service/alipay/deposit',
+			dataType: 'text',
+       		data: $(node).serialize(),
+       		success: function (data) {
+        		if (data.length > 0){
+					$(body).html(data);
+				}    
+			}
+		});
+		return false;
+    }
+</script>
 </head>
-<body text=#000000 bgColor="#ffffff" leftMargin=0 topMargin=4>
+<body text="#000000" >
 	<div id="main">
 		<div id="head">
-            <dl class="alipay_link">
-                <a target="_blank" href="http://www.alipay.com/"><span>Ö§¸¶±¦Ê×Ò³</span></a>|
-                <a target="_blank" href="https://b.alipay.com/home.htm"><span>ÉÌ¼Ò·şÎñ</span></a>|
-                <a target="_blank" href="http://help.alipay.com/support/index_sh.htm"><span>°ïÖúÖĞĞÄ</span></a>
-            </dl>
-            <span class="title">Ö§¸¶±¦¼´Ê±µ½ÕË½»Ò×½Ó¿Ú¿ìËÙÍ¨µÀ</span>
+			<a target="_blank" href="http://www.alipay.com/"><span>æ”¯ä»˜å®é¦–é¡µ</span></a>|
+			<a target="_blank" href="https://b.alipay.com/home.htm"><span>å•†å®¶æœåŠ¡</span></a>|
+			<a target="_blank" href="http://help.alipay.com/support/index_sh.htm"><span>å¸®åŠ©ä¸­å¿ƒ</span></a>
+			<span class="title">æ”¯ä»˜å®å³æ—¶åˆ°è´¦äº¤æ˜“æ¥å£å¿«é€Ÿé€šé“</span>
 		</div>
-        <div class="cashier-nav">
-            <ol>
-				<li class="current">1¡¢È·ÈÏĞÅÏ¢ ¡ú</li>
-				<li>2¡¢µã»÷È·ÈÏ ¡ú</li>
-				<li class="last">3¡¢È·ÈÏÍê³É</li>
-            </ol>
-        </div>
-        <form name=alipayment action="alipay/deposit" method=post target="_blank">
-            <div id="body" style="clear:left">
-                <dl class="content">
-					<dt>ÉÌ»§¶©µ¥ºÅ£º</dt>
+		<div class="cashier-nav">
+			<ol>
+				<li class="current">1ã€ç¡®è®¤ä¿¡æ¯ â†’</li>
+				<li>2ã€ç‚¹å‡»ç¡®è®¤ â†’</li>
+				<li class="last">3ã€ç¡®è®¤å®Œæˆ</li>
+			</ol>
+		</div>
+		<form id="order" name="order" action="service/alipay/deposit" method="post" target="_blank" onsubmit="return ajaxSubmitOrder(this);">
+			<div id="body" style="clear: left">
+				<dl class="content">
+					<dt>å•†æˆ·è®¢å•å·ï¼š</dt>
 					<dd>
-						<span class="null-star">*</span>
-						<input size="30" name="WIDout_trade_no" />
-						<span>ÉÌ»§ÍøÕ¾¶©µ¥ÏµÍ³ÖĞÎ¨Ò»¶©µ¥ºÅ£¬±ØÌî</span>
+						<span class="null-star">*</span> 
+						<input size="30" name="orderId"/> 
+						<span>å•†æˆ·ç½‘ç«™è®¢å•ç³»ç»Ÿä¸­å”¯ä¸€è®¢å•å·ï¼Œå¿…å¡« </span>
 					</dd>
-					<dt>¶©µ¥Ãû³Æ£º</dt>
+					<dt>è®¢å•åç§°ï¼š</dt>
 					<dd>
-						<span class="null-star">*</span>
-						<input size="30" name="WIDsubject" />
-						<span>±ØÌî</span>
+						<span class="null-star">*</span> 
+						<input size="30" name="orderName" />
+						<span>å¿…å¡« </span>
 					</dd>
-					<dt>¸¶¿î½ğ¶î£º</dt>
+					<dt>ä»˜æ¬¾é‡‘é¢ï¼š</dt>
 					<dd>
-						<span class="null-star">*</span>
-						<input size="30" name="WIDtotal_fee" />
-						<span>±ØÌî</span>
+						<span class="null-star">*</span> 
+						<input size="30" name="price" />
+						<span>å¿…å¡« </span>
 					</dd>
-					<dt>¶©µ¥ÃèÊö£º</dt>
+					<dt>è®¢å•æè¿° ï¼š</dt>
 					<dd>
-						<span class="null-star">*</span>
-						<input size="30" name="WIDbody" />
+						<span class="null-star">*</span> 
+						<input size="30" name="content" />
 						<span></span>
 					</dd>
-					<dt>ÉÌÆ·Õ¹Ê¾µØÖ·£º</dt>
+					<dt>å•†å“å±•ç¤ºåœ°å€ï¼š</dt>
 					<dd>
-						<span class="null-star">*</span>
-						<input size="30" name="WIDshow_url" />
-						<span>ĞèÒÔhttp://¿ªÍ·µÄÍêÕûÂ·¾¶£¬ÀıÈç£ºhttp://www.ÉÌ»§ÍøÖ·.com/myorder.html</span>
+						<span class="null-star">*</span> 
+						<input size="30" name="show_url" />
+						<span>éœ€ä»¥http://å¼€å¤´çš„å®Œæ•´è·¯å¾„ï¼Œä¾‹å¦‚ï¼šhttp://www.å•†æˆ·ç½‘å€.com/myorder.html</span>
 					</dd>
-                    <dt></dt>
-                    <dd>
-                        <span class="new-btn-login-sp">
-                            <button class="new-btn-login" type="submit" style="text-align:center;">È· ÈÏ</button>
-                        </span>
-                    </dd>
-                </dl>
-            </div>
+					<dt></dt>
+					<dd>
+						<span class="new-btn-login-sp">
+							<button class="new-btn-login" type="submit"	style="text-align: center;">ç¡® è®¤</button>
+						</span>
+					</dd>
+				</dl>
+			</div>
 		</form>
-        <div id="foot">
+		<div id="foot">
 			<ul class="foot-ul">
-				<li><font class="note-help">Èç¹ûÄúµã»÷¡°È·ÈÏ¡±°´Å¥£¬¼´±íÊ¾ÄúÍ¬Òâ¸Ã´ÎµÄÖ´ĞĞ²Ù×÷¡£ </font></li>
-				<li>
-					Ö§¸¶±¦°æÈ¨ËùÓĞ 2011-2015 ALIPAY.COM 
-				</li>
+				<li><font class="note-help">å¦‚æœæ‚¨ç‚¹å‡»â€œç¡®è®¤â€æŒ‰é’®ï¼Œå³è¡¨ç¤ºæ‚¨åŒæ„è¯¥æ¬¡çš„æ‰§è¡Œæ“ä½œã€‚ </font></li>
+				<li>æ”¯ä»˜å®ç‰ˆæƒæ‰€æœ‰ 2011-2015 ALIPAY.COM</li>
 			</ul>
 		</div>
 	</div>

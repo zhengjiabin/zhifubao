@@ -1,47 +1,48 @@
 package alipay.util.httpClient;
 
-import java.io.UnsupportedEncodingException;
 
 import org.apache.commons.httpclient.Header;
 
 import alipay.config.AlipayConfig;
 
-/**
- * <pre>
- * ÀàÃû£ºHttpResponse
- * ¹¦ÄÜ£ºHttp·µ»Ø¶ÔÏóµÄ·â×°ÏêÏ¸£º·â×°Http·µ»ØĞÅÏ¢
- * °æ±¾£º3.3
- * ÈÕÆÚ£º2011-08-17
- * ËµÃ÷£ºÒÔÏÂ´úÂëÖ»ÊÇÎªÁË·½±ãÉÌ»§²âÊÔ¶øÌá¹©µÄÑùÀı´úÂë£¬ÉÌ»§¿ÉÒÔ¸ù¾İ×Ô¼ºÍøÕ¾µÄĞèÒª£¬°´ÕÕ¼¼ÊõÎÄµµ±àĞ´,²¢·ÇÒ»¶¨ÒªÊ¹ÓÃ¸Ã´úÂë¡£
- *      ¸Ã´úÂë½ö¹©Ñ§Ï°ºÍÑĞ¾¿Ö§¸¶±¦½Ó¿ÚÊ¹ÓÃ£¬Ö»ÊÇÌá¹©Ò»¸ö²Î¿¼¡£
- * </pre>
+import java.io.UnsupportedEncodingException;
+
+/* *
+ *ç±»åï¼šHttpResponse
+ *åŠŸèƒ½ï¼šHttpè¿”å›å¯¹è±¡çš„å°è£…
+ *è¯¦ç»†ï¼šå°è£…Httpè¿”å›ä¿¡æ¯
+ *ç‰ˆæœ¬ï¼š3.3
+ *æ—¥æœŸï¼š2011-08-17
+ *è¯´æ˜ï¼š
+ *ä»¥ä¸‹ä»£ç åªæ˜¯ä¸ºäº†æ–¹ä¾¿å•†æˆ·æµ‹è¯•è€Œæä¾›çš„æ ·ä¾‹ä»£ç ï¼Œå•†æˆ·å¯ä»¥æ ¹æ®è‡ªå·±ç½‘ç«™çš„éœ€è¦ï¼ŒæŒ‰ç…§æŠ€æœ¯æ–‡æ¡£ç¼–å†™,å¹¶éä¸€å®šè¦ä½¿ç”¨è¯¥ä»£ç ã€‚
+ *è¯¥ä»£ç ä»…ä¾›å­¦ä¹ å’Œç ”ç©¶æ”¯ä»˜å®æ¥å£ä½¿ç”¨ï¼Œåªæ˜¯æä¾›ä¸€ä¸ªå‚è€ƒã€‚
  */
 
 public class HttpResponse {
-    
+
     /**
-     * ·µ»ØÖĞµÄHeaderĞÅÏ¢
+     * è¿”å›ä¸­çš„Headerä¿¡æ¯
      */
     private Header[] responseHeaders;
-    
+
     /**
-     * StringÀàĞÍµÄresult
+     * Stringç±»å‹çš„result
      */
-    private String stringResult;
-    
+    private String   stringResult;
+
     /**
-     * btyeÀàĞÍµÄresult
+     * btyeç±»å‹çš„result
      */
-    private byte[] byteResult;
-    
+    private byte[]   byteResult;
+
     public Header[] getResponseHeaders() {
         return responseHeaders;
     }
-    
+
     public void setResponseHeaders(Header[] responseHeaders) {
         this.responseHeaders = responseHeaders;
     }
-    
+
     public byte[] getByteResult() {
         if (byteResult != null) {
             return byteResult;
@@ -51,11 +52,11 @@ public class HttpResponse {
         }
         return null;
     }
-    
+
     public void setByteResult(byte[] byteResult) {
         this.byteResult = byteResult;
     }
-    
+
     public String getStringResult() throws UnsupportedEncodingException {
         if (stringResult != null) {
             return stringResult;
@@ -65,9 +66,9 @@ public class HttpResponse {
         }
         return null;
     }
-    
+
     public void setStringResult(String stringResult) {
         this.stringResult = stringResult;
     }
-    
+
 }

@@ -16,12 +16,12 @@ public class RSA {
     public static final String SIGN_ALGORITHMS = "SHA1WithRSA";
     
     /**
-     * RSAÇ©Ãû
+     * RSAç­¾å
      * 
-     * @param content ´ıÇ©ÃûÊı¾İ
-     * @param privateKey ÉÌ»§Ë½Ô¿
-     * @param input_charset ±àÂë¸ñÊ½
-     * @return Ç©ÃûÖµ
+     * @param content å¾…ç­¾åæ•°æ®
+     * @param privateKey å•†æˆ·ç§é’¥
+     * @param input_charset ç¼–ç æ ¼å¼
+     * @return ç­¾åå€¼
      */
     public static String sign(String content, String privateKey, String input_charset) {
         try {
@@ -45,13 +45,13 @@ public class RSA {
     }
     
     /**
-     * RSAÑéÇ©Ãû¼ì²é
+     * RSAéªŒç­¾åæ£€æŸ¥
      * 
-     * @param content ´ıÇ©ÃûÊı¾İ
-     * @param sign Ç©ÃûÖµ
-     * @param ali_public_key Ö§¸¶±¦¹«Ô¿
-     * @param input_charset ±àÂë¸ñÊ½
-     * @return ²¼¶ûÖµ
+     * @param content å¾…ç­¾åæ•°æ®
+     * @param sign ç­¾åå€¼
+     * @param ali_public_key æ”¯ä»˜å®å…¬é’¥
+     * @param input_charset ç¼–ç æ ¼å¼
+     * @return å¸ƒå°”å€¼
      */
     public static boolean verify(String content, String sign, String ali_public_key, String input_charset) {
         try {
@@ -75,12 +75,12 @@ public class RSA {
     }
     
     /**
-     * ½âÃÜ
+     * è§£å¯†
      * 
-     * @param content ÃÜÎÄ
-     * @param private_key ÉÌ»§Ë½Ô¿
-     * @param input_charset ±àÂë¸ñÊ½
-     * @return ½âÃÜºóµÄ×Ö·û´®
+     * @param content å¯†æ–‡
+     * @param private_key å•†æˆ·ç§é’¥
+     * @param input_charset ç¼–ç æ ¼å¼
+     * @return è§£å¯†åçš„å­—ç¬¦ä¸²
      */
     public static String decrypt(String content, String private_key, String input_charset) throws Exception {
         PrivateKey prikey = getPrivateKey(private_key);
@@ -90,7 +90,7 @@ public class RSA {
         
         InputStream ins = new ByteArrayInputStream(Base64.decode(content));
         ByteArrayOutputStream writer = new ByteArrayOutputStream();
-        //rsa½âÃÜµÄ×Ö½Ú´óĞ¡×î¶àÊÇ128£¬½«ĞèÒª½âÃÜµÄÄÚÈİ£¬°´128Î»²ğ¿ª½âÃÜ
+        //rsaè§£å¯†çš„å­—èŠ‚å¤§å°æœ€å¤šæ˜¯128ï¼Œå°†éœ€è¦è§£å¯†çš„å†…å®¹ï¼ŒæŒ‰128ä½æ‹†å¼€è§£å¯†
         byte[] buf = new byte[128];
         int bufl;
         
@@ -113,9 +113,9 @@ public class RSA {
     }
     
     /**
-     * µÃµ½Ë½Ô¿
+     * å¾—åˆ°ç§é’¥
      * 
-     * @param key ÃÜÔ¿×Ö·û´®£¨¾­¹ıbase64±àÂë£©
+     * @param key å¯†é’¥å­—ç¬¦ä¸²ï¼ˆç»è¿‡base64ç¼–ç ï¼‰
      * @throws Exception
      */
     public static PrivateKey getPrivateKey(String key) throws Exception {

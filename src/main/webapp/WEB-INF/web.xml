@@ -19,7 +19,7 @@
 		</filter-class>
 		<init-param>
 			<param-name>encoding</param-name>
-			<param-value>utf-8</param-value>
+			<param-value>UTF-8</param-value>
 		</init-param>
 	</filter>
 
@@ -32,16 +32,15 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
-	<!-- jersey、spring -->
+	<!-- jersey/spring -->
 	<servlet>
 		<servlet-name>REST Servlet</servlet-name>
 		<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
 		<init-param>
 			<param-name>com.sun.jersey.config.property.packages</param-name>
-			<param-value>resource</param-value>
+			<param-value>alipay</param-value>
 		</init-param>
 		
-		<!-- 使用jackson处理JSON -->
 		<!-- <init-param>
 			<param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
 			<param-value>true</param-value>

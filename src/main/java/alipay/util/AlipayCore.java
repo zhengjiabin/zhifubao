@@ -17,12 +17,12 @@ import alipay.config.AlipayConfig;
 
 /**
  * <pre>
- * ÀàÃû£ºAlipayFunction
- * ¹¦ÄÜ£ºÖ§¸¶±¦½Ó¿Ú¹«ÓÃº¯ÊıÀàÏêÏ¸£º¸ÃÀàÊÇÇëÇó¡¢Í¨Öª·µ»ØÁ½¸öÎÄ¼şËùµ÷ÓÃµÄ¹«ÓÃº¯ÊıºËĞÄ´¦ÀíÎÄ¼ş£¬²»ĞèÒªĞŞ¸Ä
- * °æ±¾£º3.3
- * ÈÕÆÚ£º2012-08-14
- * ËµÃ÷£ºÒÔÏÂ´úÂëÖ»ÊÇÎªÁË·½±ãÉÌ»§²âÊÔ¶øÌá¹©µÄÑùÀı´úÂë£¬ÉÌ»§¿ÉÒÔ¸ù¾İ×Ô¼ºÍøÕ¾µÄĞèÒª£¬°´ÕÕ¼¼ÊõÎÄµµ±àĞ´,²¢·ÇÒ»¶¨ÒªÊ¹ÓÃ¸Ã´úÂë¡£
- * ¸Ã´úÂë½ö¹©Ñ§Ï°ºÍÑĞ¾¿Ö§¸¶±¦½Ó¿ÚÊ¹ÓÃ£¬Ö»ÊÇÌá¹©Ò»¸ö²Î¿¼¡£
+ * ç±»åï¼šAlipayFunction
+ * åŠŸèƒ½ï¼šæ”¯ä»˜å®æ¥å£å…¬ç”¨å‡½æ•°ç±»è¯¦ç»†ï¼šè¯¥ç±»æ˜¯è¯·æ±‚ã€é€šçŸ¥è¿”å›ä¸¤ä¸ªæ–‡ä»¶æ‰€è°ƒç”¨çš„å…¬ç”¨å‡½æ•°æ ¸å¿ƒå¤„ç†æ–‡ä»¶ï¼Œä¸éœ€è¦ä¿®æ”¹
+ * ç‰ˆæœ¬ï¼š3.3
+ * æ—¥æœŸï¼š2012-08-14
+ * è¯´æ˜ï¼šä»¥ä¸‹ä»£ç åªæ˜¯ä¸ºäº†æ–¹ä¾¿å•†æˆ·æµ‹è¯•è€Œæä¾›çš„æ ·ä¾‹ä»£ç ï¼Œå•†æˆ·å¯ä»¥æ ¹æ®è‡ªå·±ç½‘ç«™çš„éœ€è¦ï¼ŒæŒ‰ç…§æŠ€æœ¯æ–‡æ¡£ç¼–å†™,å¹¶éä¸€å®šè¦ä½¿ç”¨è¯¥ä»£ç ã€‚
+ * è¯¥ä»£ç ä»…ä¾›å­¦ä¹ å’Œç ”ç©¶æ”¯ä»˜å®æ¥å£ä½¿ç”¨ï¼Œåªæ˜¯æä¾›ä¸€ä¸ªå‚è€ƒã€‚
  * </pre>
  * 
  * @author Administrator
@@ -31,10 +31,10 @@ import alipay.config.AlipayConfig;
 public class AlipayCore {
     
     /**
-     * ³ıÈ¥Êı×éÖĞµÄ¿ÕÖµºÍÇ©Ãû²ÎÊı
+     * é™¤å»æ•°ç»„ä¸­çš„ç©ºå€¼å’Œç­¾åå‚æ•°
      * 
-     * @param sArray Ç©Ãû²ÎÊı×é
-     * @return È¥µô¿ÕÖµÓëÇ©Ãû²ÎÊıºóµÄĞÂÇ©Ãû²ÎÊı×é
+     * @param sArray ç­¾åå‚æ•°ç»„
+     * @return å»æ‰ç©ºå€¼ä¸ç­¾åå‚æ•°åçš„æ–°ç­¾åå‚æ•°ç»„
      */
     public static Map<String, String> paraFilter(Map<String, String> sArray) {
         
@@ -56,10 +56,10 @@ public class AlipayCore {
     }
     
     /**
-     * °ÑÊı×éËùÓĞÔªËØÅÅĞò£¬²¢°´ÕÕ¡°²ÎÊı=²ÎÊıÖµ¡±µÄÄ£Ê½ÓÃ¡°&¡±×Ö·ûÆ´½Ó³É×Ö·û´®
+     * æŠŠæ•°ç»„æ‰€æœ‰å…ƒç´ æ’åºï¼Œå¹¶æŒ‰ç…§â€œå‚æ•°=å‚æ•°å€¼â€çš„æ¨¡å¼ç”¨â€œ&â€å­—ç¬¦æ‹¼æ¥æˆå­—ç¬¦ä¸²
      * 
-     * @param params ĞèÒªÅÅĞò²¢²ÎÓë×Ö·ûÆ´½ÓµÄ²ÎÊı×é
-     * @return Æ´½Óºó×Ö·û´®
+     * @param params éœ€è¦æ’åºå¹¶å‚ä¸å­—ç¬¦æ‹¼æ¥çš„å‚æ•°ç»„
+     * @return æ‹¼æ¥åå­—ç¬¦ä¸²
      */
     public static String createLinkString(Map<String, String> params) {
         
@@ -72,7 +72,7 @@ public class AlipayCore {
             String key = keys.get(i);
             String value = params.get(key);
             
-            if (i == keys.size() - 1) {//Æ´½ÓÊ±£¬²»°üÀ¨×îºóÒ»¸ö&×Ö·û
+            if (i == keys.size() - 1) {//æ‹¼æ¥æ—¶ï¼Œä¸åŒ…æ‹¬æœ€åä¸€ä¸ª&å­—ç¬¦
                 prestr = prestr + key + "=" + value;
             } else {
                 prestr = prestr + key + "=" + value + "&";
@@ -83,9 +83,9 @@ public class AlipayCore {
     }
     
     /**
-     * Ğ´ÈÕÖ¾£¬·½±ã²âÊÔ£¨¿´ÍøÕ¾ĞèÇó£¬Ò²¿ÉÒÔ¸Ä³É°Ñ¼ÇÂ¼´æÈëÊı¾İ¿â£©
+     * å†™æ—¥å¿—ï¼Œæ–¹ä¾¿æµ‹è¯•ï¼ˆçœ‹ç½‘ç«™éœ€æ±‚ï¼Œä¹Ÿå¯ä»¥æ”¹æˆæŠŠè®°å½•å­˜å…¥æ•°æ®åº“ï¼‰
      * 
-     * @param sWord ÒªĞ´ÈëÈÕÖ¾ÀïµÄÎÄ±¾ÄÚÈİ
+     * @param sWord è¦å†™å…¥æ—¥å¿—é‡Œçš„æ–‡æœ¬å†…å®¹
      */
     public static void logResult(String sWord) {
         FileWriter writer = null;
@@ -106,11 +106,11 @@ public class AlipayCore {
     }
     
     /**
-     * Éú³ÉÎÄ¼şÕªÒª
+     * ç”Ÿæˆæ–‡ä»¶æ‘˜è¦
      * 
-     * @param strFilePath ÎÄ¼şÂ·¾¶
-     * @param file_digest_type ÕªÒªËã·¨
-     * @return ÎÄ¼şÕªÒª½á¹û
+     * @param strFilePath æ–‡ä»¶è·¯å¾„
+     * @param file_digest_type æ‘˜è¦ç®—æ³•
+     * @return æ–‡ä»¶æ‘˜è¦ç»“æœ
      */
     public static String getAbstract(String strFilePath, String file_digest_type) throws IOException {
         PartSource file = new FilePartSource(new File(strFilePath));

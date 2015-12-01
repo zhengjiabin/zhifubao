@@ -23,30 +23,30 @@ import alipay.util.httpClient.HttpResultType;
 
 /**
  * <pre>
- * ÀàÃû£ºAlipaySubmit
- * ¹¦ÄÜ£ºÖ§¸¶±¦¸÷½Ó¿ÚÇëÇóÌá½»ÀàÏêÏ¸£º¹¹ÔìÖ§¸¶±¦¸÷½Ó¿Ú±íµ¥HTMLÎÄ±¾£¬»ñÈ¡Ô¶³ÌHTTPÊı¾İ
- * °æ±¾£º3.3
- * ÈÕÆÚ£º2012-08-13
- * ËµÃ÷£ºÒÔÏÂ´úÂëÖ»ÊÇÎªÁË·½±ãÉÌ»§²âÊÔ¶øÌá¹©µÄÑùÀı´úÂë£¬ÉÌ»§¿ÉÒÔ¸ù¾İ×Ô¼ºÍøÕ¾µÄĞèÒª£¬°´ÕÕ¼¼ÊõÎÄµµ±àĞ´,²¢·ÇÒ»¶¨ÒªÊ¹ÓÃ¸Ã´úÂë¡£
- *      ¸Ã´úÂë½ö¹©Ñ§Ï°ºÍÑĞ¾¿Ö§¸¶±¦½Ó¿ÚÊ¹ÓÃ£¬Ö»ÊÇÌá¹©Ò»¸ö²Î¿¼¡£
+ * ç±»åï¼šAlipaySubmit
+ * åŠŸèƒ½ï¼šæ”¯ä»˜å®å„æ¥å£è¯·æ±‚æäº¤ç±»è¯¦ç»†ï¼šæ„é€ æ”¯ä»˜å®å„æ¥å£è¡¨å•HTMLæ–‡æœ¬ï¼Œè·å–è¿œç¨‹HTTPæ•°æ®
+ * ç‰ˆæœ¬ï¼š3.3
+ * æ—¥æœŸï¼š2012-08-13
+ * è¯´æ˜ï¼šä»¥ä¸‹ä»£ç åªæ˜¯ä¸ºäº†æ–¹ä¾¿å•†æˆ·æµ‹è¯•è€Œæä¾›çš„æ ·ä¾‹ä»£ç ï¼Œå•†æˆ·å¯ä»¥æ ¹æ®è‡ªå·±ç½‘ç«™çš„éœ€è¦ï¼ŒæŒ‰ç…§æŠ€æœ¯æ–‡æ¡£ç¼–å†™,å¹¶éä¸€å®šè¦ä½¿ç”¨è¯¥ä»£ç ã€‚
+ *      è¯¥ä»£ç ä»…ä¾›å­¦ä¹ å’Œç ”ç©¶æ”¯ä»˜å®æ¥å£ä½¿ç”¨ï¼Œåªæ˜¯æä¾›ä¸€ä¸ªå‚è€ƒã€‚
  * </pre>
  */
 
 public class AlipaySubmit {
     
     /**
-     * Ö§¸¶±¦Ìá¹©¸øÉÌ»§µÄ·şÎñ½ÓÈëÍø¹ØURL(ĞÂ)
+     * æ”¯ä»˜å®æä¾›ç»™å•†æˆ·çš„æœåŠ¡æ¥å…¥ç½‘å…³URL(æ–°)
      */
     private static final String ALIPAY_GATEWAY_NEW = "https://mapi.alipay.com/gateway.do?";
     
     /**
-     * Éú³ÉÇ©Ãû½á¹û
+     * ç”Ÿæˆç­¾åç»“æœ
      * 
-     * @param sPara ÒªÇ©ÃûµÄÊı×é
-     * @return Ç©Ãû½á¹û×Ö·û´®
+     * @param sPara è¦ç­¾åçš„æ•°ç»„
+     * @return ç­¾åç»“æœå­—ç¬¦ä¸²
      */
     public static String buildRequestMysign(Map<String, String> sPara) {
-        String prestr = AlipayCore.createLinkString(sPara); //°ÑÊı×éËùÓĞÔªËØ£¬°´ÕÕ¡°²ÎÊı=²ÎÊıÖµ¡±µÄÄ£Ê½ÓÃ¡°&¡±×Ö·ûÆ´½Ó³É×Ö·û´®
+        String prestr = AlipayCore.createLinkString(sPara); //æŠŠæ•°ç»„æ‰€æœ‰å…ƒç´ ï¼ŒæŒ‰ç…§â€œå‚æ•°=å‚æ•°å€¼â€çš„æ¨¡å¼ç”¨â€œ&â€å­—ç¬¦æ‹¼æ¥æˆå­—ç¬¦ä¸²
         String mysign = "";
         if (AlipayConfig.SIGN_TYPE.equals("MD5")) {
             mysign = MD5.sign(prestr, AlipayConfig.PRIVATE_KEY, AlipayConfig.INPUT_CHARSET);
@@ -57,18 +57,18 @@ public class AlipaySubmit {
     }
     
     /**
-     * Éú³ÉÒªÇëÇó¸øÖ§¸¶±¦µÄ²ÎÊıÊı×é
+     * ç”Ÿæˆè¦è¯·æ±‚ç»™æ”¯ä»˜å®çš„å‚æ•°æ•°ç»„
      * 
-     * @param sParaTemp ÇëÇóÇ°µÄ²ÎÊıÊı×é
-     * @return ÒªÇëÇóµÄ²ÎÊıÊı×é
+     * @param sParaTemp è¯·æ±‚å‰çš„å‚æ•°æ•°ç»„
+     * @return è¦è¯·æ±‚çš„å‚æ•°æ•°ç»„
      */
     private static Map<String, String> buildRequestPara(Map<String, String> sParaTemp) {
-        //³ıÈ¥Êı×éÖĞµÄ¿ÕÖµºÍÇ©Ãû²ÎÊı
+        //é™¤å»æ•°ç»„ä¸­çš„ç©ºå€¼å’Œç­¾åå‚æ•°
         Map<String, String> sPara = AlipayCore.paraFilter(sParaTemp);
-        //Éú³ÉÇ©Ãû½á¹û
+        //ç”Ÿæˆç­¾åç»“æœ
         String mysign = buildRequestMysign(sPara);
         
-        //Ç©Ãû½á¹ûÓëÇ©Ãû·½Ê½¼ÓÈëÇëÇóÌá½»²ÎÊı×éÖĞ
+        //ç­¾åç»“æœä¸ç­¾åæ–¹å¼åŠ å…¥è¯·æ±‚æäº¤å‚æ•°ç»„ä¸­
         sPara.put("sign", mysign);
         sPara.put("sign_type", AlipayConfig.SIGN_TYPE);
         
@@ -77,29 +77,29 @@ public class AlipaySubmit {
     
     /**
      * <pre>
-     * ½¨Á¢ÇëÇó£¬ÒÔ±íµ¥HTMLĞÎÊ½¹¹Ôì£¨Ä¬ÈÏ£©
+     * å»ºç«‹è¯·æ±‚ï¼Œä»¥è¡¨å•HTMLå½¢å¼æ„é€ ï¼ˆé»˜è®¤ï¼‰
      * 
      * [form id="alipaysubmit" name="alipaysubmit" action="https://mapi.alipay.com/gateway.do?_input_charset=gbk" method="get"]
      *     [input type="hidden" name="payment_type" value="1"/]
      *     [input type="hidden" name="_input_charset" value="gbk"/]
      *     [input type="hidden" name="service" value="create_direct_pay_by_user"/]
      *     [input type="hidden" name="sign" value="1ac2d93ba7132130e85c15abfbeeb0eb"/]
-     *     [input type="hidden" name="return_url" value="http://ÉÌ»§Íø¹ØµØÖ·/create_direct_pay_by_user-JAVA-GBK/return_url.jsp"/]
-     *     [input type="hidden" name="notify_url" value="http://ÉÌ»§Íø¹ØµØÖ·/create_direct_pay_by_user-JAVA-GBK/notify_url.jsp"/]
+     *     [input type="hidden" name="return_url" value="http://å•†æˆ·ç½‘å…³åœ°å€/create_direct_pay_by_user-JAVA-GBK/return_url.jsp"/]
+     *     [input type="hidden" name="notify_url" value="http://å•†æˆ·ç½‘å…³åœ°å€/create_direct_pay_by_user-JAVA-GBK/notify_url.jsp"/]
      *     [input type="hidden" name="sign_type" value="MD5"/]
-     *     [input type="submit" value="È·ÈÏ" style="display:none;"]
+     *     [input type="submit" value="ç¡®è®¤" style="display:none;"]
      * [/form]
      * [script]document.forms['alipaysubmit'].submit();[/script]
      * 
      * </pre>
      * 
-     * @param sParaTemp ÇëÇó²ÎÊıÊı×é
-     * @param strMethod Ìá½»·½Ê½¡£Á½¸öÖµ¿ÉÑ¡£ºpost¡¢get
-     * @param strButtonName È·ÈÏ°´Å¥ÏÔÊ¾ÎÄ×Ö
-     * @return Ìá½»±íµ¥HTMLÎÄ±¾
+     * @param sParaTemp è¯·æ±‚å‚æ•°æ•°ç»„
+     * @param strMethod æäº¤æ–¹å¼ã€‚ä¸¤ä¸ªå€¼å¯é€‰ï¼špostã€get
+     * @param strButtonName ç¡®è®¤æŒ‰é’®æ˜¾ç¤ºæ–‡å­—
+     * @return æäº¤è¡¨å•HTMLæ–‡æœ¬
      */
     public static String buildRequest(Map<String, String> sParaTemp, String strMethod, String strButtonName) {
-        //´ıÇëÇó²ÎÊıÊı×é
+        //å¾…è¯·æ±‚å‚æ•°æ•°ç»„
         Map<String, String> sPara = buildRequestPara(sParaTemp);
         List<String> keys = new ArrayList<String>(sPara.keySet());
         
@@ -114,7 +114,7 @@ public class AlipaySubmit {
             sbHtml.append("<input type=\"hidden\" name=\"" + name + "\" value=\"" + value + "\"/>");
         }
         
-        //submit°´Å¥¿Ø¼şÇë²»Òªº¬ÓĞnameÊôĞÔ
+        //submitæŒ‰é’®æ§ä»¶è¯·ä¸è¦å«æœ‰nameå±æ€§
         sbHtml.append("<input type=\"submit\" value=\"" + strButtonName + "\" style=\"display:none;\"></form>");
         sbHtml.append("<script>document.forms['alipaysubmit'].submit();</script>");
         
@@ -122,16 +122,16 @@ public class AlipaySubmit {
     }
     
     /**
-     * ½¨Á¢ÇëÇó£¬ÒÔ±íµ¥HTMLĞÎÊ½¹¹Ôì£¬´øÎÄ¼şÉÏ´«¹¦ÄÜ
+     * å»ºç«‹è¯·æ±‚ï¼Œä»¥è¡¨å•HTMLå½¢å¼æ„é€ ï¼Œå¸¦æ–‡ä»¶ä¸Šä¼ åŠŸèƒ½
      * 
-     * @param sParaTemp ÇëÇó²ÎÊıÊı×é
-     * @param strMethod Ìá½»·½Ê½¡£Á½¸öÖµ¿ÉÑ¡£ºpost¡¢get
-     * @param strButtonName È·ÈÏ°´Å¥ÏÔÊ¾ÎÄ×Ö
-     * @param strParaFileName ÎÄ¼şÉÏ´«µÄ²ÎÊıÃû
-     * @return Ìá½»±íµ¥HTMLÎÄ±¾
+     * @param sParaTemp è¯·æ±‚å‚æ•°æ•°ç»„
+     * @param strMethod æäº¤æ–¹å¼ã€‚ä¸¤ä¸ªå€¼å¯é€‰ï¼špostã€get
+     * @param strButtonName ç¡®è®¤æŒ‰é’®æ˜¾ç¤ºæ–‡å­—
+     * @param strParaFileName æ–‡ä»¶ä¸Šä¼ çš„å‚æ•°å
+     * @return æäº¤è¡¨å•HTMLæ–‡æœ¬
      */
     public static String buildRequest(Map<String, String> sParaTemp, String strMethod, String strButtonName, String strParaFileName) {
-        //´ıÇëÇó²ÎÊıÊı×é
+        //å¾…è¯·æ±‚å‚æ•°æ•°ç»„
         Map<String, String> sPara = buildRequestPara(sParaTemp);
         List<String> keys = new ArrayList<String>(sPara.keySet());
         
@@ -148,30 +148,30 @@ public class AlipaySubmit {
         
         sbHtml.append("<input type=\"file\" name=\"" + strParaFileName + "\" />");
         
-        //submit°´Å¥¿Ø¼şÇë²»Òªº¬ÓĞnameÊôĞÔ
+        //submitæŒ‰é’®æ§ä»¶è¯·ä¸è¦å«æœ‰nameå±æ€§
         sbHtml.append("<input type=\"submit\" value=\"" + strButtonName + "\" style=\"display:none;\"></form>");
         
         return sbHtml.toString();
     }
     
     /**
-     * ½¨Á¢ÇëÇó£¬ÒÔÄ£ÄâÔ¶³ÌHTTPµÄPOSTÇëÇó·½Ê½¹¹Ôì²¢»ñÈ¡Ö§¸¶±¦µÄ´¦Àí½á¹û Èç¹û½Ó¿ÚÖĞÃ»ÓĞÉÏ´«ÎÄ¼ş²ÎÊı£¬ÄÇÃ´strParaFileNameÓëstrFilePathÉèÖÃÎª¿ÕÖµ Èç£ºbuildRequest("",
+     * å»ºç«‹è¯·æ±‚ï¼Œä»¥æ¨¡æ‹Ÿè¿œç¨‹HTTPçš„POSTè¯·æ±‚æ–¹å¼æ„é€ å¹¶è·å–æ”¯ä»˜å®çš„å¤„ç†ç»“æœ å¦‚æœæ¥å£ä¸­æ²¡æœ‰ä¸Šä¼ æ–‡ä»¶å‚æ•°ï¼Œé‚£ä¹ˆstrParaFileNameä¸strFilePathè®¾ç½®ä¸ºç©ºå€¼ å¦‚ï¼šbuildRequest("",
      * "",sParaTemp)
      * 
-     * @param strParaFileName ÎÄ¼şÀàĞÍµÄ²ÎÊıÃû
-     * @param strFilePath ÎÄ¼şÂ·¾¶
-     * @param sParaTemp ÇëÇó²ÎÊıÊı×é
-     * @return Ö§¸¶±¦´¦Àí½á¹û
+     * @param strParaFileName æ–‡ä»¶ç±»å‹çš„å‚æ•°å
+     * @param strFilePath æ–‡ä»¶è·¯å¾„
+     * @param sParaTemp è¯·æ±‚å‚æ•°æ•°ç»„
+     * @return æ”¯ä»˜å®å¤„ç†ç»“æœ
      * @throws Exception
      */
     public static String buildRequest(String strParaFileName, String strFilePath, Map<String, String> sParaTemp) throws Exception {
-        //´ıÇëÇó²ÎÊıÊı×é
+        //å¾…è¯·æ±‚å‚æ•°æ•°ç»„
         Map<String, String> sPara = buildRequestPara(sParaTemp);
         
         HttpProtocolHandler httpProtocolHandler = HttpProtocolHandler.getInstance();
         
         HttpRequest request = new HttpRequest(HttpResultType.BYTES);
-        //ÉèÖÃ±àÂë¼¯
+        //è®¾ç½®ç¼–ç é›†
         request.setCharset(AlipayConfig.INPUT_CHARSET);
         
         request.setParameters(generatNameValuePair(sPara));
@@ -188,10 +188,10 @@ public class AlipaySubmit {
     }
     
     /**
-     * MAPÀàĞÍÊı×é×ª»»³ÉNameValuePairÀàĞÍ
+     * MAPç±»å‹æ•°ç»„è½¬æ¢æˆNameValuePairç±»å‹
      * 
-     * @param properties MAPÀàĞÍÊı×é
-     * @return NameValuePairÀàĞÍÊı×é
+     * @param properties MAPç±»å‹æ•°ç»„
+     * @return NameValuePairç±»å‹æ•°ç»„
      */
     private static NameValuePair[] generatNameValuePair(Map<String, String> properties) {
         NameValuePair[] nameValuePair = new NameValuePair[properties.size()];
@@ -204,9 +204,9 @@ public class AlipaySubmit {
     }
     
     /**
-     * ÓÃÓÚ·ÀµöÓã£¬µ÷ÓÃ½Ó¿Úquery_timestampÀ´»ñÈ¡Ê±¼ä´ÁµÄ´¦Àíº¯Êı ×¢Òâ£ºÔ¶³Ì½âÎöXML³ö´í£¬Óë·şÎñÆ÷ÊÇ·ñÖ§³ÖSSLµÈÅäÖÃÓĞ¹Ø
+     * ç”¨äºé˜²é’“é±¼ï¼Œè°ƒç”¨æ¥å£query_timestampæ¥è·å–æ—¶é—´æˆ³çš„å¤„ç†å‡½æ•° æ³¨æ„ï¼šè¿œç¨‹è§£æXMLå‡ºé”™ï¼Œä¸æœåŠ¡å™¨æ˜¯å¦æ”¯æŒSSLç­‰é…ç½®æœ‰å…³
      * 
-     * @return Ê±¼ä´Á×Ö·û´®
+     * @return æ—¶é—´æˆ³å­—ç¬¦ä¸²
      * @throws IOException
      * @throws DocumentException
      * @throws MalformedURLException
@@ -214,7 +214,7 @@ public class AlipaySubmit {
     @SuppressWarnings("unchecked")
     public static String query_timestamp() throws MalformedURLException, DocumentException, IOException {
         
-        //¹¹Ôì·ÃÎÊquery_timestamp½Ó¿ÚµÄURL´®
+        //æ„é€ è®¿é—®query_timestampæ¥å£çš„URLä¸²
         String strUrl = ALIPAY_GATEWAY_NEW + "service=query_timestamp&partner=" + AlipayConfig.PARTNER + "&_input_charset" + AlipayConfig.INPUT_CHARSET;
         StringBuffer result = new StringBuffer();
         
@@ -224,9 +224,9 @@ public class AlipaySubmit {
         List<Node> nodeList = doc.selectNodes("//alipay/*");
         
         for (Node node : nodeList) {
-            // ½ØÈ¡²¿·Ö²»ĞèÒª½âÎöµÄĞÅÏ¢
+            // æˆªå–éƒ¨åˆ†ä¸éœ€è¦è§£æçš„ä¿¡æ¯
             if (node.getName().equals("is_success") && node.getText().equals("T")) {
-                // ÅĞ¶ÏÊÇ·ñÓĞ³É¹¦±êÊ¾
+                // åˆ¤æ–­æ˜¯å¦æœ‰æˆåŠŸæ ‡ç¤º
                 List<Node> nodeList1 = doc.selectNodes("//response/timestamp/*");
                 for (Node node1 : nodeList1) {
                     result.append(node1.getText());

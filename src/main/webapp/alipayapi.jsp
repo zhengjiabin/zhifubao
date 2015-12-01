@@ -1,88 +1,28 @@
 <!-- 
-	¹¦ÄÜ£º¼´Ê±µ½ÕË½»Ò×½Ó¿Ú½ÓÈëÒ³
-	°æ±¾£º3.3
-	ÈÕÆÚ£º2012-08-14
-	ËµÃ÷£º
-	 ÒÔÏÂ´úÂëÖ»ÊÇÎªÁË·½±ãÉÌ»§²âÊÔ¶øÌá¹©µÄÑùÀı´úÂë£¬ÉÌ»§¿ÉÒÔ¸ù¾İ×Ô¼ºÍøÕ¾µÄĞèÒª£¬°´ÕÕ¼¼ÊõÎÄµµ±àĞ´,²¢·ÇÒ»¶¨ÒªÊ¹ÓÃ¸Ã´úÂë¡£
-	¸Ã´úÂë½ö¹©Ñ§Ï°ºÍÑĞ¾¿Ö§¸¶±¦½Ó¿ÚÊ¹ÓÃ£¬Ö»ÊÇÌá¹©Ò»¸ö²Î¿¼¡£
+	åŠŸèƒ½ï¼šå³æ—¶åˆ°è´¦äº¤æ˜“æ¥å£æ¥å…¥é¡µ
+	ç‰ˆæœ¬ï¼š3.3
+	æ—¥æœŸï¼š2012-08-14
+	è¯´æ˜ï¼š
+	 ä»¥ä¸‹ä»£ç åªæ˜¯ä¸ºäº†æ–¹ä¾¿å•†æˆ·æµ‹è¯•è€Œæä¾›çš„æ ·ä¾‹ä»£ç ï¼Œå•†æˆ·å¯ä»¥æ ¹æ®è‡ªå·±ç½‘ç«™çš„éœ€è¦ï¼ŒæŒ‰ç…§æŠ€æœ¯æ–‡æ¡£ç¼–å†™,å¹¶éä¸€å®šè¦ä½¿ç”¨è¯¥ä»£ç ã€‚
+	è¯¥ä»£ç ä»…ä¾›å­¦ä¹ å’Œç ”ç©¶æ”¯ä»˜å®æ¥å£ä½¿ç”¨ï¼Œåªæ˜¯æä¾›ä¸€ä¸ªå‚è€ƒã€‚
 	
-	 *************************×¢Òâ*****************
-	Èç¹ûÄúÔÚ½Ó¿Ú¼¯³É¹ı³ÌÖĞÓöµ½ÎÊÌâ£¬¿ÉÒÔ°´ÕÕÏÂÃæµÄÍ¾¾¶À´½â¾ö
-	1¡¢ÉÌ»§·şÎñÖĞĞÄ£¨https://b.alipay.com/support/helperApply.htm?action=consultationApply£©£¬Ìá½»ÉêÇë¼¯³ÉĞ­Öú£¬ÎÒÃÇ»áÓĞ×¨ÒµµÄ¼¼Êõ¹¤³ÌÊ¦Ö÷¶¯ÁªÏµÄúĞ­Öú½â¾ö
-	2¡¢ÉÌ»§°ïÖúÖĞĞÄ£¨http://help.alipay.com/support/232511-16307/0-16307.htm?sh=Y&info_type=9£©
-	3¡¢Ö§¸¶±¦ÂÛÌ³£¨http://club.alipay.com/read-htm-tid-8681712.html£©
-	Èç¹û²»ÏëÊ¹ÓÃÀ©Õ¹¹¦ÄÜÇë°ÑÀ©Õ¹¹¦ÄÜ²ÎÊı¸³¿ÕÖµ¡£
+	 *************************æ³¨æ„*****************
+	å¦‚æœæ‚¨åœ¨æ¥å£é›†æˆè¿‡ç¨‹ä¸­é‡åˆ°é—®é¢˜ï¼Œå¯ä»¥æŒ‰ç…§ä¸‹é¢çš„é€”å¾„æ¥è§£å†³
+	1ã€å•†æˆ·æœåŠ¡ä¸­å¿ƒï¼ˆhttps://b.alipay.com/support/helperApply.htm?action=consultationApplyï¼‰ï¼Œæäº¤ç”³è¯·é›†æˆååŠ©ï¼Œæˆ‘ä»¬ä¼šæœ‰ä¸“ä¸šçš„æŠ€æœ¯å·¥ç¨‹å¸ˆä¸»åŠ¨è”ç³»æ‚¨ååŠ©è§£å†³
+	2ã€å•†æˆ·å¸®åŠ©ä¸­å¿ƒï¼ˆhttp://help.alipay.com/support/232511-16307/0-16307.htm?sh=Y&info_type=9ï¼‰
+	3ã€æ”¯ä»˜å®è®ºå›ï¼ˆhttp://club.alipay.com/read-htm-tid-8681712.htmlï¼‰
+	å¦‚æœä¸æƒ³ä½¿ç”¨æ‰©å±•åŠŸèƒ½è¯·æŠŠæ‰©å±•åŠŸèƒ½å‚æ•°èµ‹ç©ºå€¼ã€‚
 	 ********************************************** 
  -->
 
-<%@ page language="java" contentType="text/html; charset=gbk" pageEncoding="gbk"%>
-<%@ page import="alipay.config.*"%>
-<%@ page import="alipay.util.*"%>
-<%@ page import="java.util.HashMap"%>
-<%@ page import="java.util.Map"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=gbk">
-		<title>Ö§¸¶±¦¼´Ê±µ½ÕË½»Ò×½Ó¿Ú</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>æ”¯ä»˜å®å³æ—¶åˆ°è´¦äº¤æ˜“æ¥å£</title>
 	</head>
-	<%
-		////////////////////////////////////ÇëÇó²ÎÊı//////////////////////////////////////
-
-		//Ö§¸¶ÀàĞÍ
-		String payment_type = "1";
-		//±ØÌî£¬²»ÄÜĞŞ¸Ä
-		//·şÎñÆ÷Òì²½Í¨ÖªÒ³ÃæÂ·¾¶
-		String notify_url = "http://ÉÌ»§Íø¹ØµØÖ·/create_direct_pay_by_user-JAVA-GBK/notify_url.jsp";
-		//Ğèhttp://¸ñÊ½µÄÍêÕûÂ·¾¶£¬²»ÄÜ¼Ó?id=123ÕâÀà×Ô¶¨Òå²ÎÊı
-		//Ò³ÃæÌø×ªÍ¬²½Í¨ÖªÒ³ÃæÂ·¾¶
-		String return_url = "http://ÉÌ»§Íø¹ØµØÖ·/create_direct_pay_by_user-JAVA-GBK/return_url.jsp";
-		//Ğèhttp://¸ñÊ½µÄÍêÕûÂ·¾¶£¬²»ÄÜ¼Ó?id=123ÕâÀà×Ô¶¨Òå²ÎÊı£¬²»ÄÜĞ´³Éhttp://localhost/
-		//ÉÌ»§¶©µ¥ºÅ
-		String out_trade_no = new String(request.getParameter("WIDout_trade_no").getBytes("ISO-8859-1"),"GBK");
-		//ÉÌ»§ÍøÕ¾¶©µ¥ÏµÍ³ÖĞÎ¨Ò»¶©µ¥ºÅ£¬±ØÌî
-		//¶©µ¥Ãû³Æ
-		String subject = new String(request.getParameter("WIDsubject").getBytes("ISO-8859-1"),"GBK");
-		//±ØÌî
-		//¸¶¿î½ğ¶î
-		String total_fee = new String(request.getParameter("WIDtotal_fee").getBytes("ISO-8859-1"),"GBK");
-		//±ØÌî
-		//¶©µ¥ÃèÊö
-		String body = new String(request.getParameter("WIDbody").getBytes("ISO-8859-1"),"GBK");
-		//ÉÌÆ·Õ¹Ê¾µØÖ·
-		String show_url = new String(request.getParameter("WIDshow_url").getBytes("ISO-8859-1"),"GBK");
-		//ĞèÒÔhttp://¿ªÍ·µÄÍêÕûÂ·¾¶£¬ÀıÈç£ºhttp://www.ÉÌ»§ÍøÖ·.com/myorder.html
-		//·ÀµöÓãÊ±¼ä´Á
-		String anti_phishing_key = "";
-		//ÈôÒªÊ¹ÓÃÇëµ÷ÓÃÀàÎÄ¼şsubmitÖĞµÄquery_timestampº¯Êı
-		//¿Í»§¶ËµÄIPµØÖ·
-		String exter_invoke_ip = "";
-		//·Ç¾ÖÓòÍøµÄÍâÍøIPµØÖ·£¬Èç£º221.0.0.1
-		
-		
-		//////////////////////////////////////////////////////////////////////////////////
-		
-		//°ÑÇëÇó²ÎÊı´ò°ü³ÉÊı×é
-		Map<String, String> sParaTemp = new HashMap<String, String>();
-		sParaTemp.put("service", "create_direct_pay_by_user");
-        sParaTemp.put("partner", AlipayConfig.PARTNER);
-        sParaTemp.put("seller_email", AlipayConfig.SELLER_EMAIL);
-        sParaTemp.put("_input_charset", AlipayConfig.INPUT_CHARSET);
-		sParaTemp.put("payment_type", payment_type);
-		sParaTemp.put("notify_url", notify_url);
-		sParaTemp.put("return_url", return_url);
-		sParaTemp.put("out_trade_no", out_trade_no);
-		sParaTemp.put("subject", subject);
-		sParaTemp.put("total_fee", total_fee);
-		sParaTemp.put("body", body);
-		sParaTemp.put("show_url", show_url);
-		sParaTemp.put("anti_phishing_key", anti_phishing_key);
-		sParaTemp.put("exter_invoke_ip", exter_invoke_ip);
-		
-		//½¨Á¢ÇëÇó
-		String sHtmlText = AlipaySubmit.buildRequest(sParaTemp,"get","È·ÈÏ");
-		out.println(sHtmlText);
-	%>
 	<body>
+		${data}
 	</body>
 </html>

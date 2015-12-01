@@ -1,30 +1,30 @@
 package alipay.config;
 
 /* *
- *ÀàÃû£ºAlipayConfig
- *¹¦ÄÜ£º»ù´¡ÅäÖÃÀà
- *ÏêÏ¸£ºÉèÖÃÕÊ»§ÓĞ¹ØĞÅÏ¢¼°·µ»ØÂ·¾¶
- *°æ±¾£º3.3
- *ÈÕÆÚ£º2012-08-10
- *ËµÃ÷£º
- *ÒÔÏÂ´úÂëÖ»ÊÇÎªÁË·½±ãÉÌ»§²âÊÔ¶øÌá¹©µÄÑùÀı´úÂë£¬ÉÌ»§¿ÉÒÔ¸ù¾İ×Ô¼ºÍøÕ¾µÄĞèÒª£¬°´ÕÕ¼¼ÊõÎÄµµ±àĞ´,²¢·ÇÒ»¶¨ÒªÊ¹ÓÃ¸Ã´úÂë¡£
- *¸Ã´úÂë½ö¹©Ñ§Ï°ºÍÑĞ¾¿Ö§¸¶±¦½Ó¿ÚÊ¹ÓÃ£¬Ö»ÊÇÌá¹©Ò»¸ö²Î¿¼¡£
+ *ç±»åï¼šAlipayConfig
+ *åŠŸèƒ½ï¼šåŸºç¡€é…ç½®ç±»
+ *è¯¦ç»†ï¼šè®¾ç½®å¸æˆ·æœ‰å…³ä¿¡æ¯åŠè¿”å›è·¯å¾„
+ *ç‰ˆæœ¬ï¼š3.3
+ *æ—¥æœŸï¼š2012-08-10
+ *è¯´æ˜ï¼š
+ *ä»¥ä¸‹ä»£ç åªæ˜¯ä¸ºäº†æ–¹ä¾¿å•†æˆ·æµ‹è¯•è€Œæä¾›çš„æ ·ä¾‹ä»£ç ï¼Œå•†æˆ·å¯ä»¥æ ¹æ®è‡ªå·±ç½‘ç«™çš„éœ€è¦ï¼ŒæŒ‰ç…§æŠ€æœ¯æ–‡æ¡£ç¼–å†™,å¹¶éä¸€å®šè¦ä½¿ç”¨è¯¥ä»£ç ã€‚
+ *è¯¥ä»£ç ä»…ä¾›å­¦ä¹ å’Œç ”ç©¶æ”¯ä»˜å®æ¥å£ä½¿ç”¨ï¼Œåªæ˜¯æä¾›ä¸€ä¸ªå‚è€ƒã€‚
     
- *ÌáÊ¾£ºÈçºÎ»ñÈ¡°²È«Ğ£ÑéÂëºÍºÏ×÷Éí·İÕßID
- *1.ÓÃÄúµÄÇ©Ô¼Ö§¸¶±¦ÕËºÅµÇÂ¼Ö§¸¶±¦ÍøÕ¾(www.alipay.com)
- *2.µã»÷¡°ÉÌ¼Ò·şÎñ¡±(https://b.alipay.com/order/myOrder.htm)
- *3.µã»÷¡°²éÑ¯ºÏ×÷ÕßÉí·İ(PID)¡±¡¢¡°²éÑ¯°²È«Ğ£ÑéÂë(Key)¡±
+ *æç¤ºï¼šå¦‚ä½•è·å–å®‰å…¨æ ¡éªŒç å’Œåˆä½œèº«ä»½è€…ID
+ *1.ç”¨æ‚¨çš„ç­¾çº¦æ”¯ä»˜å®è´¦å·ç™»å½•æ”¯ä»˜å®ç½‘ç«™(www.alipay.com)
+ *2.ç‚¹å‡»â€œå•†å®¶æœåŠ¡â€(https://b.alipay.com/order/myOrder.htm)
+ *3.ç‚¹å‡»â€œæŸ¥è¯¢åˆä½œè€…èº«ä»½(PID)â€ã€â€œæŸ¥è¯¢å®‰å…¨æ ¡éªŒç (Key)â€
 
- *°²È«Ğ£ÑéÂë²é¿´Ê±£¬ÊäÈëÖ§¸¶ÃÜÂëºó£¬Ò³Ãæ³Ê»ÒÉ«µÄÏÖÏó£¬ÔõÃ´°ì£¿
- *½â¾ö·½·¨£º
- *1¡¢¼ì²éä¯ÀÀÆ÷ÅäÖÃ£¬²»ÈÃä¯ÀÀÆ÷×öµ¯¿òÆÁ±ÎÉèÖÃ
- *2¡¢¸ü»»ä¯ÀÀÆ÷»òµçÄÔ£¬ÖØĞÂµÇÂ¼²éÑ¯¡£
+ *å®‰å…¨æ ¡éªŒç æŸ¥çœ‹æ—¶ï¼Œè¾“å…¥æ”¯ä»˜å¯†ç åï¼Œé¡µé¢å‘ˆç°è‰²çš„ç°è±¡ï¼Œæ€ä¹ˆåŠï¼Ÿ
+ *è§£å†³æ–¹æ³•ï¼š
+ *1ã€æ£€æŸ¥æµè§ˆå™¨é…ç½®ï¼Œä¸è®©æµè§ˆå™¨åšå¼¹æ¡†å±è”½è®¾ç½®
+ *2ã€æ›´æ¢æµè§ˆå™¨æˆ–ç”µè„‘ï¼Œé‡æ–°ç™»å½•æŸ¥è¯¢ã€‚
  */
 
 public class WIAlipayConfig {
 
-    // ¡ı¡ı¡ı¡ı¡ı¡ı¡ı¡ı¡ı¡ıÇëÔÚÕâÀïÅäÖÃÄúµÄ»ù±¾ĞÅÏ¢¡ı¡ı¡ı¡ı¡ı¡ı¡ı¡ı¡ı¡ı¡ı¡ı¡ı¡ı¡ı
-    // ºÏ×÷Éí·İÕßID£¬ÒÔ2088¿ªÍ·ÓÉ16Î»´¿Êı×Ö×é³ÉµÄ×Ö·û´®
+    // â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“è¯·åœ¨è¿™é‡Œé…ç½®æ‚¨çš„åŸºæœ¬ä¿¡æ¯â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“
+    // åˆä½œèº«ä»½è€…IDï¼Œä»¥2088å¼€å¤´ç”±16ä½çº¯æ•°å­—ç»„æˆçš„å­—ç¬¦ä¸²
     public static String service = "mobile.securitypay.pay";
 
     public static String payment_type = "1";
@@ -35,24 +35,24 @@ public class WIAlipayConfig {
 
     public static String sell_id = "company@cndwine.com";
 
-    // ÉÌ»§µÄË½Ô¿
+    // å•†æˆ·çš„ç§é’¥
     public static String private_key = "MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBANuL88MoX+8uF9NECsvngdhVocHRLsWxe06CcawfazxYR5c+4Ps89emCZ5BXqlRjB3aME9qtFX1ZHmxj3vphj1cJcysipu4KNrur1fMVPjy9lWofNMzi8M3n2RfTepnuc4QaOjdI2fZsxlH/nmxl8xvO/4jNoEkijcDQnxE2BKrbAgMBAAECgYEAosgR5RF6kAzM/YfluWndjFlxphNDarE9i+iL/+MLz6Jk8m9cwOtiKdDWmN9nG0qRrgQOdIUA+f+p3xPtsBfF/pKfyEUhnpcZmhVEYm8t8NNQI9EC1pdc7kPpbgokQSPvm/jUTpzplH8s77ZJ+IpSTIG6pXrhfb2wHJ5WxMAhSYECQQD6Rz3wt+RTznPo3HJt8VWbmK2GYyh7DVtTMu/ZgCENJ8lqZlGdMVBZ6tDbDbmJMT1cnfhE66k71K3fydglor9fAkEA4JDaXyW5lmq39mbgDiMCRMuj5JBb3AbSP+SxGoDyDR/lodVgDv92vR+JDKi6gqys3GKJwupxYB4A6PnKRAXSBQJASUACm+pmVDTvba7fetgQUyrbVqK83U7qdK5KzqCWi9AiPhbWOiiNuNNl70bUD5guumWtnRZQAKfdf8sGjPVWBwJBAJZahcrksEB0jV0NfgAZEoDLM51pxgcoDgc3cBiFswp0i8Px4BHKm05+2by/D7lEMayQ0RnO7D/ldsiFzhYDK50CQQCvrMlbl/Oy+SgSrw/8GVp4cDMCmp7uZ2yYupt0XqqjZSHwAeUb0rCuZI8YMntbHEc2Pp8OX22Zz/47BpVBtbpM";
 
-    // Ö§¸¶±¦µÄ¹«Ô¿
+    // æ”¯ä»˜å®çš„å…¬é’¥
     public static String ali_public_key = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCnxj/9qwVfgoUh/y2W89L6BkRAFljhNhgPdyPuBV64bfQNN1PjbCzkIM6qRdKBoLPXmKKMiFYnkd6rAoprih3/PrQEB/VsW8OoM8fxn67UDYuyBTqA23MML9q1+ilIZwBC2AQ2UBVOrFXfFl75p6/B5KsiNG9zpgmLCUYuLkxpLQIDAQAB";
 
-    // ¡ü¡ü¡ü¡ü¡ü¡ü¡ü¡ü¡ü¡üÇëÔÚÕâÀïÅäÖÃÄúµÄ»ù±¾ĞÅÏ¢¡ü¡ü¡ü¡ü¡ü¡ü¡ü¡ü¡ü¡ü¡ü¡ü¡ü¡ü¡ü
+    // â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘è¯·åœ¨è¿™é‡Œé…ç½®æ‚¨çš„åŸºæœ¬ä¿¡æ¯â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘
 
-    // µ÷ÊÔÓÃ£¬´´½¨TXTÈÕÖ¾ÎÄ¼ş¼ĞÂ·¾¶
+    // è°ƒè¯•ç”¨ï¼Œåˆ›å»ºTXTæ—¥å¿—æ–‡ä»¶å¤¹è·¯å¾„
     public static String log_path = "C:\\";
 
-    // ×Ö·û±àÂë¸ñÊ½ Ä¿Ç°Ö§³Ö gbk »ò utf-8
+    // å­—ç¬¦ç¼–ç æ ¼å¼ ç›®å‰æ”¯æŒ gbk æˆ– utf-8
     public static String input_charset = "utf-8";
 
-    // Ç©Ãû·½Ê½ ²»ĞèĞŞ¸Ä
+    // ç­¾åæ–¹å¼ ä¸éœ€ä¿®æ”¹
     public static String sign_type = "RSA";
 
-    // Òì²½Í¨Öª·ÃÎÊµØÖ·URL
+    // å¼‚æ­¥é€šçŸ¥è®¿é—®åœ°å€URL
     public static String notify_url = "http://www.cndwine.com/paynotify/alipay/notify_url.aspx";
 
     public static String xm_corpcode = "00002034";
@@ -85,9 +85,9 @@ public class WIAlipayConfig {
 
     public static String sh_notify_url = "http://www.cndwine.com/paynotify/alipay/sh_notify_url.aspx";
 
-    // Ö§¸¶±¦¶à·¨ÈËÕËºÅĞÅÏ¢
+    // æ”¯ä»˜å®å¤šæ³•äººè´¦å·ä¿¡æ¯
     public static enum wi_corp_account {
-        // ·Ö±ğÎª ²¿ÃÅÄÚÂë; Ö§¸¶±¦partnerid; sell_id; private_key;
+        // åˆ†åˆ«ä¸º éƒ¨é—¨å†…ç ; æ”¯ä»˜å®partnerid; sell_id; private_key;
         XM(xm_corpcode, xm_partner, xm_sell_id, xm_private_key, xm_notify_url), BJ(bj_corpcode, bj_partner, bj_sell_id,
                 bj_private_key, bj_notify_url), SH(sh_corpcode, sh_partner, sh_sell_id, sh_private_key, sh_notify_url);
 

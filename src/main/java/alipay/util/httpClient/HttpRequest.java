@@ -2,152 +2,151 @@ package alipay.util.httpClient;
 
 import org.apache.commons.httpclient.NameValuePair;
 
-/**
- * <pre>
- * ÀàÃû£ºHttpRequest
- * ¹¦ÄÜ£ºHttpÇëÇó¶ÔÏóµÄ·â×°
- * ÏêÏ¸£º·â×°HttpÇëÇó
- * °æ±¾£º3.3
- * ÈÕÆÚ£º2011-08-17
- * ËµÃ÷£ºÒÔÏÂ´úÂëÖ»ÊÇÎªÁË·½±ãÉÌ»§²âÊÔ¶øÌá¹©µÄÑùÀı´úÂë£¬ÉÌ»§¿ÉÒÔ¸ù¾İ×Ô¼ºÍøÕ¾µÄĞèÒª£¬°´ÕÕ¼¼ÊõÎÄµµ±àĞ´,²¢·ÇÒ»¶¨ÒªÊ¹ÓÃ¸Ã´úÂë¡£
- *      ¸Ã´úÂë½ö¹©Ñ§Ï°ºÍÑĞ¾¿Ö§¸¶±¦½Ó¿ÚÊ¹ÓÃ£¬Ö»ÊÇÌá¹©Ò»¸ö²Î¿¼¡£
- * </pre>
+/* *
+ *ç±»åï¼šHttpRequest
+ *åŠŸèƒ½ï¼šHttpè¯·æ±‚å¯¹è±¡çš„å°è£…
+ *è¯¦ç»†ï¼šå°è£…Httpè¯·æ±‚
+ *ç‰ˆæœ¬ï¼š3.3
+ *æ—¥æœŸï¼š2011-08-17
+ *è¯´æ˜ï¼š
+ *ä»¥ä¸‹ä»£ç åªæ˜¯ä¸ºäº†æ–¹ä¾¿å•†æˆ·æµ‹è¯•è€Œæä¾›çš„æ ·ä¾‹ä»£ç ï¼Œå•†æˆ·å¯ä»¥æ ¹æ®è‡ªå·±ç½‘ç«™çš„éœ€è¦ï¼ŒæŒ‰ç…§æŠ€æœ¯æ–‡æ¡£ç¼–å†™,å¹¶éä¸€å®šè¦ä½¿ç”¨è¯¥ä»£ç ã€‚
+ *è¯¥ä»£ç ä»…ä¾›å­¦ä¹ å’Œç ”ç©¶æ”¯ä»˜å®æ¥å£ä½¿ç”¨ï¼Œåªæ˜¯æä¾›ä¸€ä¸ªå‚è€ƒã€‚
  */
 
 public class HttpRequest {
-    
+
     /** HTTP GET method */
-    public static final String METHOD_GET = "GET";
-    
+    public static final String METHOD_GET        = "GET";
+
     /** HTTP POST method */
-    public static final String METHOD_POST = "POST";
-    
+    public static final String METHOD_POST       = "POST";
+
     /**
-     * ´ıÇëÇóµÄurl
+     * å¾…è¯·æ±‚çš„url
      */
-    private String url = null;
-    
+    private String             url               = null;
+
     /**
-     * Ä¬ÈÏµÄÇëÇó·½Ê½
+     * é»˜è®¤çš„è¯·æ±‚æ–¹å¼
      */
-    private String method = METHOD_POST;
-    
-    private int timeout = 0;
-    
-    private int connectionTimeout = 0;
-    
+    private String             method            = METHOD_POST;
+
+    private int                timeout           = 0;
+
+    private int                connectionTimeout = 0;
+
     /**
-     * Post·½Ê½ÇëÇóÊ±×é×°ºÃµÄ²ÎÊıÖµ¶Ô
+     * Postæ–¹å¼è¯·æ±‚æ—¶ç»„è£…å¥½çš„å‚æ•°å€¼å¯¹
      */
-    private NameValuePair[] parameters = null;
-    
+    private NameValuePair[]    parameters        = null;
+
     /**
-     * Get·½Ê½ÇëÇóÊ±¶ÔÓ¦µÄ²ÎÊı
+     * Getæ–¹å¼è¯·æ±‚æ—¶å¯¹åº”çš„å‚æ•°
      */
-    private String queryString = null;
-    
+    private String             queryString       = null;
+
     /**
-     * Ä¬ÈÏµÄÇëÇó±àÂë·½Ê½
+     * é»˜è®¤çš„è¯·æ±‚ç¼–ç æ–¹å¼
      */
-    private String charset = "GBK";
-    
+    private String             charset           = "UTF-8";
+
     /**
-     * ÇëÇó·¢Æğ·½µÄipµØÖ·
+     * è¯·æ±‚å‘èµ·æ–¹çš„ipåœ°å€
      */
-    private String clientIp;
-    
+    private String             clientIp;
+
     /**
-     * ÇëÇó·µ»ØµÄ·½Ê½
+     * è¯·æ±‚è¿”å›çš„æ–¹å¼
      */
-    private HttpResultType resultType = HttpResultType.BYTES;
-    
+    private HttpResultType     resultType        = HttpResultType.BYTES;
+
     public HttpRequest(HttpResultType resultType) {
         super();
         this.resultType = resultType;
     }
-    
+
     /**
      * @return Returns the clientIp.
      */
     public String getClientIp() {
         return clientIp;
     }
-    
+
     /**
      * @param clientIp The clientIp to set.
      */
     public void setClientIp(String clientIp) {
         this.clientIp = clientIp;
     }
-    
+
     public NameValuePair[] getParameters() {
         return parameters;
     }
-    
+
     public void setParameters(NameValuePair[] parameters) {
         this.parameters = parameters;
     }
-    
+
     public String getQueryString() {
         return queryString;
     }
-    
+
     public void setQueryString(String queryString) {
         this.queryString = queryString;
     }
-    
+
     public String getUrl() {
         return url;
     }
-    
+
     public void setUrl(String url) {
         this.url = url;
     }
-    
+
     public String getMethod() {
         return method;
     }
-    
+
     public void setMethod(String method) {
         this.method = method;
     }
-    
+
     public int getConnectionTimeout() {
         return connectionTimeout;
     }
-    
+
     public void setConnectionTimeout(int connectionTimeout) {
         this.connectionTimeout = connectionTimeout;
     }
-    
+
     public int getTimeout() {
         return timeout;
     }
-    
+
     public void setTimeout(int timeout) {
         this.timeout = timeout;
     }
-    
+
     /**
      * @return Returns the charset.
      */
     public String getCharset() {
         return charset;
     }
-    
+
     /**
      * @param charset The charset to set.
      */
     public void setCharset(String charset) {
         this.charset = charset;
     }
-    
+
     public HttpResultType getResultType() {
         return resultType;
     }
-    
+
     public void setResultType(HttpResultType resultType) {
         this.resultType = resultType;
     }
-    
+
 }

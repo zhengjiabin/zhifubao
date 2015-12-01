@@ -6,7 +6,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.FormParam;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -16,153 +16,148 @@ import javax.ws.rs.core.MediaType;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import alipay.bean.Order;
 import alipay.config.AlipayConfig;
 import alipay.util.AlipayNotify;
 import alipay.util.AlipaySubmit;
 
+import com.sun.jersey.api.representation.Form;
 import com.sun.jersey.spi.resource.Singleton;
 
 /**
- * Ìá½»¶©µ¥ÖÁÖ§¸¶±¦¸¶¿î
+ * æäº¤è®¢å•è‡³æ”¯ä»˜å®ä»˜æ¬¾
  * 
  * @author Administrator
  * 
  */
 @Controller
 @Singleton
-//Spring»áÕë¶ÔÃ¿Ò»¸örequestÇëÇó¶¼Éú³ÉĞÂµÄJersey·şÎñÀàÊµÀı£¬´Ë·½·¨²»ĞèÒªÅäÖÃSpring RequsetContextListener
+// Springä¼šé’ˆå¯¹æ¯ä¸€ä¸ªrequestè¯·æ±‚éƒ½ç”Ÿæˆæ–°çš„JerseyæœåŠ¡ç±»å®ä¾‹ï¼Œæ­¤æ–¹æ³•ä¸éœ€è¦é…ç½®Spring RequsetContextListener
 @Scope("prototype")
 @Path(value = "/alipay")
 public class AlipayController {
-    
-    /**
-     * <pre>
-     * ½¨Á¢ÇëÇó£¬ÒÔ±íµ¥HTMLĞÎÊ½¹¹Ôì£¨Ä¬ÈÏ£©
-     * 
-     * [form id="alipaysubmit" name="alipaysubmit" action="https://mapi.alipay.com/gateway.do?_input_charset=gbk" method="get"]
-     *     [input type="hidden" name="payment_type" value="1"/]
-     *     [input type="hidden" name="_input_charset" value="gbk"/]
-     *     [input type="hidden" name="service" value="create_direct_pay_by_user"/]
-     *     [input type="hidden" name="sign" value="1ac2d93ba7132130e85c15abfbeeb0eb"/]
-     *     [input type="hidden" name="return_url" value="http://ÉÌ»§Íø¹ØµØÖ·/create_direct_pay_by_user-JAVA-GBK/return_url.jsp"/]
-     *     [input type="hidden" name="notify_url" value="http://ÉÌ»§Íø¹ØµØÖ·/create_direct_pay_by_user-JAVA-GBK/notify_url.jsp"/]
-     *     [input type="hidden" name="sign_type" value="MD5"/]
-     *     [input type="submit" value="È·ÈÏ" style="display:none;"]
-     * [/form]
-     * [script]document.forms['alipaysubmit'].submit();[/script]
-     * 
-     * </pre>
-     */
-    @Path(value = "/deposit")
-    @POST
-    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public String deposit(@Context
-    HttpServletRequest request, @Context
-    HttpServletResponse response, @FormParam(value = "order")
-    Order order) throws Exception {
-        Map<String, String> sParaTemp = new HashMap<String, String>();
-        //»ù±¾²ÎÊı
-        sParaTemp.put("partner", AlipayConfig.PARTNER);//Ö§¸¶±¦PID
-        sParaTemp.put("_input_charset", AlipayConfig.INPUT_CHARSET);//Í³Ò»±àÂë
-        sParaTemp.put("service", AlipayConfig.SERVICE);//½Ó¿Ú·şÎñ----¼´Ê±µ½ÕË
-        sParaTemp.put("notify_url", AlipayConfig.NOTIFY_URL);//·şÎñÆ÷Òì²½Í¨ÖªÒ³ÃæÂ·¾¶ £¬Ğèhttp://¸ñÊ½µÄÍêÕûÂ·¾¶£¬²»ÄÜ¼Ó?id=123ÕâÀà×Ô¶¨Òå²ÎÊı
-        sParaTemp.put("return_url", AlipayConfig.RETURN_URL);//Ò³ÃæÌø×ªÍ¬²½Í¨ÖªÒ³ÃæÂ·¾¶ £¬Ğèhttp://¸ñÊ½µÄÍêÕûÂ·¾¶£¬²»ÄÜ¼Ó?id=123ÕâÀà×Ô¶¨Òå²ÎÊı£¬²»ÄÜĞ´³Éhttp://localhost/
-        sParaTemp.put("show_url", AlipayConfig.SHOW_URL);//ÉÌÆ·Õ¹Ê¾µØÖ·£¬ĞèÒÔhttp://¿ªÍ·µÄÍêÕûÂ·¾¶£¬ÀıÈç£ºhttp://www.xxx.com/myorder.html
-        sParaTemp.put("anti_phishing_key", AlipaySubmit.query_timestamp());// ·ÀµöÓãÊ±¼ä´Á £¬ÈôÒªÊ¹ÓÃÇëµ÷ÓÃÀàÎÄ¼şsubmitÖĞµÄquery_timestampº¯Êı
-        sParaTemp.put("exter_invoke_ip", AlipayConfig.EXTER_INVOKE_IP);//¿Í»§¶ËµÄIPµØÖ·£¬·Ç¾ÖÓòÍøµÄÍâÍøIPµØÖ·£¬Èç£º221.0.0.1
-        
-        //ÒµÎñ²ÎÊı
-        sParaTemp.put("seller_id", AlipayConfig.SELLER_ID);//Âô¼ÒÖ§¸¶±¦ÓÃ»§ºÅ
-        //        sParaTemp.put("buyer_id", "");//Âò¼ÒÖ§¸¶±¦ÓÃ»§ºÅ
-        
-        sParaTemp.put("out_trade_no", order.getOrderId());//¶©µ¥±àºÅ
-        sParaTemp.put("subject", order.getOrderName());//¶©µ¥Ãû³Æ
-        sParaTemp.put("payment_type", AlipayConfig.PAYMENT_TYPE);//Ö§¸¶ÀàĞÍ----ÉÌÆ·ÀàĞÍ¹ºÂò
-        sParaTemp.put("total_fee", order.getPrice().toString());//¶©µ¥½ğ¶î
-        //        sParaTemp.put("price", "");//ÉÌÆ·µ¥¼Û
-        //        sParaTemp.put("quantity", "");//¹ºÂòÊıÁ¿
-        sParaTemp.put("body", order.getContent());//¶©µ¥ÄÚÈİ
-        
-        //        sParaTemp.put("paymethod", AlipayConfig.PAYMETHOD);//Ä¬ÈÏÖ§¸¶·½Ê½
-        //        sParaTemp.put("enable_paymethod", "directPay");//Ö§¸¶ÇşµÀ
-        //        sParaTemp.put("need_ctu_check", "Y");//ÍøÒøÖ§¸¶Ê±ÊÇ·ñ×öCTUĞ£Ñé
-        //        sParaTemp.put("anti_phishing_key", );//·ÀµöÓãÊ±¼ä´Á
-        //        sParaTemp.put("exter_invoke_ip", );//¿Í»§¶ËIP
-        //        sParaTemp.put("extra_common_param", );//¹«ÓÃ»Ø´«²ÎÊı
-        //        sParaTemp.put("extend_param", );//¹«ÓÃÒµÎñÀ©Õ¹²ÎÊı
-        //        sParaTemp.put("it_b_pay", 30m);//¹«ÓÃÒµÎñÀ©Õ¹²ÎÊı
-        //        sParaTemp.put("default_login", "Y");//×Ô¶¯µÇÂ¼±êÊ¶
-        //        sParaTemp.put("product_type", );//ÉÌ»§ÉêÇëµÄ²úÆ·ÀàĞÍ
-        //        sParaTemp.put("token", );//¿ì½İµÇÂ¼ÊÚÈ¨ÁîÅÆ
-        //        sParaTemp.put("sign_id_ext", );//ÉÌ»§Âò¼ÒÇ©Ô¼ºÅ
-        //        sParaTemp.put("sign_name_ext", );//ÉÌ»§Âò¼ÒÇ©Ô¼Ãû
-        //        sParaTemp.put("qr_pay_mode", 1);//É¨ÂëÖ§¸¶·½Ê½
-        
-        //½¨Á¢ÇëÇó
-        try {
-            String sHtmlText = AlipaySubmit.buildRequest(sParaTemp, "post", "È·ÈÏ");
-            return sHtmlText;
-        } catch (Exception e) {
-            String result = "{\"success\":false,\"msg\":\"Ìø×ªÊ§°Ü£¬ÇëÉÔºòÔÙÊÔ£¡\"}";
-            return result;
-        }
-    }
-    
-    /**
-     * Í¬²½Í¨ÖªµÄÒ³ÃæµÄController
-     * 
-     * @param request
-     * @param response
-     * @return
-     */
-    @Path(value = "syncNotify")
-    @POST
-    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public String syncNotify(@Context
-    HttpServletRequest request, @Context
-    HttpServletResponse response) {
-        return "return_url.jsp";
-    }
-    
-    /**
-     * Òì²½Í¨Öª¸¶¿î×´Ì¬µÄController
-     * 
-     * @param request
-     * @param response
-     * @return
-     */
-    @Path(value = "asyncNotify")
-    @POST
-    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public String asyncNotify(@Context
-    HttpServletRequest request, @Context
-    HttpServletResponse response) {
-        Map<String, String> params = new HashMap<String, String>();
-        Map<String, String[]> requestParams = request.getParameterMap();
-        for (Iterator<String> iter = requestParams.keySet().iterator(); iter.hasNext();) {
-            String name = (String)iter.next();
-            String[] values = (String[])requestParams.get(name);
-            String valueStr = "";
-            for (int i = 0; i < values.length; i++) {
-                valueStr = (i == values.length - 1) ? valueStr + values[i] : valueStr + values[i] + ",";
-            }
-            params.put(name, valueStr);
-        }
-        String tradeNo = request.getParameter("out_trade_no");
-        String tradeStatus = request.getParameter("trade_status");
-        //String notifyId = request.getParameter("notify_id");  
-        if (AlipayNotify.verify(params)) {
-            //ÑéÖ¤³É¹¦
-            if (tradeStatus.equals("TRADE_FINISHED") || tradeStatus.equals("TRADE_SUCCESS")) {
-                //ÒªĞ´µÄÂß¼­¡£×Ô¼º°´×Ô¼ºµÄÒªÇóĞ´
-                System.out.println(">>>>>³äÖµ³É¹¦" + tradeNo);
-            }
-            return "notify_url.jsp";
-        } else {
-            //ÑéÖ¤Ê§°Ü  
-            return "fail.jsp";
-        }
-        
-    }
+
+	/**
+	 * <pre>
+	 * å»ºç«‹è¯·æ±‚ï¼Œä»¥è¡¨å•HTMLå½¢å¼æ„é€ ï¼ˆé»˜è®¤ï¼‰
+	 * 
+	 * [form id="alipaysubmit" name="alipaysubmit" action="https://mapi.alipay.com/gateway.do?_input_charset=gbk" method="get"]
+	 *     [input type="hidden" name="payment_type" value="1"/]
+	 *     [input type="hidden" name="_input_charset" value="gbk"/]
+	 *     [input type="hidden" name="service" value="create_direct_pay_by_user"/]
+	 *     [input type="hidden" name="sign" value="1ac2d93ba7132130e85c15abfbeeb0eb"/]
+	 *     [input type="hidden" name="return_url" value="http://å•†æˆ·ç½‘å…³åœ°å€/create_direct_pay_by_user-JAVA-GBK/return_url.jsp"/]
+	 *     [input type="hidden" name="notify_url" value="http://å•†æˆ·ç½‘å…³åœ°å€/create_direct_pay_by_user-JAVA-GBK/notify_url.jsp"/]
+	 *     [input type="hidden" name="sign_type" value="MD5"/]
+	 *     [input type="submit" value="ç¡®è®¤" style="display:none;"]
+	 * [/form]
+	 * [script]document.forms['alipaysubmit'].submit();[/script]
+	 * 
+	 * </pre>
+	 */
+	@Path(value = "/deposit")
+	@POST
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	public String deposit(@Context HttpServletRequest request, @Context HttpServletResponse response, Form form)
+			throws Exception {
+		Map<String, String> sParaTemp = new HashMap<String, String>();
+		// åŸºæœ¬å‚æ•°
+		sParaTemp.put("partner", AlipayConfig.PARTNER);// æ”¯ä»˜å®PID
+		sParaTemp.put("_input_charset", AlipayConfig.INPUT_CHARSET);// ç»Ÿä¸€ç¼–ç 
+		sParaTemp.put("service", AlipayConfig.SERVICE);// æ¥å£æœåŠ¡----å³æ—¶åˆ°è´¦
+		sParaTemp.put("notify_url", AlipayConfig.NOTIFY_URL);// æœåŠ¡å™¨å¼‚æ­¥é€šçŸ¥é¡µé¢è·¯å¾„ï¼Œéœ€http://æ ¼å¼çš„å®Œæ•´è·¯å¾„ï¼Œä¸èƒ½åŠ ?id=123è¿™ç±»è‡ªå®šä¹‰å‚æ•°
+		sParaTemp.put("return_url", AlipayConfig.RETURN_URL);// é¡µé¢è·³è½¬åŒæ­¥é€šçŸ¥é¡µé¢è·¯å¾„ï¼Œéœ€http://æ ¼å¼çš„å®Œæ•´è·¯å¾„ï¼Œä¸èƒ½åŠ ?id=123è¿™ç±»è‡ªå®šä¹‰å‚æ•°ï¼Œä¸èƒ½å†™æˆhttp://localhost/
+//		sParaTemp.put("show_url", AlipayConfig.SHOW_URL);// å•†å“å±•ç¤ºåœ°å€ï¼Œéœ€ä»¥http://å¼€å¤´çš„å®Œæ•´è·¯å¾„ï¼Œä¾‹å¦‚ï¼šhttp://www.xxx.com/myorder.html
+		// sParaTemp.put("anti_phishing_key", AlipaySubmit.query_timestamp());// é˜²é’“é±¼æ—¶é—´æˆ³ ï¼Œè‹¥è¦ä½¿ç”¨è¯·è°ƒç”¨ç±»æ–‡ä»¶submitä¸­çš„query_timestampå‡½æ•°
+//		sParaTemp.put("exter_invoke_ip", AlipayConfig.EXTER_INVOKE_IP);// å®¢æˆ·ç«¯çš„IPåœ°å€ï¼Œéå±€åŸŸç½‘çš„å¤–ç½‘IPåœ°å€ï¼Œå¦‚ï¼š221.0.0.1
+
+		// ä¸šåŠ¡å‚æ•°
+		sParaTemp.put("seller_id", AlipayConfig.SELLER_ID);// å–å®¶æ”¯ä»˜å®ç”¨æˆ·å·
+		// sParaTemp.put("buyer_id", "");//ä¹°å®¶æ”¯ä»˜å®ç”¨æˆ·å·
+
+		sParaTemp.put("out_trade_no", form.getFirst("orderId"));// è®¢å•ç¼–å·
+		sParaTemp.put("subject", form.getFirst("orderName"));// è®¢å•åç§°
+		sParaTemp.put("payment_type", AlipayConfig.PAYMENT_TYPE);// æ”¯ä»˜ç±»å‹----å•†å“ç±»å‹è´­ä¹°
+		sParaTemp.put("total_fee", form.getFirst("price"));// è®¢å•é‡‘é¢
+		// sParaTemp.put("price", "");//å•†å“å•ä»·
+		// sParaTemp.put("quantity", "");//è´­ä¹°æ•°é‡
+		sParaTemp.put("body", form.getFirst("content"));// è®¢å•å†…å®¹
+
+		// sParaTemp.put("paymethod", AlipayConfig.PAYMETHOD);//é»˜è®¤æ”¯ä»˜æ–¹å¼
+		// sParaTemp.put("enable_paymethod", "directPay");//æ”¯ä»˜æ¸ é“
+		// sParaTemp.put("need_ctu_check", "Y");//ç½‘é“¶æ”¯ä»˜æ—¶æ˜¯å¦åšCTUæ ¡éªŒ
+		// sParaTemp.put("anti_phishing_key", );//é˜²é’“é±¼æ—¶é—´æˆ³
+		// sParaTemp.put("exter_invoke_ip", );//å®¢æˆ·ç«¯IP
+		// sParaTemp.put("extra_common_param", );//å…¬ç”¨å›ä¼ å‚æ•°
+		// sParaTemp.put("extend_param", );//å…¬ç”¨ä¸šåŠ¡æ‰©å±•å‚æ•°
+		// sParaTemp.put("it_b_pay", 30m);//å…¬ç”¨ä¸šåŠ¡æ‰©å±•å‚æ•°
+		// sParaTemp.put("default_login", "Y");//è‡ªåŠ¨ç™»å½•æ ‡è¯†
+		// sParaTemp.put("product_type", );//å•†æˆ·ç”³è¯·çš„äº§å“ç±»å‹
+		// sParaTemp.put("token", );//å¿«æ·ç™»å½•æˆæƒä»¤ç‰Œ
+		// sParaTemp.put("sign_id_ext", );//å•†æˆ·ä¹°å®¶ç­¾çº¦å·
+		// sParaTemp.put("sign_name_ext", );//å•†æˆ·ä¹°å®¶ç­¾çº¦å
+		// sParaTemp.put("qr_pay_mode", 1);//æ‰«ç æ”¯ä»˜æ–¹å¼
+
+		String result = null;
+		try {
+			result = AlipaySubmit.buildRequest(sParaTemp, "post", "ç¡®è®¤");
+		} catch (Exception e) {
+			e.printStackTrace();
+			result = "{\"success\":false,\"msg\":\"è·³è½¬å¤±è´¥ï¼Œè¯·ç¨å€™å†è¯•ï¼\"}";
+		}
+		return result;
+	}
+
+	/**
+	 * åŒæ­¥é€šçŸ¥çš„é¡µé¢çš„Controller
+	 * 
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@Path(value = "syncNotify")
+	@POST
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	public String syncNotify(@Context HttpServletRequest request, @Context HttpServletResponse response) {
+		return "return_url.jsp";
+	}
+
+	/**
+	 * å¼‚æ­¥é€šçŸ¥ä»˜æ¬¾çŠ¶æ€çš„Controller
+	 * 
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@Path(value = "asyncNotify")
+	@POST
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	public String asyncNotify(@Context HttpServletRequest request, @Context HttpServletResponse response) {
+		Map<String, String> params = new HashMap<String, String>();
+		Map<String, String[]> requestParams = request.getParameterMap();
+		for (Iterator<String> iter = requestParams.keySet().iterator(); iter.hasNext();) {
+			String name = (String) iter.next();
+			String[] values = (String[]) requestParams.get(name);
+			String valueStr = "";
+			for (int i = 0; i < values.length; i++) {
+				valueStr = (i == values.length - 1) ? valueStr + values[i] : valueStr + values[i] + ",";
+			}
+			params.put(name, valueStr);
+		}
+		String tradeNo = request.getParameter("out_trade_no");
+		String tradeStatus = request.getParameter("trade_status");
+		// String notifyId = request.getParameter("notify_id");
+		if (AlipayNotify.verify(params)) {
+			// éªŒè¯æˆåŠŸ
+			if (tradeStatus.equals("TRADE_FINISHED") || tradeStatus.equals("TRADE_SUCCESS")) {
+				// è¦å†™çš„é€»è¾‘ã€‚è‡ªå·±æŒ‰è‡ªå·±çš„è¦æ±‚å†™
+				System.out.println(">>>>>å……å€¼æˆåŠŸ" + tradeNo);
+			}
+			return "notify_url.jsp";
+		} else {
+			// éªŒè¯å¤±è´¥
+			return "fail.jsp";
+		}
+
+	}
 }

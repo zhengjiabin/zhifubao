@@ -7,24 +7,24 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  * <pre>
- * ¹¦ÄÜ£ºÖ§¸¶±¦MD5Ç©Ãû´¦ÀíºËĞÄÎÄ¼ş£¬²»ĞèÒªĞŞ¸Ä
- * °æ±¾£º3.3
- * ĞŞ¸ÄÈÕÆÚ£º2012-08-17
- * ËµÃ÷£º
- * ÒÔÏÂ´úÂëÖ»ÊÇÎªÁË·½±ãÉÌ»§²âÊÔ¶øÌá¹©µÄÑùÀı´úÂë£¬ÉÌ»§¿ÉÒÔ¸ù¾İ×Ô¼ºÍøÕ¾µÄĞèÒª£¬°´ÕÕ¼¼ÊõÎÄµµ±àĞ´,²¢·ÇÒ»¶¨ÒªÊ¹ÓÃ¸Ã´úÂë¡£
- * ¸Ã´úÂë½ö¹©Ñ§Ï°ºÍÑĞ¾¿Ö§¸¶±¦½Ó¿ÚÊ¹ÓÃ£¬Ö»ÊÇÌá¹©Ò»¸ö
+ * åŠŸèƒ½ï¼šæ”¯ä»˜å®MD5ç­¾åå¤„ç†æ ¸å¿ƒæ–‡ä»¶ï¼Œä¸éœ€è¦ä¿®æ”¹
+ * ç‰ˆæœ¬ï¼š3.3
+ * ä¿®æ”¹æ—¥æœŸï¼š2012-08-17
+ * è¯´æ˜ï¼š
+ * ä»¥ä¸‹ä»£ç åªæ˜¯ä¸ºäº†æ–¹ä¾¿å•†æˆ·æµ‹è¯•è€Œæä¾›çš„æ ·ä¾‹ä»£ç ï¼Œå•†æˆ·å¯ä»¥æ ¹æ®è‡ªå·±ç½‘ç«™çš„éœ€è¦ï¼ŒæŒ‰ç…§æŠ€æœ¯æ–‡æ¡£ç¼–å†™,å¹¶éä¸€å®šè¦ä½¿ç”¨è¯¥ä»£ç ã€‚
+ * è¯¥ä»£ç ä»…ä¾›å­¦ä¹ å’Œç ”ç©¶æ”¯ä»˜å®æ¥å£ä½¿ç”¨ï¼Œåªæ˜¯æä¾›ä¸€ä¸ª
  * </pre>
  * 
  */
 public class MD5 {
     
     /**
-     * Ç©Ãû×Ö·û´®
+     * ç­¾åå­—ç¬¦ä¸²
      * 
-     * @param text ĞèÒªÇ©ÃûµÄ×Ö·û´®
-     * @param key ÃÜÔ¿
-     * @param input_charset ±àÂë¸ñÊ½
-     * @return Ç©Ãû½á¹û
+     * @param text éœ€è¦ç­¾åçš„å­—ç¬¦ä¸²
+     * @param key å¯†é’¥
+     * @param input_charset ç¼–ç æ ¼å¼
+     * @return ç­¾åç»“æœ
      */
     public static String sign(String text, String key, String input_charset) {
         text = text + key;
@@ -32,13 +32,13 @@ public class MD5 {
     }
     
     /**
-     * Ç©Ãû×Ö·û´®
+     * ç­¾åå­—ç¬¦ä¸²
      * 
-     * @param text ĞèÒªÇ©ÃûµÄ×Ö·û´®
-     * @param sign Ç©Ãû½á¹û
-     * @param key ÃÜÔ¿
-     * @param input_charset ±àÂë¸ñÊ½
-     * @return Ç©Ãû½á¹û
+     * @param text éœ€è¦ç­¾åçš„å­—ç¬¦ä¸²
+     * @param sign ç­¾åç»“æœ
+     * @param key å¯†é’¥
+     * @param input_charset ç¼–ç æ ¼å¼
+     * @return ç­¾åç»“æœ
      */
     public static boolean verify(String text, String sign, String key, String input_charset) {
         text = text + key;
@@ -64,7 +64,7 @@ public class MD5 {
         try {
             return content.getBytes(charset);
         } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException("MD5Ç©Ãû¹ı³ÌÖĞ³öÏÖ´íÎó,Ö¸¶¨µÄ±àÂë¼¯²»¶Ô,ÄúÄ¿Ç°Ö¸¶¨µÄ±àÂë¼¯ÊÇ:" + charset);
+            throw new RuntimeException("MD5ç­¾åè¿‡ç¨‹ä¸­å‡ºç°é”™è¯¯,æŒ‡å®šçš„ç¼–ç é›†ä¸å¯¹,æ‚¨ç›®å‰æŒ‡å®šçš„ç¼–ç é›†æ˜¯:" + charset);
         }
     }
     

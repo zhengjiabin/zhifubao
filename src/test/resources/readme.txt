@@ -1,134 +1,134 @@
 
-            ¨q©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤¨r
-    ©¤©¤©¤©¤©È           Ö§¸¶±¦´úÂëÊ¾Àı½á¹¹ËµÃ÷             ©À©¤©¤©¤©¤
-            ¨t©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤¨s 
-¡¡                                                                  
-¡¡       ½Ó¿ÚÃû³Æ£ºÖ§¸¶±¦¼´Ê±µ½ÕË½»Ò×½Ó¿Ú£¨create_direct_pay_by_user£©
-¡¡ ¡¡    ´úÂë°æ±¾£º3.3
-         ¿ª·¢ÓïÑÔ£ºJAVA
-         °æ    È¨£ºÖ§¸¶±¦£¨ÖĞ¹ú£©ÍøÂç¼¼ÊõÓĞÏŞ¹«Ë¾
-¡¡       ÖÆ ×÷ Õß£ºÖ§¸¶±¦ÉÌ»§ÊÂÒµ²¿¼¼ÊõÖ§³Ö×é
-         ÁªÏµ·½Ê½£ºÉÌ»§·şÎñµç»°0571-88158090
+            â•­â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â•®
+    â”€â”€â”€â”€â”¤           æ”¯ä»˜å®ä»£ç ç¤ºä¾‹ç»“æ„è¯´æ˜             â”œâ”€â”€â”€â”€
+            â•°â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â•¯ 
+ã€€                                                                  
+ã€€       æ¥å£åç§°ï¼šæ”¯ä»˜å®å³æ—¶åˆ°è´¦äº¤æ˜“æ¥å£ï¼ˆcreate_direct_pay_by_userï¼‰
+ã€€ ã€€    ä»£ç ç‰ˆæœ¬ï¼š3.3
+         å¼€å‘è¯­è¨€ï¼šJAVA
+         ç‰ˆ    æƒï¼šæ”¯ä»˜å®ï¼ˆä¸­å›½ï¼‰ç½‘ç»œæŠ€æœ¯æœ‰é™å…¬å¸
+ã€€       åˆ¶ ä½œ è€…ï¼šæ”¯ä»˜å®å•†æˆ·äº‹ä¸šéƒ¨æŠ€æœ¯æ”¯æŒç»„
+         è”ç³»æ–¹å¼ï¼šå•†æˆ·æœåŠ¡ç”µè¯0571-88158090
 
-    ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
+    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
-©¤©¤©¤©¤©¤©¤©¤
- ´úÂëÎÄ¼ş½á¹¹
-©¤©¤©¤©¤©¤©¤©¤
+â”€â”€â”€â”€â”€â”€â”€
+ ä»£ç æ–‡ä»¶ç»“æ„
+â”€â”€â”€â”€â”€â”€â”€
 
 create_direct_pay_by_user-JAVA-GBK
-  ©¦
-  ©Àsrc©¬©¬©¬©¬©¬©¬©¬©¬©¬©¬©¬©¬©¬©¬©¬©¬ÀàÎÄ¼ş¼Ğ
-  ©¦  ©¦
-  ©¦  ©Àcom.alipay.config
-  ©¦  ©¦  ©¦
-  ©¦  ©¦  ©¸AlipayConfig.java©¬©¬©¬©¬©¬»ù´¡ÅäÖÃÀàÎÄ¼ş
-  ©¦  ©¦
-  ©¦  ©Àcom.alipay.util
-  ©¦  ©¦  ©¦
-  ©¦  ©¦  ©ÀAlipayCore.java©¬©¬©¬©¬©¬©¬Ö§¸¶±¦½Ó¿Ú¹«ÓÃº¯ÊıÀàÎÄ¼ş
-  ©¦  ©¦  ©¦
-  ©¦  ©¦  ©ÀAlipayNotify.java©¬©¬©¬©¬©¬Ö§¸¶±¦Í¨Öª´¦ÀíÀàÎÄ¼ş
-  ©¦  ©¦  ©¦
-  ©¦  ©¦  ©ÀAlipaySubmit.java©¬©¬©¬©¬©¬Ö§¸¶±¦¸÷½Ó¿ÚÇëÇóÌá½»ÀàÎÄ¼ş
-  ©¦  ©¦  ©¦
-  ©¦  ©¦  ©¸UtilDate.java©¬©¬©¬©¬©¬©¬©¬Ö§¸¶±¦×Ô¶¨Òå¶©µ¥ÀàÎÄ¼ş
-  ©¦  ©¦
-  ©¦  ©Àcom.alipay.md5
-  ©¦  ©¦  ©¦
-  ©¦  ©¦  ©¸MD5.java ©¬©¬©¬©¬©¬©¬©¬©¬©¬MD5Ç©ÃûÀàÎÄ¼ş
-  ©¦  ©¦
-  ©¦  ©¸com.alipay.util.httpClient£¨ÒÑ·â×°£©
-  ©¦      ©¦
-  ©¦      ©ÀHttpProtocolHandler.java ©¬Ö§¸¶±¦HttpClient´¦ÀíÀàÎÄ¼ş
-  ©¦      ©¦
-  ©¦      ©ÀHttpRequest.java ©¬©¬©¬©¬©¬Ö§¸¶±¦HttpClientÇëÇóÀàÎÄ¼ş
-  ©¦      ©¦
-  ©¦      ©ÀHttpResponse.java©¬©¬©¬©¬©¬Ö§¸¶±¦HttpClient·µ»ØÀàÎÄ¼ş
-  ©¦      ©¦
-  ©¦      ©¸HttpResultType.java©¬©¬©¬©¬Ö§¸¶±¦HttpClient·µ»ØµÄ½á¹û×Ö·û·½Ê½ÀàÎÄ¼ş
-  ©¦
-  ©ÀWebRoot©¬©¬©¬©¬©¬©¬©¬©¬©¬©¬©¬©¬©¬©¬Ò³ÃæÎÄ¼ş¼Ğ
-  ©¦  ©¦
-  ©¦  ©Àalipayapi.jsp©¬©¬©¬©¬©¬©¬©¬©¬©¬Ö§¸¶±¦½Ó¿ÚÈë¿ÚÎÄ¼ş
-  ©¦  ©¦
-  ©¦  ©Àindex.jsp©¬©¬©¬©¬©¬©¬©¬©¬©¬©¬©¬Ö§¸¶±¦µ÷ÊÔÈë¿ÚÒ³Ãæ
-  ©¦  ©¦
-  ©¦  ©Ànotify_url.jsp ©¬©¬©¬©¬©¬©¬©¬©¬·şÎñÆ÷Òì²½Í¨ÖªÒ³ÃæÎÄ¼ş
-  ©¦  ©¦
-  ©¦  ©Àreturn_url.jsp ©¬©¬©¬©¬©¬©¬©¬©¬Ò³ÃæÌø×ªÍ¬²½Í¨ÖªÎÄ¼ş
-  ©¦  ©¦
-  ©¦  ©¸WEB-INF
-  ©¦   	  ©¦
-  ©¦      ©¸lib£¨Èç¹ûJAVAÏîÄ¿ÖĞ°üº¬ÕâĞ©¼Ü°ü£¬Ôò²»ĞèÒªµ¼Èë£©
-  ©¦   	     ©¦
-  ©¦   	     ©Àcommons-codec-1.6.jar
-  ©¦   	     ©¦
-  ©¦   	     ©Àcommons-httpclient-3.0.1.jar
-  ©¦   	     ©¦
-  ©¦   	     ©Àcommons-logging-1.1.1.jar
-  ©¦   	     ©¦
-  ©¦   	     ©Àdom4j-1.6.1.jar
-  ©¦   	     ©¦
-  ©¦   	     ©¸jaxen-1.1-beta-6.jar
-  ©¦
-  ©¸readme.txt ©¬©¬©¬©¬©¬©¬©¬©¬©¬Ê¹ÓÃËµÃ÷ÎÄ±¾
+  â”‚
+  â”œsrcâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆç±»æ–‡ä»¶å¤¹
+  â”‚  â”‚
+  â”‚  â”œcom.alipay.config
+  â”‚  â”‚  â”‚
+  â”‚  â”‚  â””AlipayConfig.javaâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆåŸºç¡€é…ç½®ç±»æ–‡ä»¶
+  â”‚  â”‚
+  â”‚  â”œcom.alipay.util
+  â”‚  â”‚  â”‚
+  â”‚  â”‚  â”œAlipayCore.javaâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆæ”¯ä»˜å®æ¥å£å…¬ç”¨å‡½æ•°ç±»æ–‡ä»¶
+  â”‚  â”‚  â”‚
+  â”‚  â”‚  â”œAlipayNotify.javaâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆæ”¯ä»˜å®é€šçŸ¥å¤„ç†ç±»æ–‡ä»¶
+  â”‚  â”‚  â”‚
+  â”‚  â”‚  â”œAlipaySubmit.javaâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆæ”¯ä»˜å®å„æ¥å£è¯·æ±‚æäº¤ç±»æ–‡ä»¶
+  â”‚  â”‚  â”‚
+  â”‚  â”‚  â””UtilDate.javaâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆæ”¯ä»˜å®è‡ªå®šä¹‰è®¢å•ç±»æ–‡ä»¶
+  â”‚  â”‚
+  â”‚  â”œcom.alipay.md5
+  â”‚  â”‚  â”‚
+  â”‚  â”‚  â””MD5.java â”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆMD5ç­¾åç±»æ–‡ä»¶
+  â”‚  â”‚
+  â”‚  â””com.alipay.util.httpClientï¼ˆå·²å°è£…ï¼‰
+  â”‚      â”‚
+  â”‚      â”œHttpProtocolHandler.java â”ˆæ”¯ä»˜å®HttpClientå¤„ç†ç±»æ–‡ä»¶
+  â”‚      â”‚
+  â”‚      â”œHttpRequest.java â”ˆâ”ˆâ”ˆâ”ˆâ”ˆæ”¯ä»˜å®HttpClientè¯·æ±‚ç±»æ–‡ä»¶
+  â”‚      â”‚
+  â”‚      â”œHttpResponse.javaâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆæ”¯ä»˜å®HttpClientè¿”å›ç±»æ–‡ä»¶
+  â”‚      â”‚
+  â”‚      â””HttpResultType.javaâ”ˆâ”ˆâ”ˆâ”ˆæ”¯ä»˜å®HttpClientè¿”å›çš„ç»“æœå­—ç¬¦æ–¹å¼ç±»æ–‡ä»¶
+  â”‚
+  â”œWebRootâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆé¡µé¢æ–‡ä»¶å¤¹
+  â”‚  â”‚
+  â”‚  â”œalipayapi.jspâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆæ”¯ä»˜å®æ¥å£å…¥å£æ–‡ä»¶
+  â”‚  â”‚
+  â”‚  â”œindex.jspâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆæ”¯ä»˜å®è°ƒè¯•å…¥å£é¡µé¢
+  â”‚  â”‚
+  â”‚  â”œnotify_url.jsp â”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆæœåŠ¡å™¨å¼‚æ­¥é€šçŸ¥é¡µé¢æ–‡ä»¶
+  â”‚  â”‚
+  â”‚  â”œreturn_url.jsp â”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆé¡µé¢è·³è½¬åŒæ­¥é€šçŸ¥æ–‡ä»¶
+  â”‚  â”‚
+  â”‚  â””WEB-INF
+  â”‚   	  â”‚
+  â”‚      â””libï¼ˆå¦‚æœJAVAé¡¹ç›®ä¸­åŒ…å«è¿™äº›æ¶åŒ…ï¼Œåˆ™ä¸éœ€è¦å¯¼å…¥ï¼‰
+  â”‚   	     â”‚
+  â”‚   	     â”œcommons-codec-1.6.jar
+  â”‚   	     â”‚
+  â”‚   	     â”œcommons-httpclient-3.0.1.jar
+  â”‚   	     â”‚
+  â”‚   	     â”œcommons-logging-1.1.1.jar
+  â”‚   	     â”‚
+  â”‚   	     â”œdom4j-1.6.1.jar
+  â”‚   	     â”‚
+  â”‚   	     â””jaxen-1.1-beta-6.jar
+  â”‚
+  â””readme.txt â”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆä½¿ç”¨è¯´æ˜æ–‡æœ¬
 
-¡ù×¢Òâ¡ù
-ĞèÒªÅäÖÃµÄÎÄ¼şÊÇ£º
+â€»æ³¨æ„â€»
+éœ€è¦é…ç½®çš„æ–‡ä»¶æ˜¯ï¼š
 alipay_config.java
 alipayapi.jspreturn_url.jsp
 notify_url.jsp
-±¾´úÂëÊ¾Àı£¨demo£©ÖĞÄ£Äâ»ñÈ¡Ô¶³ÌHTTPĞÅÏ¢Ê¹ÓÃµÄÊÇcommons-httpclient-3.0°æ±¾µÄµÚÈı·½¼Ü°ü¡¢¼°Ö§¸¶±¦µÄhttpClient·â×°Àà¡£
-Èç¹ûÄú²»ÏëÊ¹ÓÃ¸Ã·½Ê½ÊµÏÖÄ£Äâ»ñÈ¡Ô¶³ÌHTTP¹¦ÄÜ£¬ÄÇÃ´¿ÉÒÔÓÃÆäËû·½Ê½´úÌæ£¬´ËÊ±ĞèÄú×ÔĞĞ±àĞ´´úÂë¡£
+æœ¬ä»£ç ç¤ºä¾‹ï¼ˆdemoï¼‰ä¸­æ¨¡æ‹Ÿè·å–è¿œç¨‹HTTPä¿¡æ¯ä½¿ç”¨çš„æ˜¯commons-httpclient-3.0ç‰ˆæœ¬çš„ç¬¬ä¸‰æ–¹æ¶åŒ…ã€åŠæ”¯ä»˜å®çš„httpClientå°è£…ç±»ã€‚
+å¦‚æœæ‚¨ä¸æƒ³ä½¿ç”¨è¯¥æ–¹å¼å®ç°æ¨¡æ‹Ÿè·å–è¿œç¨‹HTTPåŠŸèƒ½ï¼Œé‚£ä¹ˆå¯ä»¥ç”¨å…¶ä»–æ–¹å¼ä»£æ›¿ï¼Œæ­¤æ—¶éœ€æ‚¨è‡ªè¡Œç¼–å†™ä»£ç ã€‚
 
 
-©¤©¤©¤©¤©¤©¤©¤©¤©¤
- ÀàÎÄ¼şº¯Êı½á¹¹
-©¤©¤©¤©¤©¤©¤©¤©¤©¤
+â”€â”€â”€â”€â”€â”€â”€â”€â”€
+ ç±»æ–‡ä»¶å‡½æ•°ç»“æ„
+â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 AlipayCore.java
 
 public static Map paraFilter(Map<String, String> sArray)
-¹¦ÄÜ£º³ıÈ¥Êı×éÖĞµÄ¿ÕÖµºÍÇ©Ãû²ÎÊı
-ÊäÈë£ºMap<String, String> sArray ÒªÇ©ÃûµÄÊı×é
-Êä³ö£ºMap<String, String> È¥µô¿ÕÖµÓëÇ©Ãû²ÎÊıºóµÄĞÂÇ©Ãû²ÎÊı×é
+åŠŸèƒ½ï¼šé™¤å»æ•°ç»„ä¸­çš„ç©ºå€¼å’Œç­¾åå‚æ•°
+è¾“å…¥ï¼šMap<String, String> sArray è¦ç­¾åçš„æ•°ç»„
+è¾“å‡ºï¼šMap<String, String> å»æ‰ç©ºå€¼ä¸ç­¾åå‚æ•°åçš„æ–°ç­¾åå‚æ•°ç»„
 
 public static String createLinkString(Map<String, String> params)
-¹¦ÄÜ£º°ÑÊı×éËùÓĞÔªËØ£¬°´ÕÕ¡°²ÎÊı=²ÎÊıÖµ¡±µÄÄ£Ê½ÓÃ¡°&¡±×Ö·ûÆ´½Ó³É×Ö·û´®
-ÊäÈë£ºMap<String, String> params ĞèÒªÆ´½ÓµÄÊı×é
-Êä³ö£ºString Æ´½ÓÍê³ÉÒÔºóµÄ×Ö·û´®
+åŠŸèƒ½ï¼šæŠŠæ•°ç»„æ‰€æœ‰å…ƒç´ ï¼ŒæŒ‰ç…§â€œå‚æ•°=å‚æ•°å€¼â€çš„æ¨¡å¼ç”¨â€œ&â€å­—ç¬¦æ‹¼æ¥æˆå­—ç¬¦ä¸²
+è¾“å…¥ï¼šMap<String, String> params éœ€è¦æ‹¼æ¥çš„æ•°ç»„
+è¾“å‡ºï¼šString æ‹¼æ¥å®Œæˆä»¥åçš„å­—ç¬¦ä¸²
 
 public static void logResult(String sWord)
-¹¦ÄÜ£ºĞ´ÈÕÖ¾£¬·½±ã²âÊÔ£¨¿´ÍøÕ¾ĞèÇó£¬Ò²¿ÉÒÔ¸Ä³É´æÈëÊı¾İ¿â£©
-ÊäÈë£ºString sWord ÒªĞ´ÈëÈÕÖ¾ÀïµÄÎÄ±¾ÄÚÈİ
+åŠŸèƒ½ï¼šå†™æ—¥å¿—ï¼Œæ–¹ä¾¿æµ‹è¯•ï¼ˆçœ‹ç½‘ç«™éœ€æ±‚ï¼Œä¹Ÿå¯ä»¥æ”¹æˆå­˜å…¥æ•°æ®åº“ï¼‰
+è¾“å…¥ï¼šString sWord è¦å†™å…¥æ—¥å¿—é‡Œçš„æ–‡æœ¬å†…å®¹
 
 public static String getAbstract(String strFilePath, String file_digest_type) throws IOException
-¹¦ÄÜ£ºÉú³ÉÎÄ¼şÕªÒª
-ÊäÈë£ºString strFilePath ÎÄ¼şÂ·¾¶
-      String file_digest_type ÕªÒªËã·¨
-Êä³ö£ºString ÎÄ¼şÕªÒª½á¹û
+åŠŸèƒ½ï¼šç”Ÿæˆæ–‡ä»¶æ‘˜è¦
+è¾“å…¥ï¼šString strFilePath æ–‡ä»¶è·¯å¾„
+      String file_digest_type æ‘˜è¦ç®—æ³•
+è¾“å‡ºï¼šString æ–‡ä»¶æ‘˜è¦ç»“æœ
 
-©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­
+â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰
 
 MD5.java
 
 public static String sign(String text, String key, String input_charset)
-¹¦ÄÜ£ºMD5Ç©Ãû
-ÊäÈë£ºString text Ã÷ÎÄ
-      String key Ë½Ô¿
-      String input_charset ±àÂë¸ñÊ½
-Êä³ö£ºString Ç©Ãû½á¹û
+åŠŸèƒ½ï¼šMD5ç­¾å
+è¾“å…¥ï¼šString text æ˜æ–‡
+      String key ç§é’¥
+      String input_charset ç¼–ç æ ¼å¼
+è¾“å‡ºï¼šString ç­¾åç»“æœ
 
 public static boolean verify(String text, String sign, String key, String input_charset)
-¹¦ÄÜ£ºMD5ÑéÇ©Ãû¼ì²é
-ÊäÈë£ºString text Ã÷ÎÄ
-      String sign Ö§¸¶±¦µÄÇ©ÃûÖµ
-      String key Ë½Ô¿
-      String input_charset ±àÂë¸ñÊ½
-Êä³ö£ºboolean Ç©Ãû½á¹û
+åŠŸèƒ½ï¼šMD5éªŒç­¾åæ£€æŸ¥
+è¾“å…¥ï¼šString text æ˜æ–‡
+      String sign æ”¯ä»˜å®çš„ç­¾åå€¼
+      String key ç§é’¥
+      String input_charset ç¼–ç æ ¼å¼
+è¾“å‡ºï¼šboolean ç­¾åç»“æœ
 
-©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­
+â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰
 
 
 
@@ -136,101 +136,101 @@ public static boolean verify(String text, String sign, String key, String input_
 AlipayNotify.java
 
 public static boolean verify(Map<String, String> params)
-¹¦ÄÜ£º¸ù¾İ·´À¡»ØÀ´µÄĞÅÏ¢£¬Éú³ÉÇ©Ãû½á¹û
-ÊäÈë£ºMap<String, String>  Params Í¨Öª·µ»ØÀ´µÄ²ÎÊıÊı×é
-Êä³ö£ºboolean ÑéÖ¤½á¹û
+åŠŸèƒ½ï¼šæ ¹æ®åé¦ˆå›æ¥çš„ä¿¡æ¯ï¼Œç”Ÿæˆç­¾åç»“æœ
+è¾“å…¥ï¼šMap<String, String>  Params é€šçŸ¥è¿”å›æ¥çš„å‚æ•°æ•°ç»„
+è¾“å‡ºï¼šboolean éªŒè¯ç»“æœ
 
 private static boolean getSignVeryfy(Map<String, String> Params, String sign)
-¹¦ÄÜ£º¸ù¾İ·´À¡»ØÀ´µÄĞÅÏ¢£¬ÑéÖ¤Ç©Ãû
-ÊäÈë£ºMap<String, String>  Params Í¨Öª·µ»ØÀ´µÄ²ÎÊıÊı×é
-      String sign Ö§¸¶±¦µÄÇ©ÃûÖµ
-Êä³ö£ºboolean Ç©Ãû½á¹û
+åŠŸèƒ½ï¼šæ ¹æ®åé¦ˆå›æ¥çš„ä¿¡æ¯ï¼ŒéªŒè¯ç­¾å
+è¾“å…¥ï¼šMap<String, String>  Params é€šçŸ¥è¿”å›æ¥çš„å‚æ•°æ•°ç»„
+      String sign æ”¯ä»˜å®çš„ç­¾åå€¼
+è¾“å‡ºï¼šboolean ç­¾åç»“æœ
 
 private static String verifyResponse(String notify_id)
-¹¦ÄÜ£º»ñÈ¡Ô¶³Ì·şÎñÆ÷ATN½á¹û,ÑéÖ¤·µ»ØURL
-ÊäÈë£ºString notify_id ÑéÖ¤Í¨ÖªID
-Êä³ö£ºString ÑéÖ¤½á¹û
+åŠŸèƒ½ï¼šè·å–è¿œç¨‹æœåŠ¡å™¨ATNç»“æœ,éªŒè¯è¿”å›URL
+è¾“å…¥ï¼šString notify_id éªŒè¯é€šçŸ¥ID
+è¾“å‡ºï¼šString éªŒè¯ç»“æœ
 
 private static String checkUrl(String urlvalue)
-¹¦ÄÜ£º»ñÈ¡Ô¶³Ì·şÎñÆ÷ATN½á¹û
-ÊäÈë£ºString urlvalue Ö¸¶¨URLÂ·¾¶µØÖ·
-Êä³ö£ºString ·şÎñÆ÷ATN½á¹û×Ö·û´®
+åŠŸèƒ½ï¼šè·å–è¿œç¨‹æœåŠ¡å™¨ATNç»“æœ
+è¾“å…¥ï¼šString urlvalue æŒ‡å®šURLè·¯å¾„åœ°å€
+è¾“å‡ºï¼šString æœåŠ¡å™¨ATNç»“æœå­—ç¬¦ä¸²
 
-©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­
+â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰
 
 AlipaySubmit.java
 
 public static String buildRequestMysign(Map<String, String> sPara)
-¹¦ÄÜ£ºÉú³ÉÇ©Ãû½á¹û
-ÊäÈë£ºMap<String, String> sPara ÒªÇ©ÃûµÄÊı×é
-Êä³ö£ºString Ç©Ãû½á¹û
+åŠŸèƒ½ï¼šç”Ÿæˆç­¾åç»“æœ
+è¾“å…¥ï¼šMap<String, String> sPara è¦ç­¾åçš„æ•°ç»„
+è¾“å‡ºï¼šString ç­¾åç»“æœ
 
 private static Map<String, String> buildRequestPara(Map<String, String> sParaTemp)
-¹¦ÄÜ£ºÉú³ÉÒªÇëÇó¸øÖ§¸¶±¦µÄ²ÎÊıÊı×é
-ÊäÈë£ºMap<String, String> sParaTemp ÇëÇóÇ°µÄ²ÎÊıÊı×é
-Êä³ö£ºMap<String, String> ÒªÇëÇóµÄ²ÎÊıÊı×é
+åŠŸèƒ½ï¼šç”Ÿæˆè¦è¯·æ±‚ç»™æ”¯ä»˜å®çš„å‚æ•°æ•°ç»„
+è¾“å…¥ï¼šMap<String, String> sParaTemp è¯·æ±‚å‰çš„å‚æ•°æ•°ç»„
+è¾“å‡ºï¼šMap<String, String> è¦è¯·æ±‚çš„å‚æ•°æ•°ç»„
 
 public static String buildRequest(Map<String, String> sParaTemp, String strMethod, String strButtonName)
-¹¦ÄÜ£º½¨Á¢ÇëÇó£¬ÒÔ±íµ¥HTMLĞÎÊ½¹¹Ôì£¨Ä¬ÈÏ£©
-ÊäÈë£ºMap<String, String> sParaTemp ÇëÇó²ÎÊıÊı×é
-      String strMethod Ìá½»·½Ê½¡£Á½¸öÖµ¿ÉÑ¡£ºpost¡¢get
-      String strButtonName È·ÈÏ°´Å¥ÏÔÊ¾ÎÄ×Ö
-Êä³ö£ºString Ìá½»±íµ¥HTMLÎÄ±¾
+åŠŸèƒ½ï¼šå»ºç«‹è¯·æ±‚ï¼Œä»¥è¡¨å•HTMLå½¢å¼æ„é€ ï¼ˆé»˜è®¤ï¼‰
+è¾“å…¥ï¼šMap<String, String> sParaTemp è¯·æ±‚å‚æ•°æ•°ç»„
+      String strMethod æäº¤æ–¹å¼ã€‚ä¸¤ä¸ªå€¼å¯é€‰ï¼špostã€get
+      String strButtonName ç¡®è®¤æŒ‰é’®æ˜¾ç¤ºæ–‡å­—
+è¾“å‡ºï¼šString æäº¤è¡¨å•HTMLæ–‡æœ¬
 
 public static String buildRequest(Map<String, String> sParaTemp, String strMethod, String strButtonName, String strParaFileName)
-¹¦ÄÜ£º½¨Á¢ÇëÇó£¬ÒÔ±íµ¥HTMLĞÎÊ½¹¹Ôì£¬´øÎÄ¼şÉÏ´«¹¦ÄÜ
-ÊäÈë£ºMap<String, String> sParaTemp ÇëÇó²ÎÊıÊı×é
-      String strMethod Ìá½»·½Ê½¡£Á½¸öÖµ¿ÉÑ¡£ºpost¡¢get
-      String strButtonName È·ÈÏ°´Å¥ÏÔÊ¾ÎÄ×Ö
-      String strParaFileName ÎÄ¼şÉÏ´«µÄ²ÎÊıÃû
-Êä³ö£ºString Ìá½»±íµ¥HTMLÎÄ±¾
+åŠŸèƒ½ï¼šå»ºç«‹è¯·æ±‚ï¼Œä»¥è¡¨å•HTMLå½¢å¼æ„é€ ï¼Œå¸¦æ–‡ä»¶ä¸Šä¼ åŠŸèƒ½
+è¾“å…¥ï¼šMap<String, String> sParaTemp è¯·æ±‚å‚æ•°æ•°ç»„
+      String strMethod æäº¤æ–¹å¼ã€‚ä¸¤ä¸ªå€¼å¯é€‰ï¼špostã€get
+      String strButtonName ç¡®è®¤æŒ‰é’®æ˜¾ç¤ºæ–‡å­—
+      String strParaFileName æ–‡ä»¶ä¸Šä¼ çš„å‚æ•°å
+è¾“å‡ºï¼šString æäº¤è¡¨å•HTMLæ–‡æœ¬
 
 public static String buildRequest(String strParaFileName, String strFilePath,Map<String, String> sParaTemp) throws Exception
-¹¦ÄÜ£º½¨Á¢ÇëÇó£¬ÒÔÄ£ÄâÔ¶³ÌHTTPµÄPOSTÇëÇó·½Ê½¹¹Ôì²¢»ñÈ¡Ö§¸¶±¦µÄ´¦Àí½á¹û
-ÊäÈë£ºString strParaFileName ÎÄ¼şÀàĞÍµÄ²ÎÊıÃû
-      String strFilePath ÎÄ¼şÂ·¾¶
-      Map<String, String> sParaTemp ÇëÇó²ÎÊıÊı×é
-Êä³ö£ºString Ö§¸¶±¦´¦Àí½á¹û
+åŠŸèƒ½ï¼šå»ºç«‹è¯·æ±‚ï¼Œä»¥æ¨¡æ‹Ÿè¿œç¨‹HTTPçš„POSTè¯·æ±‚æ–¹å¼æ„é€ å¹¶è·å–æ”¯ä»˜å®çš„å¤„ç†ç»“æœ
+è¾“å…¥ï¼šString strParaFileName æ–‡ä»¶ç±»å‹çš„å‚æ•°å
+      String strFilePath æ–‡ä»¶è·¯å¾„
+      Map<String, String> sParaTemp è¯·æ±‚å‚æ•°æ•°ç»„
+è¾“å‡ºï¼šString æ”¯ä»˜å®å¤„ç†ç»“æœ
 
 private static NameValuePair[] generatNameValuePair(Map<String, String> properties)
-¹¦ÄÜ£ºMAPÀàĞÍÊı×é×ª»»³ÉNameValuePairÀàĞÍ
-ÊäÈë£ºMap<String, String> sParaTemp MAPÀàĞÍÊı×é
-Êä³ö£ºNameValuePair[] NameValuePairÀàĞÍÊı×é
+åŠŸèƒ½ï¼šMAPç±»å‹æ•°ç»„è½¬æ¢æˆNameValuePairç±»å‹
+è¾“å…¥ï¼šMap<String, String> sParaTemp MAPç±»å‹æ•°ç»„
+è¾“å‡ºï¼šNameValuePair[] NameValuePairç±»å‹æ•°ç»„
 
 public static String query_timestamp()
-¹¦ÄÜ£ºÓÃÓÚ·ÀµöÓã£¬µ÷ÓÃ½Ó¿Úquery_timestampÀ´»ñÈ¡Ê±¼ä´ÁµÄ´¦Àíº¯Êı
-Êä³ö£ºString Ê±¼ä´Á×Ö·û´®
+åŠŸèƒ½ï¼šç”¨äºé˜²é’“é±¼ï¼Œè°ƒç”¨æ¥å£query_timestampæ¥è·å–æ—¶é—´æˆ³çš„å¤„ç†å‡½æ•°
+è¾“å‡ºï¼šString æ—¶é—´æˆ³å­—ç¬¦ä¸²
 
-©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­
+â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰
 
 UtilDate.java
 
 public  static String getOrderNum()
-¹¦ÄÜ£º×Ô¶¯Éú³ö¶©µ¥ºÅ£¬¸ñÊ½yyyyMMddHHmmss
-Êä³ö£ºString ¶©µ¥ºÅ
+åŠŸèƒ½ï¼šè‡ªåŠ¨ç”Ÿå‡ºè®¢å•å·ï¼Œæ ¼å¼yyyyMMddHHmmss
+è¾“å‡ºï¼šString è®¢å•å·
 
 public  static String getDateFormatter()
-¹¦ÄÜ£º»ñÈ¡ÈÕÆÚ£¬¸ñÊ½£ºyyyy-MM-dd HH:mm:ss
-Êä³ö£ºString ÈÕÆÚ
+åŠŸèƒ½ï¼šè·å–æ—¥æœŸï¼Œæ ¼å¼ï¼šyyyy-MM-dd HH:mm:ss
+è¾“å‡ºï¼šString æ—¥æœŸ
 
 public static String getDate()
-¹¦ÄÜ£º»ñÈ¡ÈÕÆÚ£¬¸ñÊ½£ºyyyyMMdd
-Êä³ö£ºString ÈÕÆÚ
+åŠŸèƒ½ï¼šè·å–æ—¥æœŸï¼Œæ ¼å¼ï¼šyyyyMMdd
+è¾“å‡ºï¼šString æ—¥æœŸ
 
 public static String getThree()
-¹¦ÄÜ£º²úÉúËæ»úµÄÈıÎ»Êı
-Êä³ö£ºString Ëæ»úÈıÎ»Êı
+åŠŸèƒ½ï¼šäº§ç”Ÿéšæœºçš„ä¸‰ä½æ•°
+è¾“å‡ºï¼šString éšæœºä¸‰ä½æ•°
 
-©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­
+â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰
 
 
-©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
- ³öÏÖÎÊÌâ£¬ÇóÖú·½·¨
-©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+ å‡ºç°é—®é¢˜ï¼Œæ±‚åŠ©æ–¹æ³•
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
-Èç¹ûÔÚ¼¯³ÉÖ§¸¶±¦½Ó¿ÚÊ±£¬ÓĞÒÉÎÊ»ò³öÏÖÎÊÌâ£¬¿ÉÊ¹ÓÃÏÂÃæµÄÁ´½Ó£¬Ìá½»ÉêÇë¡£
+å¦‚æœåœ¨é›†æˆæ”¯ä»˜å®æ¥å£æ—¶ï¼Œæœ‰ç–‘é—®æˆ–å‡ºç°é—®é¢˜ï¼Œå¯ä½¿ç”¨ä¸‹é¢çš„é“¾æ¥ï¼Œæäº¤ç”³è¯·ã€‚
 https://b.alipay.com/support/helperApply.htm?action=supportHome
-ÎÒÃÇ»áÓĞ×¨ÃÅµÄ¼¼ÊõÖ§³ÖÈËÔ±ÎªÄú´¦Àí
+æˆ‘ä»¬ä¼šæœ‰ä¸“é—¨çš„æŠ€æœ¯æ”¯æŒäººå‘˜ä¸ºæ‚¨å¤„ç†
 
 
 

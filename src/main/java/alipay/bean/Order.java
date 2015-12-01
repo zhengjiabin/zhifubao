@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * ∂©µ•
+ * ËÆ¢Âçï
  * 
  * @author Administrator
  * 

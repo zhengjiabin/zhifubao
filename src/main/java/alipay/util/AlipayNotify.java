@@ -12,35 +12,35 @@ import alipay.sign.RSA;
 
 /**
  * <pre>
- * ÀàÃû£ºAlipayNotify
- * ¹¦ÄÜ£ºÖ§¸¶±¦Í¨Öª´¦ÀíÀàÏêÏ¸£º´¦ÀíÖ§¸¶±¦¸÷½Ó¿ÚÍ¨Öª·µ»Ø
- * °æ±¾£º3.3
- * ÈÕÆÚ£º2012-08-17
- * ËµÃ÷£ºÒÔÏÂ´úÂëÖ»ÊÇÎªÁË·½±ãÉÌ»§²âÊÔ¶øÌá¹©µÄÑùÀı´úÂë£¬ÉÌ»§¿ÉÒÔ¸ù¾İ×Ô¼ºÍøÕ¾µÄĞèÒª£¬°´ÕÕ¼¼ÊõÎÄµµ±àĞ´,²¢·ÇÒ»¶¨ÒªÊ¹ÓÃ¸Ã´úÂë¡£
- *      ¸Ã´úÂë½ö¹©Ñ§Ï°ºÍÑĞ¾¿Ö§¸¶±¦½Ó¿ÚÊ¹ÓÃ£¬Ö»ÊÇÌá¹©Ò»¸ö²Î¿¼
+ * ç±»åï¼šAlipayNotify
+ * åŠŸèƒ½ï¼šæ”¯ä»˜å®é€šçŸ¥å¤„ç†ç±»è¯¦ç»†ï¼šå¤„ç†æ”¯ä»˜å®å„æ¥å£é€šçŸ¥è¿”å›
+ * ç‰ˆæœ¬ï¼š3.3
+ * æ—¥æœŸï¼š2012-08-17
+ * è¯´æ˜ï¼šä»¥ä¸‹ä»£ç åªæ˜¯ä¸ºäº†æ–¹ä¾¿å•†æˆ·æµ‹è¯•è€Œæä¾›çš„æ ·ä¾‹ä»£ç ï¼Œå•†æˆ·å¯ä»¥æ ¹æ®è‡ªå·±ç½‘ç«™çš„éœ€è¦ï¼ŒæŒ‰ç…§æŠ€æœ¯æ–‡æ¡£ç¼–å†™,å¹¶éä¸€å®šè¦ä½¿ç”¨è¯¥ä»£ç ã€‚
+ *      è¯¥ä»£ç ä»…ä¾›å­¦ä¹ å’Œç ”ç©¶æ”¯ä»˜å®æ¥å£ä½¿ç”¨ï¼Œåªæ˜¯æä¾›ä¸€ä¸ªå‚è€ƒ
  *      
- * ************************×¢Òâ*************************
- * µ÷ÊÔÍ¨Öª·µ»ØÊ±£¬¿É²é¿´»ò¸ÄĞ´logÈÕÖ¾µÄĞ´ÈëTXTÀïµÄÊı¾İ£¬À´¼ì²éÍ¨Öª·µ»ØÊÇ·ñÕı³£
+ * ************************æ³¨æ„*************************
+ * è°ƒè¯•é€šçŸ¥è¿”å›æ—¶ï¼Œå¯æŸ¥çœ‹æˆ–æ”¹å†™logæ—¥å¿—çš„å†™å…¥TXTé‡Œçš„æ•°æ®ï¼Œæ¥æ£€æŸ¥é€šçŸ¥è¿”å›æ˜¯å¦æ­£å¸¸
  * </pre>
  */
 public class AlipayNotify {
     
     /**
-     * Ö§¸¶±¦ÏûÏ¢ÑéÖ¤µØÖ·
+     * æ”¯ä»˜å®æ¶ˆæ¯éªŒè¯åœ°å€
      */
     private static final String HTTPS_VERIFY_URL = "https://mapi.alipay.com/gateway.do?service=notify_verify&";
     
     /**
-     * ÑéÖ¤ÏûÏ¢ÊÇ·ñÊÇÖ§¸¶±¦·¢³öµÄºÏ·¨ÏûÏ¢
+     * éªŒè¯æ¶ˆæ¯æ˜¯å¦æ˜¯æ”¯ä»˜å®å‘å‡ºçš„åˆæ³•æ¶ˆæ¯
      * 
-     * @param params Í¨Öª·µ»ØÀ´µÄ²ÎÊıÊı×é
-     * @return ÑéÖ¤½á¹û
+     * @param params é€šçŸ¥è¿”å›æ¥çš„å‚æ•°æ•°ç»„
+     * @return éªŒè¯ç»“æœ
      */
     public static boolean verify(Map<String, String> params) {
         
-        //ÅĞ¶ÏresponsetTxtÊÇ·ñÎªtrue£¬isSignÊÇ·ñÎªtrue
-        //responsetTxtµÄ½á¹û²»ÊÇtrue£¬Óë·şÎñÆ÷ÉèÖÃÎÊÌâ¡¢ºÏ×÷Éí·İÕßID¡¢notify_idÒ»·ÖÖÓÊ§Ğ§ÓĞ¹Ø
-        //isSign²»ÊÇtrue£¬Óë°²È«Ğ£ÑéÂë¡¢ÇëÇóÊ±µÄ²ÎÊı¸ñÊ½£¨Èç£º´ø×Ô¶¨Òå²ÎÊıµÈ£©¡¢±àÂë¸ñÊ½ÓĞ¹Ø
+        //åˆ¤æ–­responsetTxtæ˜¯å¦ä¸ºtrueï¼ŒisSignæ˜¯å¦ä¸ºtrue
+        //responsetTxtçš„ç»“æœä¸æ˜¯trueï¼Œä¸æœåŠ¡å™¨è®¾ç½®é—®é¢˜ã€åˆä½œèº«ä»½è€…IDã€notify_idä¸€åˆ†é’Ÿå¤±æ•ˆæœ‰å…³
+        //isSignä¸æ˜¯trueï¼Œä¸å®‰å…¨æ ¡éªŒç ã€è¯·æ±‚æ—¶çš„å‚æ•°æ ¼å¼ï¼ˆå¦‚ï¼šå¸¦è‡ªå®šä¹‰å‚æ•°ç­‰ï¼‰ã€ç¼–ç æ ¼å¼æœ‰å…³
         String responseTxt = "true";
         if (params.get("notify_id") != null) {
             String notify_id = params.get("notify_id");
@@ -52,8 +52,8 @@ public class AlipayNotify {
         }
         boolean isSign = getSignVeryfy(params, sign);
         
-        //Ğ´ÈÕÖ¾¼ÇÂ¼£¨ÈôÒªµ÷ÊÔ£¬ÇëÈ¡ÏûÏÂÃæÁ½ĞĞ×¢ÊÍ£©
-        //String sWord = "responseTxt=" + responseTxt + "\n isSign=" + isSign + "\n ·µ»Ø»ØÀ´µÄ²ÎÊı£º" + AlipayCore.createLinkString(params);
+        //å†™æ—¥å¿—è®°å½•ï¼ˆè‹¥è¦è°ƒè¯•ï¼Œè¯·å–æ¶ˆä¸‹é¢ä¸¤è¡Œæ³¨é‡Šï¼‰
+        //String sWord = "responseTxt=" + responseTxt + "\n isSign=" + isSign + "\n è¿”å›å›æ¥çš„å‚æ•°ï¼š" + AlipayCore.createLinkString(params);
         //AlipayCore.logResult(sWord);
         
         if (isSign && responseTxt.equals("true")) {
@@ -64,18 +64,18 @@ public class AlipayNotify {
     }
     
     /**
-     * ¸ù¾İ·´À¡»ØÀ´µÄĞÅÏ¢£¬Éú³ÉÇ©Ãû½á¹û
+     * æ ¹æ®åé¦ˆå›æ¥çš„ä¿¡æ¯ï¼Œç”Ÿæˆç­¾åç»“æœ
      * 
-     * @param Params Í¨Öª·µ»ØÀ´µÄ²ÎÊıÊı×é
-     * @param sign ±È¶ÔµÄÇ©Ãû½á¹û
-     * @return Éú³ÉµÄÇ©Ãû½á¹û
+     * @param Params é€šçŸ¥è¿”å›æ¥çš„å‚æ•°æ•°ç»„
+     * @param sign æ¯”å¯¹çš„ç­¾åç»“æœ
+     * @return ç”Ÿæˆçš„ç­¾åç»“æœ
      */
     private static boolean getSignVeryfy(Map<String, String> Params, String sign) {
-        //¹ıÂË¿ÕÖµ¡¢signÓësign_type²ÎÊı
+        //è¿‡æ»¤ç©ºå€¼ã€signä¸sign_typeå‚æ•°
         Map<String, String> sParaNew = AlipayCore.paraFilter(Params);
-        //»ñÈ¡´ıÇ©Ãû×Ö·û´®
+        //è·å–å¾…ç­¾åå­—ç¬¦ä¸²
         String preSignStr = AlipayCore.createLinkString(sParaNew);
-        //»ñµÃÇ©ÃûÑéÖ¤½á¹û
+        //è·å¾—ç­¾åéªŒè¯ç»“æœ
         boolean isSign = false;
         if (AlipayConfig.SIGN_TYPE.equals("MD5")) {
             isSign = MD5.verify(preSignStr, sign, AlipayConfig.PRIVATE_KEY, AlipayConfig.INPUT_CHARSET);
@@ -86,14 +86,14 @@ public class AlipayNotify {
     }
     
     /**
-     * »ñÈ¡Ô¶³Ì·şÎñÆ÷ATN½á¹û,ÑéÖ¤·µ»ØURL
+     * è·å–è¿œç¨‹æœåŠ¡å™¨ATNç»“æœ,éªŒè¯è¿”å›URL
      * 
-     * @param notify_id Í¨ÖªĞ£ÑéID
-     * @return ·şÎñÆ÷ATN½á¹û ÑéÖ¤½á¹û¼¯£º invalidÃüÁî²ÎÊı²»¶Ô ³öÏÖÕâ¸ö´íÎó£¬Çë¼ì²â·µ»Ø´¦ÀíÖĞpartnerºÍkeyÊÇ·ñÎª¿Õ true ·µ»ØÕıÈ·ĞÅÏ¢ false
-     *         Çë¼ì²é·À»ğÇ½»òÕßÊÇ·şÎñÆ÷×èÖ¹¶Ë¿ÚÎÊÌâÒÔ¼°ÑéÖ¤Ê±¼äÊÇ·ñ³¬¹ıÒ»·ÖÖÓ
+     * @param notify_id é€šçŸ¥æ ¡éªŒID
+     * @return æœåŠ¡å™¨ATNç»“æœ éªŒè¯ç»“æœé›†ï¼š invalidå‘½ä»¤å‚æ•°ä¸å¯¹ å‡ºç°è¿™ä¸ªé”™è¯¯ï¼Œè¯·æ£€æµ‹è¿”å›å¤„ç†ä¸­partnerå’Œkeyæ˜¯å¦ä¸ºç©º true è¿”å›æ­£ç¡®ä¿¡æ¯ false
+     *         è¯·æ£€æŸ¥é˜²ç«å¢™æˆ–è€…æ˜¯æœåŠ¡å™¨é˜»æ­¢ç«¯å£é—®é¢˜ä»¥åŠéªŒè¯æ—¶é—´æ˜¯å¦è¶…è¿‡ä¸€åˆ†é’Ÿ
      */
     private static String verifyResponse(String notify_id) {
-        //»ñÈ¡Ô¶³Ì·şÎñÆ÷ATN½á¹û£¬ÑéÖ¤ÊÇ·ñÊÇÖ§¸¶±¦·şÎñÆ÷·¢À´µÄÇëÇó
+        //è·å–è¿œç¨‹æœåŠ¡å™¨ATNç»“æœï¼ŒéªŒè¯æ˜¯å¦æ˜¯æ”¯ä»˜å®æœåŠ¡å™¨å‘æ¥çš„è¯·æ±‚
         
         String partner = AlipayConfig.PARTNER;
         String veryfy_url = HTTPS_VERIFY_URL + "partner=" + partner + "&notify_id=" + notify_id;
@@ -102,11 +102,11 @@ public class AlipayNotify {
     }
     
     /**
-     * »ñÈ¡Ô¶³Ì·şÎñÆ÷ATN½á¹û
+     * è·å–è¿œç¨‹æœåŠ¡å™¨ATNç»“æœ
      * 
-     * @param urlvalue Ö¸¶¨URLÂ·¾¶µØÖ·
-     * @return ·şÎñÆ÷ATN½á¹û ÑéÖ¤½á¹û¼¯£º invalidÃüÁî²ÎÊı²»¶Ô ³öÏÖÕâ¸ö´íÎó£¬Çë¼ì²â·µ»Ø´¦ÀíÖĞpartnerºÍkeyÊÇ·ñÎª¿Õ true ·µ»ØÕıÈ·ĞÅÏ¢ false
-     *         Çë¼ì²é·À»ğÇ½»òÕßÊÇ·şÎñÆ÷×èÖ¹¶Ë¿ÚÎÊÌâÒÔ¼°ÑéÖ¤Ê±¼äÊÇ·ñ³¬¹ıÒ»·ÖÖÓ
+     * @param urlvalue æŒ‡å®šURLè·¯å¾„åœ°å€
+     * @return æœåŠ¡å™¨ATNç»“æœ éªŒè¯ç»“æœé›†ï¼š invalidå‘½ä»¤å‚æ•°ä¸å¯¹ å‡ºç°è¿™ä¸ªé”™è¯¯ï¼Œè¯·æ£€æµ‹è¿”å›å¤„ç†ä¸­partnerå’Œkeyæ˜¯å¦ä¸ºç©º true è¿”å›æ­£ç¡®ä¿¡æ¯ false
+     *         è¯·æ£€æŸ¥é˜²ç«å¢™æˆ–è€…æ˜¯æœåŠ¡å™¨é˜»æ­¢ç«¯å£é—®é¢˜ä»¥åŠéªŒè¯æ—¶é—´æ˜¯å¦è¶…è¿‡ä¸€åˆ†é’Ÿ
      */
     private static String checkUrl(String urlvalue) {
         String inputLine = "";

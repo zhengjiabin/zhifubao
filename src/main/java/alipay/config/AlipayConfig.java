@@ -2,84 +2,84 @@ package alipay.config;
 
 /**
  * <pre>
- * ÀàÃû£ºAlipayConfig
- * ¹¦ÄÜ£º»ù´¡ÅäÖÃÀà
- * ÏêÏ¸£ºÉèÖÃÕÊ»§ÓÐ¹ØÐÅÏ¢¼°·µ»ØÂ·¾¶
- * °æ±¾£º3.3
- * ÈÕÆÚ£º2012-08-10
- * ËµÃ÷£º
- * ÒÔÏÂ´úÂëÖ»ÊÇÎªÁË·½±ãÉÌ»§²âÊÔ¶øÌá¹©µÄÑùÀý´úÂë£¬ÉÌ»§¿ÉÒÔ¸ù¾Ý×Ô¼ºÍøÕ¾µÄÐèÒª£¬°´ÕÕ¼¼ÊõÎÄµµ±àÐ´,²¢·ÇÒ»¶¨ÒªÊ¹ÓÃ¸Ã´úÂë¡£
- * ¸Ã´úÂë½ö¹©Ñ§Ï°ºÍÑÐ¾¿Ö§¸¶±¦½Ó¿ÚÊ¹ÓÃ£¬Ö»ÊÇÌá¹©Ò»¸ö²Î¿¼¡£
+ * ç±»åï¼šAlipayConfig
+ * åŠŸèƒ½ï¼šåŸºç¡€é…ç½®ç±»
+ * è¯¦ç»†ï¼šè®¾ç½®å¸æˆ·æœ‰å…³ä¿¡æ¯åŠè¿”å›žè·¯å¾„
+ * ç‰ˆæœ¬ï¼š3.3
+ * æ—¥æœŸï¼š2012-08-10
+ * è¯´æ˜Žï¼š
+ * ä»¥ä¸‹ä»£ç åªæ˜¯ä¸ºäº†æ–¹ä¾¿å•†æˆ·æµ‹è¯•è€Œæä¾›çš„æ ·ä¾‹ä»£ç ï¼Œå•†æˆ·å¯ä»¥æ ¹æ®è‡ªå·±ç½‘ç«™çš„éœ€è¦ï¼ŒæŒ‰ç…§æŠ€æœ¯æ–‡æ¡£ç¼–å†™,å¹¶éžä¸€å®šè¦ä½¿ç”¨è¯¥ä»£ç ã€‚
+ * è¯¥ä»£ç ä»…ä¾›å­¦ä¹ å’Œç ”ç©¶æ”¯ä»˜å®æŽ¥å£ä½¿ç”¨ï¼Œåªæ˜¯æä¾›ä¸€ä¸ªå‚è€ƒã€‚
  * 	
- * ÌáÊ¾£ºÈçºÎ»ñÈ¡°²È«Ð£ÑéÂëºÍºÏ×÷Éí·ÝÕßID
- * 1.ÓÃÄúµÄÇ©Ô¼Ö§¸¶±¦ÕËºÅµÇÂ¼Ö§¸¶±¦ÍøÕ¾(www.alipay.com)
- * 2.µã»÷¡°ÉÌ¼Ò·þÎñ¡±(https://b.alipay.com/order/myOrder.htm)
- * 3.µã»÷¡°²éÑ¯ºÏ×÷ÕßÉí·Ý(PID)¡±¡¢¡°²éÑ¯°²È«Ð£ÑéÂë(Key)¡±
+ * æç¤ºï¼šå¦‚ä½•èŽ·å–å®‰å…¨æ ¡éªŒç å’Œåˆä½œèº«ä»½è€…ID
+ * 1.ç”¨æ‚¨çš„ç­¾çº¦æ”¯ä»˜å®è´¦å·ç™»å½•æ”¯ä»˜å®ç½‘ç«™(www.alipay.com)
+ * 2.ç‚¹å‡»â€œå•†å®¶æœåŠ¡â€(https://b.alipay.com/order/myOrder.htm)
+ * 3.ç‚¹å‡»â€œæŸ¥è¯¢åˆä½œè€…èº«ä»½(PID)â€ã€â€œæŸ¥è¯¢å®‰å…¨æ ¡éªŒç (Key)â€
  * 
- * °²È«Ð£ÑéÂë²é¿´Ê±£¬ÊäÈëÖ§¸¶ÃÜÂëºó£¬Ò³Ãæ³Ê»ÒÉ«µÄÏÖÏó£¬ÔõÃ´°ì£¿
- * ½â¾ö·½·¨£º
- * 1¡¢¼ì²éä¯ÀÀÆ÷ÅäÖÃ£¬²»ÈÃä¯ÀÀÆ÷×öµ¯¿òÆÁ±ÎÉèÖÃ
- * 2¡¢¸ü»»ä¯ÀÀÆ÷»òµçÄÔ£¬ÖØÐÂµÇÂ¼²éÑ¯¡£
+ * å®‰å…¨æ ¡éªŒç æŸ¥çœ‹æ—¶ï¼Œè¾“å…¥æ”¯ä»˜å¯†ç åŽï¼Œé¡µé¢å‘ˆç°è‰²çš„çŽ°è±¡ï¼Œæ€Žä¹ˆåŠžï¼Ÿ
+ * è§£å†³æ–¹æ³•ï¼š
+ * 1ã€æ£€æŸ¥æµè§ˆå™¨é…ç½®ï¼Œä¸è®©æµè§ˆå™¨åšå¼¹æ¡†å±è”½è®¾ç½®
+ * 2ã€æ›´æ¢æµè§ˆå™¨æˆ–ç”µè„‘ï¼Œé‡æ–°ç™»å½•æŸ¥è¯¢ã€‚
  * </pre>
  */
 
 public class AlipayConfig {
     
-    //¡ý¡ý¡ý¡ý¡ý¡ý¡ý¡ý¡ý¡ýÇëÔÚÕâÀïÅäÖÃÄúµÄ»ù±¾ÐÅÏ¢¡ý¡ý¡ý¡ý¡ý¡ý¡ý¡ý¡ý¡ý¡ý¡ý¡ý¡ý¡ý
-    // ºÏ×÷Éí·ÝÕßID£¬ÒÔ2088¿ªÍ·ÓÉ16Î»´¿Êý×Ö×é³ÉµÄ×Ö·û´®
+    //â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“è¯·åœ¨è¿™é‡Œé…ç½®æ‚¨çš„åŸºæœ¬ä¿¡æ¯â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“
+    // åˆä½œèº«ä»½è€…IDï¼Œä»¥2088å¼€å¤´ç”±16ä½çº¯æ•°å­—ç»„æˆçš„å­—ç¬¦ä¸²
     public static final String PARTNER = "2088021272648125";
     
     /********************************** seller_id>seller_account_name>seller_email */
-    // ÊÕ¿îÖ§¸¶±¦ÕËºÅ
+    // æ”¶æ¬¾æ”¯ä»˜å®è´¦å·
     public static final String SELLER_EMAIL = "company@cndwine.com";
     
-    // ÊÕ¿îÖ§¸¶±¦ÓÃ»§ºÅ
+    // æ”¶æ¬¾æ”¯ä»˜å®ç”¨æˆ·å·
     public static final String SELLER_ID = "2088021272648125";
     
-    // ÊÕ¿î±ðÃûÖ§¸¶±¦ÕËºÅ
+    // æ”¶æ¬¾åˆ«åæ”¯ä»˜å®è´¦å·
     public static final String SELLER_ACCOUNT_NAME = "";
     
     /**********************************       */
     
-    // ÉÌ»§µÄË½Ô¿
+    // å•†æˆ·çš„ç§é’¥
     public static final String PRIVATE_KEY = "MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBANuL88MoX+8uF9NECsvngdhVocHRLsWxe06CcawfazxYR5c+4Ps89emCZ5BXqlRjB3aME9qtFX1ZHmxj3vphj1cJcysipu4KNrur1fMVPjy9lWofNMzi8M3n2RfTepnuc4QaOjdI2fZsxlH/nmxl8xvO/4jNoEkijcDQnxE2BKrbAgMBAAECgYEAosgR5RF6kAzM/YfluWndjFlxphNDarE9i+iL/+MLz6Jk8m9cwOtiKdDWmN9nG0qRrgQOdIUA+f+p3xPtsBfF/pKfyEUhnpcZmhVEYm8t8NNQI9EC1pdc7kPpbgokQSPvm/jUTpzplH8s77ZJ+IpSTIG6pXrhfb2wHJ5WxMAhSYECQQD6Rz3wt+RTznPo3HJt8VWbmK2GYyh7DVtTMu/ZgCENJ8lqZlGdMVBZ6tDbDbmJMT1cnfhE66k71K3fydglor9fAkEA4JDaXyW5lmq39mbgDiMCRMuj5JBb3AbSP+SxGoDyDR/lodVgDv92vR+JDKi6gqys3GKJwupxYB4A6PnKRAXSBQJASUACm+pmVDTvba7fetgQUyrbVqK83U7qdK5KzqCWi9AiPhbWOiiNuNNl70bUD5guumWtnRZQAKfdf8sGjPVWBwJBAJZahcrksEB0jV0NfgAZEoDLM51pxgcoDgc3cBiFswp0i8Px4BHKm05+2by/D7lEMayQ0RnO7D/ldsiFzhYDK50CQQCvrMlbl/Oy+SgSrw/8GVp4cDMCmp7uZ2yYupt0XqqjZSHwAeUb0rCuZI8YMntbHEc2Pp8OX22Zz/47BpVBtbpM";
     
-    // Ö§¸¶±¦µÄ¹«Ô¿
+    // æ”¯ä»˜å®çš„å…¬é’¥
     public static String ALI_PUBLIC_KEY = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCnxj/9qwVfgoUh/y2W89L6BkRAFljhNhgPdyPuBV64bfQNN1PjbCzkIM6qRdKBoLPXmKKMiFYnkd6rAoprih3/PrQEB/VsW8OoM8fxn67UDYuyBTqA23MML9q1+ilIZwBC2AQ2UBVOrFXfFl75p6/B5KsiNG9zpgmLCUYuLkxpLQIDAQAB";
     
-    //¡ü¡ü¡ü¡ü¡ü¡ü¡ü¡ü¡ü¡üÇëÔÚÕâÀïÅäÖÃÄúµÄ»ù±¾ÐÅÏ¢¡ü¡ü¡ü¡ü¡ü¡ü¡ü¡ü¡ü¡ü¡ü¡ü¡ü¡ü¡ü
+    //â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘è¯·åœ¨è¿™é‡Œé…ç½®æ‚¨çš„åŸºæœ¬ä¿¡æ¯â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘
     
-    // µ÷ÊÔÓÃ£¬´´½¨TXTÈÕÖ¾ÎÄ¼þ¼ÐÂ·¾¶
-    public static final String LOG_PATH = "F:/temp";
+    // è°ƒè¯•ç”¨ï¼Œåˆ›å»ºTXTæ—¥å¿—æ–‡ä»¶å¤¹è·¯å¾„
+    public static final String LOG_PATH = "D:/temp";
     
-    // ×Ö·û±àÂë¸ñÊ½ Ä¿Ç°Ö§³Ö gbk »ò utf-8
-    public static final String INPUT_CHARSET = "gbk";
+    // å­—ç¬¦ç¼–ç æ ¼å¼ ç›®å‰æ”¯æŒ gbk æˆ– utf-8
+    public static final String INPUT_CHARSET = "utf-8";
     
-    // Ç©Ãû·½Ê½ ²»ÐèÐÞ¸Ä(DSA¡¢RSA¡¢MD5)
-    public static final String SIGN_TYPE = "MD5";
+    // ç­¾åæ–¹å¼ ä¸éœ€ä¿®æ”¹(DSAã€RSAã€MD5)
+    public static final String SIGN_TYPE = "RSA";
     
-    //½Ó¿Ú·þÎñ--¼´Ê±µ½ÕË½»Ò×½Ó¿Ú
-    public static final String SERVICE = "create_direct_pay_by_user";
+    //æŽ¥å£æœåŠ¡--(create_direct_pay_by_userï¼šå³æ—¶åˆ°è´¦äº¤æ˜“æŽ¥å£ï¼Œç§»åŠ¨æ”¯ä»˜æŽ¥å£ï¼šmobile.securitypay.pay)
+    public static final String SERVICE = "mobile.securitypay.pay";
     
-    //Ö§¸¶ÀàÐÍ----£¨1£ºÉÌÆ·ÀàÐÍ¹ºÂò£¬4£º¾èÔù£¬47£ºµç×Ó¿¨È¯£©
+    //æ”¯ä»˜ç±»åž‹----ï¼ˆ1ï¼šå•†å“ç±»åž‹è´­ä¹°ï¼Œ4ï¼šæèµ ï¼Œ47ï¼šç”µå­å¡åˆ¸ï¼‰
     public static final String PAYMENT_TYPE = "1";
     
-    //·þÎñÆ÷Òì²½Í¨ÖªÒ³ÃæÂ·¾¶
-    public static final String NOTIFY_URL = "http://127.0.0.1:8080/zhifubao/alipay/asyncNotify";
+    //æœåŠ¡å™¨å¼‚æ­¥é€šçŸ¥é¡µé¢è·¯å¾„
+    public static final String NOTIFY_URL = "http://127.0.0.1:8080/zhifubao/service/alipay/asyncNotify";
     
-    //Ò³ÃæÌø×ªÍ¬²½Í¨ÖªÒ³ÃæÂ·¾¶
-    public static final String RETURN_URL = "http://127.0.0.1:8080/zhifubao/alipay/syncNotify";
+    //é¡µé¢è·³è½¬åŒæ­¥é€šçŸ¥é¡µé¢è·¯å¾„
+    public static final String RETURN_URL = "http://127.0.0.1:8080/zhifubao/service/alipay/syncNotify";
     
-    //ÉÌÆ·Õ¹Ê¾µØÖ·
+    //å•†å“å±•ç¤ºåœ°å€
     public static final String SHOW_URL = "http://127.0.0.1:8080/zhifubao/show.jsp";
     
-    //·þÎñÆ÷Òì²½Í¨Öª´íÎóÒ³ÃæÂ·¾¶£¨Ðè¿ªÍ¨´Ë¹¦ÄÜ£©
+    //æœåŠ¡å™¨å¼‚æ­¥é€šçŸ¥é”™è¯¯é¡µé¢è·¯å¾„ï¼ˆéœ€å¼€é€šæ­¤åŠŸèƒ½ï¼‰
     public static final String ERROR_NOTIFY_URL = "";
     
-    //¿Í»§¶ËµÄIPµØÖ·
+    //å®¢æˆ·ç«¯çš„IPåœ°å€
     public static final String EXTER_INVOKE_IP = "127.0.0.1";
     
-    //Ä¬ÈÏÖ§¸¶·½Ê½(creditPay£ºÐÅÓÃÖ§¸¶£¬directPay£ºÓà¶îÖ§¸¶£¨Ä¬ÈÏ£©)
+    //é»˜è®¤æ”¯ä»˜æ–¹å¼(creditPayï¼šä¿¡ç”¨æ”¯ä»˜ï¼ŒdirectPayï¼šä½™é¢æ”¯ä»˜ï¼ˆé»˜è®¤ï¼‰)
     public static final String PAYMETHOD = "directPay";
     
 }

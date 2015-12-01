@@ -1,154 +1,154 @@
 package alipay.util.httpClient;
 
-import java.io.File;
+import org.apache.commons.httpclient.HttpException;
 import java.io.IOException;
 import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpConnectionManager;
-import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.HttpMethod;
 import org.apache.commons.httpclient.MultiThreadedHttpConnectionManager;
 import org.apache.commons.httpclient.NameValuePair;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.commons.httpclient.util.IdleConnectionTimeoutThread;
 import org.apache.commons.httpclient.methods.multipart.FilePart;
 import org.apache.commons.httpclient.methods.multipart.FilePartSource;
 import org.apache.commons.httpclient.methods.multipart.MultipartRequestEntity;
 import org.apache.commons.httpclient.methods.multipart.Part;
 import org.apache.commons.httpclient.methods.multipart.StringPart;
 import org.apache.commons.httpclient.params.HttpMethodParams;
-import org.apache.commons.httpclient.util.IdleConnectionTimeoutThread;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- * <pre>
- * ÀàÃû£ºHttpProtocolHandler
- * ¹¦ÄÜ£ºHttpClient·½Ê½·ÃÎÊ
- * ÏêÏ¸£º»ñÈ¡Ô¶³ÌHTTPÊı¾İ
- * °æ±¾£º3.3
- * ÈÕÆÚ£º2012-08-17
- * ËµÃ÷£ºÒÔÏÂ´úÂëÖ»ÊÇÎªÁË·½±ãÉÌ»§²âÊÔ¶øÌá¹©µÄÑùÀı´úÂë£¬ÉÌ»§¿ÉÒÔ¸ù¾İ×Ô¼ºÍøÕ¾µÄĞèÒª£¬°´ÕÕ¼¼ÊõÎÄµµ±àĞ´,²¢·ÇÒ»¶¨ÒªÊ¹ÓÃ¸Ã´úÂë¡£
- *      ¸Ã´úÂë½ö¹©Ñ§Ï°ºÍÑĞ¾¿Ö§¸¶±¦½Ó¿ÚÊ¹ÓÃ£¬Ö»ÊÇÌá¹©Ò»¸ö²Î¿¼¡£
- * </pre>
+/* *
+ *ç±»åï¼šHttpProtocolHandler
+ *åŠŸèƒ½ï¼šHttpClientæ–¹å¼è®¿é—®
+ *è¯¦ç»†ï¼šè·å–è¿œç¨‹HTTPæ•°æ®
+ *ç‰ˆæœ¬ï¼š3.3
+ *æ—¥æœŸï¼š2012-08-17
+ *è¯´æ˜ï¼š
+ *ä»¥ä¸‹ä»£ç åªæ˜¯ä¸ºäº†æ–¹ä¾¿å•†æˆ·æµ‹è¯•è€Œæä¾›çš„æ ·ä¾‹ä»£ç ï¼Œå•†æˆ·å¯ä»¥æ ¹æ®è‡ªå·±ç½‘ç«™çš„éœ€è¦ï¼ŒæŒ‰ç…§æŠ€æœ¯æ–‡æ¡£ç¼–å†™,å¹¶éä¸€å®šè¦ä½¿ç”¨è¯¥ä»£ç ã€‚
+ *è¯¥ä»£ç ä»…ä¾›å­¦ä¹ å’Œç ”ç©¶æ”¯ä»˜å®æ¥å£ä½¿ç”¨ï¼Œåªæ˜¯æä¾›ä¸€ä¸ªå‚è€ƒã€‚
  */
 
 public class HttpProtocolHandler {
-    
-    private static String DEFAULT_CHARSET = "GBK";
-    
-    /** Á¬½Ó³¬Ê±Ê±¼ä£¬ÓÉbean factoryÉèÖÃ£¬È±Ê¡Îª8ÃëÖÓ */
-    private int defaultConnectionTimeout = 8000;
-    
-    /** »ØÓ¦³¬Ê±Ê±¼ä, ÓÉbean factoryÉèÖÃ£¬È±Ê¡Îª30ÃëÖÓ */
-    private int defaultSoTimeout = 30000;
-    
-    /** ÏĞÖÃÁ¬½Ó³¬Ê±Ê±¼ä, ÓÉbean factoryÉèÖÃ£¬È±Ê¡Îª60ÃëÖÓ */
-    private int defaultIdleConnTimeout = 60000;
-    
-    private int defaultMaxConnPerHost = 30;
-    
-    private int defaultMaxTotalConn = 80;
-    
-    /** Ä¬ÈÏµÈ´ıHttpConnectionManager·µ»ØÁ¬½Ó³¬Ê±£¨Ö»ÓĞÔÚ´ïµ½×î´óÁ¬½ÓÊıÊ±Æğ×÷ÓÃ£©£º1Ãë */
-    private static final long defaultHttpConnectionManagerTimeout = 3 * 1000;
-    
+
+    private static String              DEFAULT_CHARSET                     = "UTF-8";
+
+    /** è¿æ¥è¶…æ—¶æ—¶é—´ï¼Œç”±bean factoryè®¾ç½®ï¼Œç¼ºçœä¸º8ç§’é’Ÿ */
+    private int                        defaultConnectionTimeout            = 8000;
+
+    /** å›åº”è¶…æ—¶æ—¶é—´, ç”±bean factoryè®¾ç½®ï¼Œç¼ºçœä¸º30ç§’é’Ÿ */
+    private int                        defaultSoTimeout                    = 30000;
+
+    /** é—²ç½®è¿æ¥è¶…æ—¶æ—¶é—´, ç”±bean factoryè®¾ç½®ï¼Œç¼ºçœä¸º60ç§’é’Ÿ */
+    private int                        defaultIdleConnTimeout              = 60000;
+
+    private int                        defaultMaxConnPerHost               = 30;
+
+    private int                        defaultMaxTotalConn                 = 80;
+
+    /** é»˜è®¤ç­‰å¾…HttpConnectionManagerè¿”å›è¿æ¥è¶…æ—¶ï¼ˆåªæœ‰åœ¨è¾¾åˆ°æœ€å¤§è¿æ¥æ•°æ—¶èµ·ä½œç”¨ï¼‰ï¼š1ç§’*/
+    private static final long          defaultHttpConnectionManagerTimeout = 3 * 1000;
+
     /**
-     * HTTPÁ¬½Ó¹ÜÀíÆ÷£¬¸ÃÁ¬½Ó¹ÜÀíÆ÷±ØĞëÊÇÏß³Ì°²È«µÄ.
+     * HTTPè¿æ¥ç®¡ç†å™¨ï¼Œè¯¥è¿æ¥ç®¡ç†å™¨å¿…é¡»æ˜¯çº¿ç¨‹å®‰å…¨çš„.
      */
-    private HttpConnectionManager connectionManager;
-    
-    private static HttpProtocolHandler httpProtocolHandler = new HttpProtocolHandler();
-    
+    private HttpConnectionManager      connectionManager;
+
+    private static HttpProtocolHandler httpProtocolHandler                 = new HttpProtocolHandler();
+
     /**
-     * ¹¤³§·½·¨
+     * å·¥å‚æ–¹æ³•
      * 
      * @return
      */
     public static HttpProtocolHandler getInstance() {
         return httpProtocolHandler;
     }
-    
+
     /**
-     * Ë½ÓĞµÄ¹¹Ôì·½·¨
+     * ç§æœ‰çš„æ„é€ æ–¹æ³•
      */
     private HttpProtocolHandler() {
-        // ´´½¨Ò»¸öÏß³Ì°²È«µÄHTTPÁ¬½Ó³Ø
+        // åˆ›å»ºä¸€ä¸ªçº¿ç¨‹å®‰å…¨çš„HTTPè¿æ¥æ± 
         connectionManager = new MultiThreadedHttpConnectionManager();
         connectionManager.getParams().setDefaultMaxConnectionsPerHost(defaultMaxConnPerHost);
         connectionManager.getParams().setMaxTotalConnections(defaultMaxTotalConn);
-        
+
         IdleConnectionTimeoutThread ict = new IdleConnectionTimeoutThread();
         ict.addConnectionManager(connectionManager);
         ict.setConnectionTimeout(defaultIdleConnTimeout);
-        
+
         ict.start();
     }
-    
+
     /**
-     * Ö´ĞĞHttpÇëÇó
+     * æ‰§è¡ŒHttpè¯·æ±‚
      * 
-     * @param request ÇëÇóÊı¾İ
-     * @param strParaFileName ÎÄ¼şÀàĞÍµÄ²ÎÊıÃû
-     * @param strFilePath ÎÄ¼şÂ·¾¶
-     * @return
-     * @throws HttpException, IOException
+     * @param request è¯·æ±‚æ•°æ®
+     * @param strParaFileName æ–‡ä»¶ç±»å‹çš„å‚æ•°å
+     * @param strFilePath æ–‡ä»¶è·¯å¾„
+     * @return 
+     * @throws HttpException, IOException 
      */
     public HttpResponse execute(HttpRequest request, String strParaFileName, String strFilePath) throws HttpException, IOException {
         HttpClient httpclient = new HttpClient(connectionManager);
-        
-        // ÉèÖÃÁ¬½Ó³¬Ê±
+
+        // è®¾ç½®è¿æ¥è¶…æ—¶
         int connectionTimeout = defaultConnectionTimeout;
         if (request.getConnectionTimeout() > 0) {
             connectionTimeout = request.getConnectionTimeout();
         }
         httpclient.getHttpConnectionManager().getParams().setConnectionTimeout(connectionTimeout);
-        
-        // ÉèÖÃ»ØÓ¦³¬Ê±
+
+        // è®¾ç½®å›åº”è¶…æ—¶
         int soTimeout = defaultSoTimeout;
         if (request.getTimeout() > 0) {
             soTimeout = request.getTimeout();
         }
         httpclient.getHttpConnectionManager().getParams().setSoTimeout(soTimeout);
-        
-        // ÉèÖÃµÈ´ıConnectionManagerÊÍ·ÅconnectionµÄÊ±¼ä
+
+        // è®¾ç½®ç­‰å¾…ConnectionManageré‡Šæ”¾connectionçš„æ—¶é—´
         httpclient.getParams().setConnectionManagerTimeout(defaultHttpConnectionManagerTimeout);
-        
+
         String charset = request.getCharset();
         charset = charset == null ? DEFAULT_CHARSET : charset;
         HttpMethod method = null;
-        
-        //getÄ£Ê½ÇÒ²»´øÉÏ´«ÎÄ¼ş
+
+        //getæ¨¡å¼ä¸”ä¸å¸¦ä¸Šä¼ æ–‡ä»¶
         if (request.getMethod().equals(HttpRequest.METHOD_GET)) {
             method = new GetMethod(request.getUrl());
             method.getParams().setCredentialCharset(charset);
-            
-            // parseNotifyConfig»á±£Ö¤Ê¹ÓÃGET·½·¨Ê±£¬requestÒ»¶¨Ê¹ÓÃQueryString
+
+            // parseNotifyConfigä¼šä¿è¯ä½¿ç”¨GETæ–¹æ³•æ—¶ï¼Œrequestä¸€å®šä½¿ç”¨QueryString
             method.setQueryString(request.getQueryString());
-        } else if (strParaFileName.equals("") && strFilePath.equals("")) {
-            //postÄ£Ê½ÇÒ²»´øÉÏ´«ÎÄ¼ş
+        } else if(strParaFileName.equals("") && strFilePath.equals("")) {
+        	//postæ¨¡å¼ä¸”ä¸å¸¦ä¸Šä¼ æ–‡ä»¶
             method = new PostMethod(request.getUrl());
-            ((PostMethod)method).addParameters(request.getParameters());
+            ((PostMethod) method).addParameters(request.getParameters());
             method.addRequestHeader("Content-Type", "application/x-www-form-urlencoded; text/html; charset=" + charset);
-        } else {
-            //postÄ£Ê½ÇÒ´øÉÏ´«ÎÄ¼ş
+        }
+        else {
+        	//postæ¨¡å¼ä¸”å¸¦ä¸Šä¼ æ–‡ä»¶
             method = new PostMethod(request.getUrl());
             List<Part> parts = new ArrayList<Part>();
             for (int i = 0; i < request.getParameters().length; i++) {
-                parts.add(new StringPart(request.getParameters()[i].getName(), request.getParameters()[i].getValue(), charset));
+            	parts.add(new StringPart(request.getParameters()[i].getName(), request.getParameters()[i].getValue(), charset));
             }
-            //Ôö¼ÓÎÄ¼ş²ÎÊı£¬strParaFileNameÊÇ²ÎÊıÃû£¬Ê¹ÓÃ±¾µØÎÄ¼ş
+            //å¢åŠ æ–‡ä»¶å‚æ•°ï¼ŒstrParaFileNameæ˜¯å‚æ•°åï¼Œä½¿ç”¨æœ¬åœ°æ–‡ä»¶
             parts.add(new FilePart(strParaFileName, new FilePartSource(new File(strFilePath))));
             
-            // ÉèÖÃÇëÇóÌå
-            ((PostMethod)method).setRequestEntity(new MultipartRequestEntity(parts.toArray(new Part[0]), new HttpMethodParams()));
+            // è®¾ç½®è¯·æ±‚ä½“
+            ((PostMethod) method).setRequestEntity(new MultipartRequestEntity(parts.toArray(new Part[0]), new HttpMethodParams()));
         }
-        
-        // ÉèÖÃHttp HeaderÖĞµÄUser-AgentÊôĞÔ
+
+        // è®¾ç½®Http Headerä¸­çš„User-Agentå±æ€§
         method.addRequestHeader("User-Agent", "Mozilla/4.0");
         HttpResponse response = new HttpResponse();
-        
+
         try {
             httpclient.executeMethod(method);
             if (request.getResultType().equals(HttpResultType.STRING)) {
@@ -158,22 +158,22 @@ public class HttpProtocolHandler {
             }
             response.setResponseHeaders(method.getResponseHeaders());
         } catch (UnknownHostException ex) {
-            
+
             return null;
         } catch (IOException ex) {
-            
+
             return null;
         } catch (Exception ex) {
-            
+
             return null;
         } finally {
             method.releaseConnection();
         }
         return response;
     }
-    
+
     /**
-     * ½«NameValuePairsÊı×é×ª±äÎª×Ö·û´®
+     * å°†NameValuePairsæ•°ç»„è½¬å˜ä¸ºå­—ç¬¦ä¸²
      * 
      * @param nameValues
      * @return
@@ -182,19 +182,19 @@ public class HttpProtocolHandler {
         if (nameValues == null || nameValues.length == 0) {
             return "null";
         }
-        
+
         StringBuffer buffer = new StringBuffer();
-        
+
         for (int i = 0; i < nameValues.length; i++) {
             NameValuePair nameValue = nameValues[i];
-            
+
             if (i == 0) {
                 buffer.append(nameValue.getName() + "=" + nameValue.getValue());
             } else {
                 buffer.append("&" + nameValue.getName() + "=" + nameValue.getValue());
             }
         }
-        
+
         return buffer.toString();
     }
 }

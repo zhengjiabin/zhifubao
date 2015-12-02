@@ -35,7 +35,7 @@ import java.util.List;
 
 public class HttpProtocolHandler {
 
-    private static String              DEFAULT_CHARSET                     = "UTF-8";
+    private static String              DEFAULT_CHARSET                     = "GBK";
 
     /** 连接超时时间，由bean factory设置，缺省为8秒钟 */
     private int                        defaultConnectionTimeout            = 8000;

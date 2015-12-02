@@ -70,6 +70,7 @@ public class AlipayController {
 //		sParaTemp.put("show_url", AlipayConfig.SHOW_URL);// 商品展示地址，需以http://开头的完整路径，例如：http://www.xxx.com/myorder.html
 		// sParaTemp.put("anti_phishing_key", AlipaySubmit.query_timestamp());// 防钓鱼时间戳 ，若要使用请调用类文件submit中的query_timestamp函数
 //		sParaTemp.put("exter_invoke_ip", AlipayConfig.EXTER_INVOKE_IP);// 客户端的IP地址，非局域网的外网IP地址，如：221.0.0.1
+		sParaTemp.put("it_b_pay", AlipayConfig.IT_B_PAY);//未付款交易的超时时间
 
 		// 业务参数
 		sParaTemp.put("seller_id", AlipayConfig.SELLER_ID);// 卖家支付宝用户号
@@ -90,7 +91,6 @@ public class AlipayController {
 		// sParaTemp.put("exter_invoke_ip", );//客户端IP
 		// sParaTemp.put("extra_common_param", );//公用回传参数
 		// sParaTemp.put("extend_param", );//公用业务扩展参数
-		// sParaTemp.put("it_b_pay", 30m);//公用业务扩展参数
 		// sParaTemp.put("default_login", "Y");//自动登录标识
 		// sParaTemp.put("product_type", );//商户申请的产品类型
 		// sParaTemp.put("token", );//快捷登录授权令牌

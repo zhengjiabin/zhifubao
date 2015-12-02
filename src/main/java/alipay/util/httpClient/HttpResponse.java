@@ -1,6 +1,5 @@
 package alipay.util.httpClient;
 
-
 import org.apache.commons.httpclient.Header;
 
 import alipay.config.AlipayConfig;

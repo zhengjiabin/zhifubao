@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -67,10 +68,13 @@ public class AlipayController {
 		sParaTemp.put("service", AlipayConfig.SERVICE);// 接口服务----即时到账
 		sParaTemp.put("notify_url", AlipayConfig.NOTIFY_URL);// 服务器异步通知页面路径，需http://格式的完整路径，不能加?id=123这类自定义参数
 		sParaTemp.put("return_url", AlipayConfig.RETURN_URL);// 页面跳转同步通知页面路径，需http://格式的完整路径，不能加?id=123这类自定义参数，不能写成http://localhost/
-//		sParaTemp.put("show_url", AlipayConfig.SHOW_URL);// 商品展示地址，需以http://开头的完整路径，例如：http://www.xxx.com/myorder.html
-		// sParaTemp.put("anti_phishing_key", AlipaySubmit.query_timestamp());// 防钓鱼时间戳 ，若要使用请调用类文件submit中的query_timestamp函数
-//		sParaTemp.put("exter_invoke_ip", AlipayConfig.EXTER_INVOKE_IP);// 客户端的IP地址，非局域网的外网IP地址，如：221.0.0.1
-		sParaTemp.put("it_b_pay", AlipayConfig.IT_B_PAY);//未付款交易的超时时间
+		// sParaTemp.put("show_url", AlipayConfig.SHOW_URL);//
+		// 商品展示地址，需以http://开头的完整路径，例如：http://www.xxx.com/myorder.html
+		// sParaTemp.put("anti_phishing_key", AlipaySubmit.query_timestamp());//
+		// 防钓鱼时间戳 ，若要使用请调用类文件submit中的query_timestamp函数
+		// sParaTemp.put("exter_invoke_ip", AlipayConfig.EXTER_INVOKE_IP);//
+		// 客户端的IP地址，非局域网的外网IP地址，如：221.0.0.1
+		sParaTemp.put("it_b_pay", AlipayConfig.IT_B_PAY);// 未付款交易的超时时间
 
 		// 业务参数
 		sParaTemp.put("seller_id", AlipayConfig.SELLER_ID);// 卖家支付宝用户号
@@ -116,9 +120,10 @@ public class AlipayController {
 	 * @return
 	 */
 	@Path(value = "syncNotify")
-	@POST
+	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public String syncNotify(@Context HttpServletRequest request, @Context HttpServletResponse response) {
+		System.out.println("syncNotify");
 		return "return_url.jsp";
 	}
 
@@ -130,9 +135,10 @@ public class AlipayController {
 	 * @return
 	 */
 	@Path(value = "asyncNotify")
-	@POST
+	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public String asyncNotify(@Context HttpServletRequest request, @Context HttpServletResponse response) {
+		System.out.println("asyncNotify");
 		Map<String, String> params = new HashMap<String, String>();
 		Map<String, String[]> requestParams = request.getParameterMap();
 		for (Iterator<String> iter = requestParams.keySet().iterator(); iter.hasNext();) {

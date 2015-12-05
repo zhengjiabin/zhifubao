@@ -193,7 +193,7 @@ ul, ol {
 				<li class="last">3、确认完成</li>
 			</ol>
 		</div>
-		<form id="order" name="order" action="alipayapi.jsp" method="post" target="_blank" >
+		<form id="order" name="order" action="service/alipay/deposit" method="post" target="_blank" onsubmit="return ajaxSubmitOrder(this);">
 			<div id="body" style="clear: left">
 				<dl class="content">
 					<dt>商户订单号：</dt>

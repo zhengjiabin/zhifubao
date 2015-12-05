@@ -22,6 +22,7 @@
 		<input type="hidden" name="out_trade_no" value="001" />
 		<input type="hidden" name="payment_type" value="1" />
 		<input type="hidden" name="return_url" value="http://127.0.0.1:8080/zhifubao/service/alipay/syncNotify" />
+		<!-- <input type="hidden" name="bizcontext" value="" /> -->
 		<input type="submit" value="确认" style="display: none;">
 	</form>
 	<script>

@@ -14,13 +14,11 @@
     	spring自动扫描src包下的带有（@Repository、@Service、@Controller、@Component）注解的文件
     	use-default-filters：默认为true，若需自定义扫描过滤方式，则需配置为false，否者自定义的扫描方式无效
     -->
-	<context:component-scan base-package="resource" use-default-filters="true">
+	<context:component-scan base-package="alipay" use-default-filters="true">
 		<!-- 扫描过滤方式 --> 
 		<!-- <context:include-filter type="regex" expression="resource.*"/> -->
 		<!-- <context:exclude-filter type="annotation" expression="mapper"/> -->
 	</context:component-scan>
-	
-	<context:component-scan base-package="service" use-default-filters="true" />
 	
     <context:property-placeholder location="classpath*:db.properties" /> 
 	
